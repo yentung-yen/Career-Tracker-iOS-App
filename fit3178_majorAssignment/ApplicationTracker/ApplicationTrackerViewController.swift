@@ -44,6 +44,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        screenLabel.text = "Applied"
         displayApplication = allApplications.filter { $0.applicationStatus == .Applied }  // only show Applied data at start
         print(displayApplication.count)
     }
@@ -53,12 +54,16 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         
         if selectedToggle == 0 {
             displayApplication = allApplications.filter { $0.applicationStatus == .Applied }
+            screenLabel.text = "Applied"
         } else if selectedToggle == 1 {
             displayApplication = allApplications.filter { $0.applicationStatus == .OA }
+            screenLabel.text = "Online Assessment"
         } else if selectedToggle == 2 {
             displayApplication = allApplications.filter { $0.applicationStatus == .Interview }
+            screenLabel.text = "Interview"
         } else if selectedToggle == 3 {
             displayApplication = allApplications.filter { $0.applicationStatus == .Offered }
+            screenLabel.text = "Offered"
         }
         tableView.reloadData()
     }

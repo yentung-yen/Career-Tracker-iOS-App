@@ -23,6 +23,8 @@
 		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
 		BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */; };
 		BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */; };
+		BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */; };
+		BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicationDetailsViewController.swift; sourceTree = "<group>"; };
+		BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditApplicationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
 				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
 				BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */,
+				BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */,
+				BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */,
 			);
 			path = ApplicationTracker;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */,
+				BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */,
+				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,

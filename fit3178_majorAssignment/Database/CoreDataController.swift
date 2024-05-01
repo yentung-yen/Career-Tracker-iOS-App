@@ -82,7 +82,7 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     // addApplication method: responsible for adding new applications to Core Data.
-    func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Int32, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetails {
+    func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Double, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetails {
         let application = NSEntityDescription.insertNewObject(forEntityName: "ApplicationDetails", into: persistentContainer.viewContext) as! ApplicationDetails
     
         application.jobTitle = jobTitle

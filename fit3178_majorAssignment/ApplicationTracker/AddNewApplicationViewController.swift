@@ -43,7 +43,7 @@ class AddNewApplicationViewController: UIViewController {
             return
         }
         
-        if jobTitle.isEmpty || company.isEmpty || jobLocation.isEmpty || salary.isEmpty {
+        if jobTitle.isEmpty || company.isEmpty || jobLocation.isEmpty {
             errorMsg = "Ensure these fields are filled:\n"
             
             if jobTitle.isEmpty {
@@ -55,9 +55,6 @@ class AddNewApplicationViewController: UIViewController {
             if jobLocation.isEmpty {
                 errorMsg += "- Job location must be provided\n"
             }
-            if salary.isEmpty {
-                errorMsg += "- Salary must be provided\n"
-            }
             displayMessage(title: "Missing Fields", message: errorMsg)
             return
         }
@@ -66,7 +63,7 @@ class AddNewApplicationViewController: UIViewController {
                                                    company: company,
                                                    jobLocation: jobLocation,
                                                    jobMode: jobMode,
-                                                   salary: Int32(salary) ?? 0,
+                                                   salary: Double(salary) ?? 0,
                                                    postURL: jobPostURL,
                                                    applicationStatus: applicationStatus,
                                                    notes: notes)

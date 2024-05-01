@@ -32,7 +32,7 @@ extension ApplicationDetails {
     @NSManaged public var company: String?
     @NSManaged public var jobLocation: String?
     @NSManaged public var jobMode: Int32
-    @NSManaged public var salary: Int32
+    @NSManaged public var salary: Double
     @NSManaged public var postURL: String?
     @NSManaged public var applicationStatus: Int32
     @NSManaged public var notes: String?

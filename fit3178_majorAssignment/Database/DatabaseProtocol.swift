@@ -44,6 +44,6 @@ protocol DatabaseProtocol: AnyObject {
     func removeListener(listener: DatabaseListener)
     
     // functionality to add, delete applications
-    func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Int32, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetails
+    func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Double, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetails
     func deleteApplication(applicationDetails: ApplicationDetails)
 }

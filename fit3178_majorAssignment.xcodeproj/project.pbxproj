@@ -12,12 +12,17 @@
 		BBC70AC32BE14B89003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC22BE14B89003D2052 /* Base */; };
 		BBC70AC52BE14B8A003D2052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC42BE14B8A003D2052 /* Assets.xcassets */; };
 		BBC70AC82BE14B8A003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC72BE14B8A003D2052 /* Base */; };
-		BBC70AD32BE16ABC003D2052 /* ApplicationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AD22BE16ABC003D2052 /* ApplicationDetails.swift */; };
 		BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */; };
 		BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */; };
 		BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */; };
 		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
+		BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */; };
+		BBFD17A52BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */; };
+		BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */; };
+		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
+		BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */; };
+		BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +33,17 @@
 		BBC70AC42BE14B8A003D2052 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBC70AC72BE14B8A003D2052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBC70AC92BE14B8A003D2052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBC70AD22BE16ABC003D2052 /* ApplicationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetails.swift; sourceTree = "<group>"; };
 		BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTrackerViewController.swift; sourceTree = "<group>"; };
 		BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewApplicationViewController.swift; sourceTree = "<group>"; };
 		BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCountTableViewCell.swift; sourceTree = "<group>"; };
 		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
+		BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App-DataModel.xcdatamodel"; sourceTree = "<group>"; };
+		BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplicationDetails+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplicationDetails+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,8 @@
 		BBC70ABA2BE14B89003D2052 /* fit3178_majorAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				BBFD17A72BE27B2A00A33FED /* Database */,
+				BBFD179F2BE2780800A33FED /* DataModel */,
 				BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
@@ -81,13 +93,32 @@
 		BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BBC70AD22BE16ABC003D2052 /* ApplicationDetails.swift */,
 				BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */,
 				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
 				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
 				BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */,
 			);
 			path = ApplicationTracker;
+			sourceTree = "<group>";
+		};
+		BBFD179F2BE2780800A33FED /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */,
+				BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */,
+				BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		BBFD17A72BE27B2A00A33FED /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */,
+				BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */,
+				BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,12 +194,17 @@
 			files = (
 				BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
-				BBC70AD32BE16ABC003D2052 /* ApplicationDetails.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
 				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
 				BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */,
+				BBFD17A52BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift in Sources */,
+				BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */,
+				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
+				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
+				BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */,
+				BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +427,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */,
+			);
+			currentVersion = BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */;
+			name = "App-DataModel.xcdatamodeld";
+			path = "/Users/chinyentung/Library/CloudStorage/OneDrive-MonashUniversity/6. Y3S1/FIT3178 - iOS app development/FIT3178_Assessments/fit3178_majorAssignment/fit3178_majorAssignment/DataModel/App-DataModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BBC70AB02BE14B89003D2052 /* Project object */;
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, DatabaseListener {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var screenLabel: UILabel!
     
@@ -21,53 +21,120 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
     // array to hold the applications we want to display
     var displayApplication: [ApplicationDetails] = []
     var allApplications: [ApplicationDetails] = []
+    var filteredApplications: [ApplicationDetails] = []
+    var selectedToggle: Int = 0
     
-    weak var applicationDelegate: AddApplicationDelegate?
+    var searchController: UISearchController!
+    
+    var listenerType = ListenerType.applicationDetails
+    weak var databaseController: DatabaseProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO: remove after implementing coredata
-        allApplications.append(ApplicationDetails(jobTitle: "jobTitle", company: "company", jobLocation: "jobLocation",
-                                                  jobMode: .Hybrid, salary: 25245, postURL: "jobPostURL",
-                                                  applicationStatus: .Applied, notes: "notes"))
-        allApplications.append(ApplicationDetails(jobTitle: "jobTitle 2", company: "company", jobLocation: "jobLocation",
-                                                  jobMode: .InPerson, salary: 437347, postURL: "jobPostURL",
-                                                  applicationStatus: .Interview, notes: "notes"))
-        allApplications.append(ApplicationDetails(jobTitle: "jobTitle 3", company: "company", jobLocation: "jobLocation",
-                                                  jobMode: .Online, salary: 7869, postURL: "jobPostURL",
-                                                  applicationStatus: .OA, notes: "notes"))
-        allApplications.append(ApplicationDetails(jobTitle: "jobTitle 4", company: "company", jobLocation: "jobLocation",
-                                                  jobMode: .Hybrid, salary: 262785, postURL: "jobPostURL",
-                                                  applicationStatus: .Offered, notes: "notes"))
 
         // Do any additional setup after loading the view.
+        // code to set the databaseController
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
+        
         tableView.dataSource = self
         tableView.delegate = self
         screenLabel.text = "Applied"
-        displayApplication = allApplications.filter { $0.applicationStatus == .Applied }  // only show Applied data at start
-        print(displayApplication.count)
+        
+        // search controller =================================
+        // only show Applied data at start
+        displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Applied }
+        
+        // create UISeachController and assign it to the View Controller
+        searchController = UISearchController(searchResultsController: nil)
+        
+        // indicates that the current object (self - which is the AllHeroesTableViewController) will handle updates to the search results
+        // enable the object containing it to receive updates to search results entered by the user in a UISearchController
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Applications" // set search bar placeholder text
+        
+        // tell our navigationItem that its search controller is the one we just created above
+        // this adds the search bar to the view controller
+        navigationItem.searchController = searchController
+        
+        // This view controller decides how the search controller is presented
+        definesPresentationContext = true
+        // ===================================================
     }
     
     @IBAction func onToggleApplicationStatusSegment(_ sender: UISegmentedControl) {
-        let selectedToggle = sender.selectedSegmentIndex // get toggle segment number
+        selectedToggle = sender.selectedSegmentIndex // get toggle segment number
         
         if selectedToggle == 0 {
-            displayApplication = allApplications.filter { $0.applicationStatus == .Applied }
+            displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Applied }
             screenLabel.text = "Applied"
         } else if selectedToggle == 1 {
-            displayApplication = allApplications.filter { $0.applicationStatus == .OA }
+            displayApplication = allApplications.filter { $0.applicationApplicationStatus == .OA }
             screenLabel.text = "Online Assessment"
         } else if selectedToggle == 2 {
-            displayApplication = allApplications.filter { $0.applicationStatus == .Interview }
+            displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Interview }
             screenLabel.text = "Interview"
         } else if selectedToggle == 3 {
-            displayApplication = allApplications.filter { $0.applicationStatus == .Offered }
+            displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Offered }
             screenLabel.text = "Offered"
         }
         tableView.reloadData()
     }
     
+    // method 1: viewWillAppear - This method is called before the view appears on screen.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        databaseController?.addListener(listener: self) // In this method, we add ourselves to the database listeners
+    }
+    // method 2: viewWillDisappear
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        databaseController?.removeListener(listener: self)  // remove ourlseves from the database listener
+    }
+    // With these two methods, the View Controller will:
+    // - automatically register itself to receive updates from the database when the view is about to appear on screen and
+    // - deregister itself when it’s about to disappear.
+    
+    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails]) {
+        allApplications = applicationDetails
+        updateSearchResults(for: navigationItem.searchController!)
+    }
+    
+    // This method is called every time a change is detected in the search bar
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        // check to ensure that there is search text we can access before starting any filtering
+        // search text converted to lowercase so that we dont need to worry about case sensitivity
+        guard let searchText = searchController.searchBar.text?.lowercased() else {
+            return
+        }
+        
+        // check is to see if there is a search term by checking if string length is > 0
+        if searchText.count > 0 {
+            // if there is a search text, filter
+            // we are including a row into our filtered list if it contains the search text
+            filteredApplications = displayApplication.filter({ (application: ApplicationDetails) -> Bool in
+                // use nil-coalescing operator (??) since name property is optional
+                return (application.jobTitle?.lowercased().contains(searchText) ?? false)
+            })
+            displayApplication = filteredApplications
+        } else {
+            if selectedToggle == 0 {
+                displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Applied }
+                
+            } else if selectedToggle == 1 {
+                displayApplication = allApplications.filter { $0.applicationApplicationStatus == .OA }
+                
+            } else if selectedToggle == 2 {
+                displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Interview }
+                
+            } else if selectedToggle == 3 {
+                displayApplication = allApplications.filter { $0.applicationApplicationStatus == .Offered }
+            }
+        }
+        tableView.reloadData()
+    }
     
     // MARK: - Table Controllers
     
@@ -144,13 +211,8 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // editingStyle == .delete implicitly enables the swipe-to-delete feature
         // In iOS, the default swipe gesture for deletion in a UITableView is from right to left to ensure consistency
         if editingStyle == .delete && indexPath.section == SECTION_APPLICATION {
-            // performBatchUpdates allows us to provide a closure to execute in a single batch.
-            // necessary when multiple changes to a table view/ collection view is needed at once
-            tableView.performBatchUpdates({
-                self.allApplications.remove(at: indexPath.row) // remove hero from current party
-                self.tableView.deleteRows(at: [indexPath], with: .fade) // delete that row from table view
-                self.tableView.reloadSections([SECTION_INFO], with: .automatic) // update info section
-            }, completion: nil)
+            let application = displayApplication[indexPath.row]
+            databaseController?.deleteApplication(applicationDetails: application)
             
         }
     }

@@ -18,12 +18,14 @@ class AddNewApplicationViewController: UIViewController {
     @IBOutlet weak var applicationStatusSegmentControl: UISegmentedControl!
     @IBOutlet weak var notesTextField: UITextField!
     
-    weak var applicationDelegate: AddApplicationDelegate?
+    weak var databaseController: DatabaseProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.databaseController
     }
     
     @IBAction func onAddApplication(_ sender: Any) {
@@ -33,10 +35,10 @@ class AddNewApplicationViewController: UIViewController {
         guard let jobTitle = jobTitleTextField.text,
               let company = companyTextField.text,
               let jobLocation = jobLocationTextField.text,
-              let jobMode = JobMode(rawValue: jobModeSegmentControl.selectedSegmentIndex),
+              let jobMode = JobMode(rawValue: Int32(jobModeSegmentControl.selectedSegmentIndex)),
               let salary = salaryTextField.text,
               let jobPostURL = jobPostURLTextField.text,
-              let applicationStatus = ApplicationStatus(rawValue: applicationStatusSegmentControl.selectedSegmentIndex),
+              let applicationStatus = ApplicationStatus(rawValue: Int32(applicationStatusSegmentControl.selectedSegmentIndex)),
               let notes = notesTextField.text else {
             return
         }
@@ -60,15 +62,14 @@ class AddNewApplicationViewController: UIViewController {
             return
         }
         
-        let application = ApplicationDetails(jobTitle: jobTitle,
-                                             company: company,
-                                             jobLocation: jobLocation,
-                                             jobMode: jobMode,
-                                             salary: Int(salary),
-                                             postURL: jobPostURL,
-                                             applicationStatus: applicationStatus,
-                                             notes: notes)
-        let _ = applicationDelegate?.addApplication(application)
+        let _ = databaseController?.addApplication(jobTitle: jobTitle, 
+                                                   company: company,
+                                                   jobLocation: jobLocation,
+                                                   jobMode: jobMode,
+                                                   salary: Int32(salary) ?? 0,
+                                                   postURL: jobPostURL,
+                                                   applicationStatus: applicationStatus,
+                                                   notes: notes)
         navigationController?.popViewController(animated: true)
     }
     

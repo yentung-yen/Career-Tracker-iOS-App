@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBA559D82BE342AD0099D458 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559D62BE342AD0099D458 /* JournalEntry+CoreDataClass.swift */; };
+		BBA559D92BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559D72BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift */; };
 		BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */; };
 		BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */; };
 		BBC70AC32BE14B89003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC22BE14B89003D2052 /* Base */; };
@@ -28,7 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BBC70AB82BE14B89003D2052 /* fit3178_majorAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fit3178_majorAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA559D62BE342AD0099D458 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BBA559D72BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobApplication_prepTrack_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BBC70AC22BE14B89003D2052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +76,7 @@
 		BBC70AB92BE14B89003D2052 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BBC70AB82BE14B89003D2052 /* fit3178_majorAssignment.app */,
+				BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +114,8 @@
 		BBFD179F2BE2780800A33FED /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				BBA559D62BE342AD0099D458 /* JournalEntry+CoreDataClass.swift */,
+				BBA559D72BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift */,
 				BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */,
 				BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */,
 				BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */,
@@ -130,9 +136,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BBC70AB72BE14B89003D2052 /* fit3178_majorAssignment */ = {
+		BBC70AB72BE14B89003D2052 /* jobApplication_prepTrack_app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "fit3178_majorAssignment" */;
+			buildConfigurationList = BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "jobApplication_prepTrack_app" */;
 			buildPhases = (
 				BBC70AB42BE14B89003D2052 /* Sources */,
 				BBC70AB52BE14B89003D2052 /* Frameworks */,
@@ -142,9 +148,9 @@
 			);
 			dependencies = (
 			);
-			name = fit3178_majorAssignment;
+			name = jobApplication_prepTrack_app;
 			productName = fit3178_majorAssignment;
-			productReference = BBC70AB82BE14B89003D2052 /* fit3178_majorAssignment.app */;
+			productReference = BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "fit3178_majorAssignment" */;
+			buildConfigurationList = BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "jobApplication_prepTrack_app" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -175,7 +181,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BBC70AB72BE14B89003D2052 /* fit3178_majorAssignment */,
+				BBC70AB72BE14B89003D2052 /* jobApplication_prepTrack_app */,
 			);
 		};
 /* End PBXProject section */
@@ -198,6 +204,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA559D82BE342AD0099D458 /* JournalEntry+CoreDataClass.swift in Sources */,
+				BBA559D92BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */,
 				BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */,
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
@@ -416,7 +424,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "fit3178_majorAssignment" */ = {
+		BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "jobApplication_prepTrack_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBC70ACA2BE14B8A003D2052 /* Debug */,
@@ -425,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "fit3178_majorAssignment" */ = {
+		BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "jobApplication_prepTrack_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBC70ACD2BE14B8A003D2052 /* Debug */,

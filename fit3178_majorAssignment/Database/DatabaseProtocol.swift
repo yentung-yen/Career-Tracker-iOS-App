@@ -51,6 +51,6 @@ protocol DatabaseProtocol: AnyObject {
     func deleteApplication(applicationDetails: ApplicationDetails)
     
     // functionality to add, delete journal entries
-    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: [String], entryDes: String) -> JournalEntry
+    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: String, entryDes: String) -> JournalEntry
     func deleteJournalEntry(journalEntry: JournalEntry)
 }

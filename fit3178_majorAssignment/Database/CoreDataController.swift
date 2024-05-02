@@ -140,12 +140,12 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         persistentContainer.viewContext.delete(applicationDetails)
     }
     
-    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: [String], entryDes: String) -> JournalEntry {
+    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: String, entryDes: String) -> JournalEntry {
         let entry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: persistentContainer.viewContext) as! JournalEntry
         
         entry.journalEntryTitle = entryTitle
         entry.journalEntryDate = entryDate
-        entry.journalEntryCategories = entryCategories
+        entry.journalEntryCategory = entryCategories
         entry.journalEntryDesc = entryDes
         
         return entry
@@ -199,17 +199,17 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     func createDefaultJournalEntries() {
-        let _ = addJournalEntry(entryTitle: "Old Folks Home Volunteer Day", entryDate: "20-May-2023", entryCategories: ["Adaptability"],
+        let _ = addJournalEntry(entryTitle: "Old Folks Home Volunteer Day", entryDate: "20-May-2023", entryCategories: "Adaptability",
                                 entryDes: "I went to volunteer at the old folks home and developed adaptability skills.")
-        let _ = addJournalEntry(entryTitle: "Monash Clayton Open Day", entryDate: "12-May-2023", entryCategories: ["Adaptability"],
+        let _ = addJournalEntry(entryTitle: "Monash Clayton Open Day", entryDate: "12-May-2023", entryCategories: "Adaptability",
                                 entryDes: "I went to volunteer at Monash Clayton Open Day and developed adaptability skills.")
-        let _ = addJournalEntry(entryTitle: "Monash Volunteer Day", entryDate: "13-May-2023", entryCategories: ["Communication", "Leadership"],
+        let _ = addJournalEntry(entryTitle: "Monash Volunteer Day", entryDate: "13-May-2023", entryCategories: "Communication",
                                 entryDes: "I went to volunteer at Monash Volunteer Day and developed communication and leadership skills.")
-        let _ = addJournalEntry(entryTitle: "Monash Caulfield Open Day", entryDate: "12-May-2023", entryCategories: ["Communication"],
+        let _ = addJournalEntry(entryTitle: "Monash Caulfield Open Day", entryDate: "12-May-2023", entryCategories: "Communication",
                                 entryDes: "I went to volunteer at the old folks home and developed adaptability skills.")
-        let _ = addJournalEntry(entryTitle: "RMIT Volunteer Day", entryDate: "14-May-2023", entryCategories: ["Leaderhsip"],
+        let _ = addJournalEntry(entryTitle: "RMIT Volunteer Day", entryDate: "14-May-2023", entryCategories: "Leaderhsip",
                                 entryDes: "I went to volunteer at RMIT Volunteer Day and developed Leaderhsip skills.")
-        let _ = addJournalEntry(entryTitle: "Ambassador", entryDate: "17-Apr-2023", entryCategories: ["Leadership"],
+        let _ = addJournalEntry(entryTitle: "Ambassador", entryDate: "17-Apr-2023", entryCategories: "Leadership",
                                 entryDes: "I went to volunteer to be an Ambassador and developed Leadership skills.")
         cleanup()
     }

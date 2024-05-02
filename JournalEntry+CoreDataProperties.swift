@@ -16,10 +16,10 @@ extension JournalEntry {
         return NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
     }
 
-    @NSManaged public var journalEntryTitle: String?
     @NSManaged public var journalEntryDate: String?
-    @NSManaged public var journalEntryCategories: [String]?
     @NSManaged public var journalEntryDesc: String?
+    @NSManaged public var journalEntryTitle: String?
+    @NSManaged public var journalEntryCategory: String?
 
 }
 

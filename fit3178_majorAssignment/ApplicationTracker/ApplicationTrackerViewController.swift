@@ -136,6 +136,10 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         tableView.reloadData()
     }
     
+    func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry]) {
+        // do nothing
+    }
+    
     // MARK: - Table Controllers
     
     // determines the number of sections in the Table View

@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BBA559D82BE342AD0099D458 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559D62BE342AD0099D458 /* JournalEntry+CoreDataClass.swift */; };
-		BBA559D92BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559D72BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift */; };
+		BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */; };
+		BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */; };
+		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
+		BBA559ED2BE357A50099D458 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */; };
+		BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */; };
 		BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */; };
 		BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */; };
 		BBC70AC32BE14B89003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC22BE14B89003D2052 /* Base */; };
@@ -30,8 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BBA559D62BE342AD0099D458 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		BBA559D72BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntryTableViewController.swift; sourceTree = "<group>"; };
+		BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalEntryViewController.swift; sourceTree = "<group>"; };
+		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
+		BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobApplication_prepTrack_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +71,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBA559DA2BE349E90099D458 /* JournalEntry */ = {
+			isa = PBXGroup;
+			children = (
+				BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */,
+				BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */,
+				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
+			);
+			path = JournalEntry;
+			sourceTree = "<group>";
+		};
 		BBC70AAF2BE14B89003D2052 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +102,7 @@
 			children = (
 				BBFD17A72BE27B2A00A33FED /* Database */,
 				BBFD179F2BE2780800A33FED /* DataModel */,
+				BBA559DA2BE349E90099D458 /* JournalEntry */,
 				BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
@@ -114,8 +131,8 @@
 		BBFD179F2BE2780800A33FED /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				BBA559D62BE342AD0099D458 /* JournalEntry+CoreDataClass.swift */,
-				BBA559D72BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift */,
+				BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */,
+				BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */,
 				BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */,
 				BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */,
 				BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */,
@@ -204,13 +221,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA559D82BE342AD0099D458 /* JournalEntry+CoreDataClass.swift in Sources */,
-				BBA559D92BE342AD0099D458 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */,
 				BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */,
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
+				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
+				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
+				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
 				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
@@ -219,6 +237,8 @@
 				BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */,
 				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
+				BBA559ED2BE357A50099D458 /* JournalEntry+CoreDataClass.swift in Sources */,
+				BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */,
 				BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */,
 			);

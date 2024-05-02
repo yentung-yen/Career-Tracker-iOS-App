@@ -14,13 +14,47 @@ class CreateJournalEntryViewController: UIViewController {
     @IBOutlet weak var entryCategories: UITextField!
     @IBOutlet weak var entryDescTextField: UITextField!
     
+    weak var databaseController: DatabaseProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate // get access to the AppDelegate
+        databaseController = appDelegate?.databaseController    // store a reference to the databaseController
     }
     
     @IBAction func onAddEntryClick(_ sender: Any) {
+        //TODO: validate date picker
+        // validate the user input
+        guard let title = entryTitleTextField.text, let category = entryCategories.text, let desc = entryDescTextField.text else {
+            return
+        }
+        // - ensure name and abilities are not empty
+        if title.isEmpty || category.isEmpty || desc.isEmpty {
+            var errorMsg = "Please ensure all fields are filled:\n"
+            
+            if title.isEmpty {
+                errorMsg += "- Title must be provided\n"
+            }
+            if category.isEmpty {
+                errorMsg += "- Category must be provided\n"
+            }
+            if desc.isEmpty {
+                errorMsg += "- Description must be provided\n"
+            }
+            displayMessage(title: "Missing Fields", message: errorMsg)
+            return
+        }
+        
+        // format date and convert to string
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current   // used to ensure that app adapts to user's language and region settings
+        dateFormatter.dateFormat = "dd-MMM-yyyy" // set date format
+        let dateString = dateFormatter.string(from: entryDatePicker.date) // convert to string
+        
+        let _ = databaseController?.addJournalEntry(entryTitle: title, entryDate: dateString, entryCategories: category, entryDes: desc)
+        navigationController?.popViewController(animated: true)
     }
     
     /*

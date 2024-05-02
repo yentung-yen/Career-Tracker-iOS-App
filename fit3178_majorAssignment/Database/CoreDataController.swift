@@ -186,7 +186,6 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
                                salary: 7869, postURL: "www.sig.com/job", applicationStatus: .OA, notes: "quant")
         let _ = addApplication(jobTitle: "Data Engineer", company: "KPMG", jobLocation: "Melbourne", jobMode: .Hybrid,
                                salary: 262785, postURL: "www.kpmg.com/job", applicationStatus: .Offered, notes: "consulting")
-        
         let _ = addApplication(jobTitle: "Web Developer", company: "Google", jobLocation: "Sydney", jobMode: .InPerson,
                                salary: 999999, postURL: "www.google.com/job", applicationStatus: .OA, notes: "big tech")
         let _ = addApplication(jobTitle: "Software Engineer", company: "Optiver", jobLocation: "Melbourne", jobMode: .Online,

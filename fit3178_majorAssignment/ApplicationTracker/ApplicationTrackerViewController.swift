@@ -98,6 +98,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
     
     func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails]) {
         allApplications = applicationDetails
+        print(allApplications.count)
         updateSearchResults(for: navigationItem.searchController!)
     }
     

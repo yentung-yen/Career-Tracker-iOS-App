@@ -205,8 +205,8 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         let _ = addJournalEntry(entryTitle: "Monash Volunteer Day", entryDate: "13-May-2023", entryCategories: "Communication",
                                 entryDes: "I went to volunteer at Monash Volunteer Day and developed communication and leadership skills.")
         let _ = addJournalEntry(entryTitle: "Monash Caulfield Open Day", entryDate: "12-May-2023", entryCategories: "Communication",
-                                entryDes: "I went to volunteer at the old folks home and developed adaptability skills.")
-        let _ = addJournalEntry(entryTitle: "RMIT Volunteer Day", entryDate: "14-May-2023", entryCategories: "Leaderhsip",
+                                entryDes: "I went to volunteer at the old folks home and developed Communication skills.")
+        let _ = addJournalEntry(entryTitle: "RMIT Volunteer Day", entryDate: "14-May-2023", entryCategories: "Leadership",
                                 entryDes: "I went to volunteer at RMIT Volunteer Day and developed Leaderhsip skills.")
         let _ = addJournalEntry(entryTitle: "Ambassador", entryDate: "17-Apr-2023", entryCategories: "Leadership",
                                 entryDes: "I went to volunteer to be an Ambassador and developed Leadership skills.")

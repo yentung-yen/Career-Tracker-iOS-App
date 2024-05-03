@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */; };
+		BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */; };
+		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
+		BBA559ED2BE357A50099D458 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */; };
+		BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */; };
+		BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */; };
+		BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */; };
+		BBB99FD52BE3A959009F602D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD42BE3A959009F602D /* FirebaseAuth */; };
+		BBB99FD72BE3A959009F602D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD62BE3A959009F602D /* FirebaseFirestore */; };
+		BBB99FD92BE3A959009F602D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD82BE3A959009F602D /* FirebaseFirestoreSwift */; };
+		BBB99FDB2BE3ABC4009F602D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */; };
 		BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */; };
 		BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */; };
 		BBC70AC32BE14B89003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC22BE14B89003D2052 /* Base */; };
@@ -28,7 +39,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BBC70AB82BE14B89003D2052 /* fit3178_majorAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fit3178_majorAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntryTableViewController.swift; sourceTree = "<group>"; };
+		BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalEntryViewController.swift; sourceTree = "<group>"; };
+		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
+		BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalEntryViewController.swift; sourceTree = "<group>"; };
+		BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalEntryViewController.swift; sourceTree = "<group>"; };
+		BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobApplication_prepTrack_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BBC70AC22BE14B89003D2052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -55,12 +74,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBB99FD52BE3A959009F602D /* FirebaseAuth in Frameworks */,
+				BBB99FD72BE3A959009F602D /* FirebaseFirestore in Frameworks */,
+				BBB99FD92BE3A959009F602D /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBA559DA2BE349E90099D458 /* JournalEntry */ = {
+			isa = PBXGroup;
+			children = (
+				BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */,
+				BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */,
+				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
+				BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */,
+				BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */,
+			);
+			path = JournalEntry;
+			sourceTree = "<group>";
+		};
 		BBC70AAF2BE14B89003D2052 = {
 			isa = PBXGroup;
 			children = (
@@ -72,7 +106,7 @@
 		BBC70AB92BE14B89003D2052 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BBC70AB82BE14B89003D2052 /* fit3178_majorAssignment.app */,
+				BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,9 +116,11 @@
 			children = (
 				BBFD17A72BE27B2A00A33FED /* Database */,
 				BBFD179F2BE2780800A33FED /* DataModel */,
+				BBA559DA2BE349E90099D458 /* JournalEntry */,
 				BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
+				BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */,
 				BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */,
 				BBC70AC12BE14B89003D2052 /* Main.storyboard */,
 				BBC70AC42BE14B8A003D2052 /* Assets.xcassets */,
@@ -110,6 +146,8 @@
 		BBFD179F2BE2780800A33FED /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */,
+				BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */,
 				BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */,
 				BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */,
 				BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */,
@@ -130,9 +168,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BBC70AB72BE14B89003D2052 /* fit3178_majorAssignment */ = {
+		BBC70AB72BE14B89003D2052 /* jobApplication_prepTrack_app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "fit3178_majorAssignment" */;
+			buildConfigurationList = BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "jobApplication_prepTrack_app" */;
 			buildPhases = (
 				BBC70AB42BE14B89003D2052 /* Sources */,
 				BBC70AB52BE14B89003D2052 /* Frameworks */,
@@ -142,9 +180,14 @@
 			);
 			dependencies = (
 			);
-			name = fit3178_majorAssignment;
+			name = jobApplication_prepTrack_app;
+			packageProductDependencies = (
+				BBB99FD42BE3A959009F602D /* FirebaseAuth */,
+				BBB99FD62BE3A959009F602D /* FirebaseFirestore */,
+				BBB99FD82BE3A959009F602D /* FirebaseFirestoreSwift */,
+			);
 			productName = fit3178_majorAssignment;
-			productReference = BBC70AB82BE14B89003D2052 /* fit3178_majorAssignment.app */;
+			productReference = BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "fit3178_majorAssignment" */;
+			buildConfigurationList = BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "jobApplication_prepTrack_app" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -171,11 +214,14 @@
 				Base,
 			);
 			mainGroup = BBC70AAF2BE14B89003D2052;
+			packageReferences = (
+				BBB99FD32BE3A959009F602D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = BBC70AB92BE14B89003D2052 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BBC70AB72BE14B89003D2052 /* fit3178_majorAssignment */,
+				BBC70AB72BE14B89003D2052 /* jobApplication_prepTrack_app */,
 			);
 		};
 /* End PBXProject section */
@@ -186,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC70AC52BE14B8A003D2052 /* Assets.xcassets in Resources */,
+				BBB99FDB2BE3ABC4009F602D /* GoogleService-Info.plist in Resources */,
 				BBC70AC82BE14B8A003D2052 /* Base in Resources */,
 				BBC70AC32BE14B89003D2052 /* Base in Resources */,
 			);
@@ -202,7 +249,10 @@
 				BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */,
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
+				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
+				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
+				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
 				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
@@ -210,7 +260,11 @@
 				BBFD17A52BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift in Sources */,
 				BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */,
 				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
+				BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
+				BBA559ED2BE357A50099D458 /* JournalEntry+CoreDataClass.swift in Sources */,
+				BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */,
+				BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */,
 				BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */,
 				BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */,
 			);
@@ -416,7 +470,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "fit3178_majorAssignment" */ = {
+		BBC70AB32BE14B89003D2052 /* Build configuration list for PBXProject "jobApplication_prepTrack_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBC70ACA2BE14B8A003D2052 /* Debug */,
@@ -425,7 +479,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "fit3178_majorAssignment" */ = {
+		BBC70ACC2BE14B8A003D2052 /* Build configuration list for PBXNativeTarget "jobApplication_prepTrack_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BBC70ACD2BE14B8A003D2052 /* Debug */,
@@ -435,6 +489,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BBB99FD32BE3A959009F602D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BBB99FD42BE3A959009F602D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBB99FD32BE3A959009F602D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BBB99FD62BE3A959009F602D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBB99FD32BE3A959009F602D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		BBB99FD82BE3A959009F602D /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBB99FD32BE3A959009F602D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */ = {

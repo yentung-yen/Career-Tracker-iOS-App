@@ -18,7 +18,7 @@ enum DatabaseChange {
 // We specify the type of data each of our listeners deals with
 enum ListenerType {
     case applicationDetails
-    case journal
+    case journalEntry
 }
 
 // define the listener
@@ -33,6 +33,9 @@ protocol DatabaseListener: AnyObject {
     
     // method for when a change to any of the application details has occurred
     func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails])
+    
+    // method for when a change of journal entry has occurred
+    func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry])
     // ===================================================================
 }
 
@@ -46,4 +49,8 @@ protocol DatabaseProtocol: AnyObject {
     // functionality to add, delete applications
     func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Double, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetails
     func deleteApplication(applicationDetails: ApplicationDetails)
+    
+    // functionality to add, delete journal entries
+    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: String, entryDes: String) -> JournalEntry
+    func deleteJournalEntry(journalEntry: JournalEntry)
 }

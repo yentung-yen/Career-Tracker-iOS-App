@@ -12,6 +12,7 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var listeners = MulticastDelegate<DatabaseListener>()
     var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
     var allApplicationsFetchedResultsController: NSFetchedResultsController<ApplicationDetails>?
+    var allJournalEntryFetchedResultsController: NSFetchedResultsController<JournalEntry>?
     
     // fetchAllApplications method:
     // used to query Core Data to retrieve all application entities stored within persistent memory
@@ -47,6 +48,38 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         return [ApplicationDetails]()
     }
     
+    func fetchAllJournalEntries() -> [JournalEntry] {
+        let request: NSFetchRequest<JournalEntry> = JournalEntry.fetchRequest()       // create a fetch request.
+        let nameSortDescriptor = NSSortDescriptor(key: "journalEntryTitle", ascending: true) // specify a sort descriptor.
+        request.sortDescriptors = [nameSortDescriptor]                          // this ensures that the results have an order.
+        
+        // Initialise Fetched Results Controller
+        // need to provide: the fetch request, the managed object context we want to perform the fetch on
+        allJournalEntryFetchedResultsController = NSFetchedResultsController<JournalEntry>(
+            fetchRequest: request, managedObjectContext: persistentContainer.viewContext,
+            sectionNameKeyPath: nil, cacheName: nil
+        )
+        
+        // Set this class to be the results delegate
+        allJournalEntryFetchedResultsController?.delegate = self      // the database controller is set to be its delegate
+        
+        // perform the fetch request (which will begin the listening process)
+        do {
+            try allJournalEntryFetchedResultsController?.performFetch()
+        } catch {
+            print("Fetch Request Failed: \(error)")
+        }
+        
+        if allJournalEntryFetchedResultsController == nil {   // check if the fetched results controller is nil (ie. not instantiated)
+        // Do something
+        }
+        //check if it contains fetched objects
+        if let entry = allJournalEntryFetchedResultsController?.fetchedObjects {
+            return entry   // If it does, return the array
+        }
+        return [JournalEntry]()
+    }
+    
     override init() {
         // instantiate the Core Data stack
         // initializes the Persistent Container property using the data model named "App-Datamodel".
@@ -65,6 +98,9 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // attempt to fetch all the heroes from the database. If this returns an empty array:
         if fetchAllApplications().count == 0 {
             createDefaultApplications()
+        }
+        if fetchAllJournalEntries().count == 0 {
+            createDefaultJournalEntries()
         }
     }
     
@@ -104,6 +140,21 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         persistentContainer.viewContext.delete(applicationDetails)
     }
     
+    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: String, entryDes: String) -> JournalEntry {
+        let entry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: persistentContainer.viewContext) as! JournalEntry
+        
+        entry.journalEntryTitle = entryTitle
+        entry.journalEntryDate = entryDate
+        entry.journalEntryCategory = entryCategories
+        entry.journalEntryDesc = entryDes
+        
+        return entry
+    }
+    
+    func deleteJournalEntry(journalEntry: JournalEntry) {
+        persistentContainer.viewContext.delete(journalEntry)
+    }
+    
     // addListener method:
     func addListener(listener: DatabaseListener) {
         // adds the new database listener to the list of listeners.
@@ -113,8 +164,11 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // first, check the listener type
         // if the type = heroes or all, call the delegate method onAllHeroesChange
         if listener.listenerType == .applicationDetails {
-            // pass through all the heroes fetched from the database.
+            // pass through all applications fetched from the database.
             listener.onAllApplicationDetailsChange(change: .update, applicationDetails: fetchAllApplications())
+        } else if listener.listenerType == .journalEntry {
+            // pass through all journal entries fetched from the database.
+            listener.onAllJournalEntryChange(change: .update, journalEntry: fetchAllJournalEntries())
         }
     }
     
@@ -132,6 +186,30 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
                                salary: 7869, postURL: "www.sig.com/job", applicationStatus: .OA, notes: "quant")
         let _ = addApplication(jobTitle: "Data Engineer", company: "KPMG", jobLocation: "Melbourne", jobMode: .Hybrid,
                                salary: 262785, postURL: "www.kpmg.com/job", applicationStatus: .Offered, notes: "consulting")
+        let _ = addApplication(jobTitle: "Web Developer", company: "Google", jobLocation: "Sydney", jobMode: .InPerson,
+                               salary: 999999, postURL: "www.google.com/job", applicationStatus: .OA, notes: "big tech")
+        let _ = addApplication(jobTitle: "Software Engineer", company: "Optiver", jobLocation: "Melbourne", jobMode: .Online,
+                               salary: 463799, postURL: "www.Optiver.com/job", applicationStatus: .Applied, notes: "quant")
+        let _ = addApplication(jobTitle: "Data Scientist", company: "Quantium", jobLocation: "Sydney", jobMode: .Hybrid,
+                               salary: 319577, postURL: "www.Quantium.com/job", applicationStatus: .Offered, notes: "ds consulting")
+        let _ = addApplication(jobTitle: "Data Engineer", company: "Quantium", jobLocation: "Melbourne", jobMode: .Online,
+                               salary: 994955, postURL: "www.Quantium.com/job", applicationStatus: .Interview, notes: "data consulting")
+        cleanup()
+    }
+    
+    func createDefaultJournalEntries() {
+        let _ = addJournalEntry(entryTitle: "Old Folks Home Volunteer Day", entryDate: "20-May-2023", entryCategories: "Adaptability",
+                                entryDes: "I went to volunteer at the old folks home and developed adaptability skills.")
+        let _ = addJournalEntry(entryTitle: "Monash Clayton Open Day", entryDate: "12-May-2023", entryCategories: "Adaptability",
+                                entryDes: "I went to volunteer at Monash Clayton Open Day and developed adaptability skills.")
+        let _ = addJournalEntry(entryTitle: "Monash Volunteer Day", entryDate: "13-May-2023", entryCategories: "Communication",
+                                entryDes: "I went to volunteer at Monash Volunteer Day and developed communication and leadership skills.")
+        let _ = addJournalEntry(entryTitle: "Monash Caulfield Open Day", entryDate: "12-May-2023", entryCategories: "Communication",
+                                entryDes: "I went to volunteer at the old folks home and developed Communication skills.")
+        let _ = addJournalEntry(entryTitle: "RMIT Volunteer Day", entryDate: "14-May-2023", entryCategories: "Leadership",
+                                entryDes: "I went to volunteer at RMIT Volunteer Day and developed Leaderhsip skills.")
+        let _ = addJournalEntry(entryTitle: "Ambassador", entryDate: "17-Apr-2023", entryCategories: "Leadership",
+                                entryDes: "I went to volunteer to be an Ambassador and developed Leadership skills.")
         cleanup()
     }
     
@@ -147,6 +225,12 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
                 if listener.listenerType == .applicationDetails {
                     // 4. call the onAllApplicationDetailsChange method, passing it the updated list of heroes
                     listener.onAllApplicationDetailsChange(change: .update, applicationDetails: fetchAllApplications())
+                }
+            }
+        } else if controller == allJournalEntryFetchedResultsController {
+            listeners.invoke() { listener in
+                if listener.listenerType == .journalEntry {
+                    listener.onAllJournalEntryChange(change: .update, journalEntry: fetchAllJournalEntries())
                 }
             }
         }

@@ -98,6 +98,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
     
     func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails]) {
         allApplications = applicationDetails
+        print(allApplications.count)
         updateSearchResults(for: navigationItem.searchController!)
     }
     
@@ -134,6 +135,10 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
             }
         }
         tableView.reloadData()
+    }
+    
+    func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry]) {
+        // do nothing
     }
     
     // MARK: - Table Controllers

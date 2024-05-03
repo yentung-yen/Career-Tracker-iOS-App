@@ -11,6 +11,11 @@ class EditJournalEntryViewController: UIViewController {
     
     var currentJournalEntry: JournalEntry?
 
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var descTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

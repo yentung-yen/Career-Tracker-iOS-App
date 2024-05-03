@@ -15,6 +15,7 @@ class CreateJournalEntryViewController: UIViewController {
     @IBOutlet weak var entryDescTextField: UITextField!
     
     weak var databaseController: DatabaseProtocol?
+    var categoryList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,10 @@ class CreateJournalEntryViewController: UIViewController {
         dateFormatter.dateFormat = "dd-MMM-yyyy" // set date format
         let dateString = dateFormatter.string(from: entryDatePicker.date) // convert to string
         
-        let _ = databaseController?.addJournalEntry(entryTitle: title, entryDate: dateString, entryCategories: category, entryDes: desc)
+        // TODO: handle category list
+        categoryList.append(category)
+        
+        let _ = databaseController?.addJournalEntry(entryTitle: title, entryDate: dateString, entryCategories: categoryList, entryDes: desc)
         navigationController?.popViewController(animated: true)
     }
     

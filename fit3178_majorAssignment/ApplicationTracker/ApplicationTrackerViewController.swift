@@ -19,9 +19,9 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
     let CELL_INFO = "totalCell"
     
     // array to hold the applications we want to display
-    var displayApplication: [ApplicationDetails] = []
-    var allApplications: [ApplicationDetails] = []
-    var filteredApplications: [ApplicationDetails] = []
+    var displayApplication: [ApplicationDetail] = []
+    var allApplications: [ApplicationDetail] = []
+    var filteredApplications: [ApplicationDetail] = []
     var selectedToggle: Int = 0
     
     var searchController: UISearchController!
@@ -96,7 +96,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
     // - automatically register itself to receive updates from the database when the view is about to appear on screen and
     // - deregister itself when it’s about to disappear.
     
-    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails]) {
+    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetail]) {
         allApplications = applicationDetails
         print(allApplications.count)
         updateSearchResults(for: navigationItem.searchController!)
@@ -115,9 +115,9 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         if searchText.count > 0 {
             // if there is a search text, filter
             // we are including a row into our filtered list if it contains the search text
-            filteredApplications = displayApplication.filter({ (application: ApplicationDetails) -> Bool in
+            filteredApplications = displayApplication.filter({ (application: ApplicationDetail) -> Bool in
                 // use nil-coalescing operator (??) since name property is optional
-                return (application.jobTitle?.lowercased().contains(searchText) ?? false)
+                return (application.jobTitle.lowercased().contains(searchText) ?? false)
             })
             displayApplication = filteredApplications
         } else {

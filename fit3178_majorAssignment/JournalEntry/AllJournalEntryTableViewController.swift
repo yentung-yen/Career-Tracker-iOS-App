@@ -60,7 +60,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     // - automatically register itself to receive updates from the database when the view is about to appear on screen and
     // - deregister itself when it’s about to disappear.
     
-    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails]) {
+    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetail]) {
         // do nothing
     }
     
@@ -84,7 +84,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
             // we are including a row into our filtered list if it contains the search text
             filteredJournalEntries = allJournalEntries.filter({ (entry: JournalEntry) -> Bool in
                 // use nil-coalescing operator (??) since name property is optional
-                return (entry.journalEntryTitle?.lowercased().contains(searchText) ?? false)
+                return (entry.entryTitle?.lowercased().contains(searchText) ?? false)
             })
         } else {
             filteredJournalEntries = allJournalEntries
@@ -126,8 +126,8 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
             // because we’ve told the table view that the number of rows in this section = array length.
             let entry = filteredJournalEntries[indexPath.row]
             
-            content.text = entry.journalEntryTitle
-            content.secondaryText = entry.journalEntryDate
+            content.text = entry.entryTitle
+            content.secondaryText = entry.entryDate
             entryCell.contentConfiguration = content
             
             return entryCell     // return a cell object

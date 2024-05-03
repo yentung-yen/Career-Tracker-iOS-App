@@ -10,14 +10,15 @@
 		BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */; };
 		BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */; };
 		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
-		BBA559ED2BE357A50099D458 /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */; };
-		BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */; };
 		BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */; };
 		BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */; };
 		BBB99FD52BE3A959009F602D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD42BE3A959009F602D /* FirebaseAuth */; };
 		BBB99FD72BE3A959009F602D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD62BE3A959009F602D /* FirebaseFirestore */; };
 		BBB99FD92BE3A959009F602D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD82BE3A959009F602D /* FirebaseFirestoreSwift */; };
 		BBB99FDB2BE3ABC4009F602D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */; };
+		BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */; };
+		BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FDE2BE3B336009F602D /* JournalEntry.swift */; };
+		BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FE02BE3B452009F602D /* FirebaseController.swift */; };
 		BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */; };
 		BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */; };
 		BBC70AC32BE14B89003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC22BE14B89003D2052 /* Base */; };
@@ -28,12 +29,8 @@
 		BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */; };
 		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
-		BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */; };
-		BBFD17A52BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */; };
-		BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */; };
 		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
 		BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */; };
-		BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */; };
 		BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */; };
 		BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,11 +39,12 @@
 		BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntryTableViewController.swift; sourceTree = "<group>"; };
 		BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
-		BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetail.swift; sourceTree = "<group>"; };
+		BBB99FDE2BE3B336009F602D /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		BBB99FE02BE3B452009F602D /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobApplication_prepTrack_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,12 +57,8 @@
 		BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCountTableViewCell.swift; sourceTree = "<group>"; };
 		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
-		BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App-DataModel.xcdatamodel"; sourceTree = "<group>"; };
-		BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplicationDetails+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplicationDetails+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
-		BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicationDetailsViewController.swift; sourceTree = "<group>"; };
 		BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditApplicationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,11 +140,8 @@
 		BBFD179F2BE2780800A33FED /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				BBA559EB2BE357A50099D458 /* JournalEntry+CoreDataClass.swift */,
-				BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */,
-				BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */,
-				BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */,
-				BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */,
+				BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */,
+				BBB99FDE2BE3B336009F602D /* JournalEntry.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -160,7 +151,7 @@
 			children = (
 				BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */,
 				BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */,
-				BBFD17AC2BE27FA900A33FED /* CoreDataController.swift */,
+				BBB99FE02BE3B452009F602D /* FirebaseController.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -250,23 +241,20 @@
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
+				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
+				BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
 				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
+				BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */,
 				BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */,
-				BBFD17A52BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift in Sources */,
-				BBFD17AD2BE27FA900A33FED /* CoreDataController.swift in Sources */,
 				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
 				BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
-				BBA559ED2BE357A50099D458 /* JournalEntry+CoreDataClass.swift in Sources */,
-				BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */,
-				BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */,
-				BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yentung.fit3178-majorAssignment";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yentung.job-preptrack-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -459,7 +447,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yentung.fit3178-majorAssignment";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yentung.job-preptrack-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -518,20 +506,6 @@
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */,
-			);
-			currentVersion = BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */;
-			name = "App-DataModel.xcdatamodeld";
-			path = "/Users/chinyentung/Library/CloudStorage/OneDrive-MonashUniversity/6. Y3S1/FIT3178 - iOS app development/FIT3178_Assessments/fit3178_majorAssignment/fit3178_majorAssignment/DataModel/App-DataModel.xcdatamodeld";
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BBC70AB02BE14B89003D2052 /* Project object */;
 }

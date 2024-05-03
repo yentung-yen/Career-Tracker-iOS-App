@@ -8,7 +8,7 @@
 import UIKit
 
 class EditApplicationDetailsViewController: UIViewController {
-    var currentApplicationDetails: ApplicationDetails?
+    var currentApplicationDetails: ApplicationDetail?
     var jobMode: Int32?
     var applicationStatus: Int32?
     

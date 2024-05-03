@@ -11,7 +11,7 @@ import Foundation
 // inherit from the AnyObject class
 protocol AddJournalEntryDelegate: AnyObject {
     // method stub to say whether it can successfully add an application
-    func addJournalEntry(_ newApplication: ApplicationDetails) -> Bool
+    func addJournalEntry(_ newApplication: ApplicationDetail) -> Bool
     
     // Stubs are commonly used as placeholders for implementation of a known interface
     // a piece of code used to stand in for some other programming functionality.

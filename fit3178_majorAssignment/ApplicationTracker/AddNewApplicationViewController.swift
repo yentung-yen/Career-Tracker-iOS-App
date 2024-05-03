@@ -35,10 +35,10 @@ class AddNewApplicationViewController: UIViewController {
         guard let jobTitle = jobTitleTextField.text,
               let company = companyTextField.text,
               let jobLocation = jobLocationTextField.text,
-              let jobMode = JobMode(rawValue: Int32(jobModeSegmentControl.selectedSegmentIndex)),
+              let jobMode = JobMode(rawValue: Int(jobModeSegmentControl.selectedSegmentIndex)),
               let salary = salaryTextField.text,
               let jobPostURL = jobPostURLTextField.text,
-              let applicationStatus = ApplicationStatus(rawValue: Int32(applicationStatusSegmentControl.selectedSegmentIndex)),
+              let applicationStatus = ApplicationStatus(rawValue: Int(applicationStatusSegmentControl.selectedSegmentIndex)),
               let notes = notesTextField.text else {
             return
         }

@@ -32,7 +32,7 @@ protocol DatabaseListener: AnyObject {
     // this enables us to slightly change the behaviour based on the kind of change that has occurred to the database
     
     // method for when a change to any of the application details has occurred
-    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetails])
+    func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetail])
     
     // method for when a change of journal entry has occurred
     func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry])
@@ -47,10 +47,10 @@ protocol DatabaseProtocol: AnyObject {
     func removeListener(listener: DatabaseListener)
     
     // functionality to add, delete applications
-    func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Double, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetails
-    func deleteApplication(applicationDetails: ApplicationDetails)
+    func addApplication(jobTitle: String, company: String, jobLocation: String, jobMode: JobMode, salary: Double, postURL: String, applicationStatus: ApplicationStatus, notes: String) -> ApplicationDetail
+    func deleteApplication(applicationDetails: ApplicationDetail)
     
     // functionality to add, delete journal entries
-    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: String, entryDes: String) -> JournalEntry
+    func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: [String], entryDes: String) -> JournalEntry
     func deleteJournalEntry(journalEntry: JournalEntry)
 }

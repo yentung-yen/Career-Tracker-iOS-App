@@ -19,10 +19,11 @@ class ViewJournalEntryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        entryTitleLabel.text = currentJournalEntry?.journalEntryTitle
-        entryDateLabel.text = currentJournalEntry?.journalEntryDate
-        entryCategoryButton.setTitle(currentJournalEntry?.journalEntryCategory, for: .normal)
-        entryDescTextView.text = currentJournalEntry?.journalEntryDesc
+        entryTitleLabel.text = currentJournalEntry?.entryTitle
+        entryDateLabel.text = currentJournalEntry?.entryDate
+        // TODO: category list
+        print(currentJournalEntry?.entryCategories ?? "idk what im doing - ViewJournalEntryViewController")
+        entryDescTextView.text = currentJournalEntry?.entryDes
     }
     
 

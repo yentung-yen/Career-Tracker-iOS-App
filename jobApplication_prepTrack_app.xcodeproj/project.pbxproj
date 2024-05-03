@@ -28,7 +28,7 @@
 		BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */; };
 		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
-		BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */; };
+		BBE15F6D2BE5317E007F08D0 /* App-DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBE15F6B2BE5317E007F08D0 /* App-DataModel.xcdatamodeld */; };
 		BBFD17A52BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */; };
 		BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */; };
 		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
@@ -59,7 +59,7 @@
 		BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCountTableViewCell.swift; sourceTree = "<group>"; };
 		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
-		BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App-DataModel.xcdatamodel"; sourceTree = "<group>"; };
+		BBE15F6C2BE5317E007F08D0 /* App-DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "App-DataModel.xcdatamodel"; sourceTree = "<group>"; };
 		BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplicationDetails+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApplicationDetails+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				BBA559EC2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift */,
 				BBFD17A32BE2799400A33FED /* ApplicationDetails+CoreDataClass.swift */,
 				BBFD17A42BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift */,
-				BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */,
+				BBE15F6B2BE5317E007F08D0 /* App-DataModel.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -251,6 +251,7 @@
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
+				BBE15F6D2BE5317E007F08D0 /* App-DataModel.xcdatamodeld in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
@@ -266,7 +267,6 @@
 				BBA559EE2BE357A50099D458 /* JournalEntry+CoreDataProperties.swift in Sources */,
 				BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */,
 				BBFD17A62BE2799400A33FED /* ApplicationDetails+CoreDataProperties.swift in Sources */,
-				BBFD17A22BE2783D00A33FED /* App-DataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,14 +520,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		BBFD17A02BE2783C00A33FED /* App-DataModel.xcdatamodeld */ = {
+		BBE15F6B2BE5317E007F08D0 /* App-DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */,
+				BBE15F6C2BE5317E007F08D0 /* App-DataModel.xcdatamodel */,
 			);
-			currentVersion = BBFD17A12BE2783D00A33FED /* App-DataModel.xcdatamodel */;
+			currentVersion = BBE15F6C2BE5317E007F08D0 /* App-DataModel.xcdatamodel */;
 			name = "App-DataModel.xcdatamodeld";
-			path = "/Users/chinyentung/Library/CloudStorage/OneDrive-MonashUniversity/6. Y3S1/FIT3178 - iOS app development/FIT3178_Assessments/fit3178_majorAssignment/fit3178_majorAssignment/DataModel/App-DataModel.xcdatamodeld";
+			path = "/Users/chinyentung/Library/CloudStorage/OneDrive-MonashUniversity/6. Y3S1/FIT3178 - iOS app development/FIT3178_Assessments/fit3178_majorAssignment/job-application-tracker-ios-app/fit3178_majorAssignment/DataModel/App-DataModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

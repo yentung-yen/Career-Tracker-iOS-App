@@ -195,7 +195,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
             do {
                 app = try change.document.data(as: ApplicationDetail.self)
             } catch {
-                fatalError("Unable to decode application details: \(error.localizedDescription)")
+                fatalError("Unable to decode application details: \(error.localizedDescription); \(String(describing: error))")
 //                print("Error decoding application details: \(error.localizedDescription)")
             }
             
@@ -235,7 +235,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
             do {
                 entry = try change.document.data(as: JournalEntry.self)
             } catch {
-                fatalError("Unable to decode journal entry: \(error.localizedDescription)")
+                fatalError("Unable to decode journal entry: \(error.localizedDescription); \(String(describing: error))")
             }
             
             // we'll be focussing on added, modified, and removed changes

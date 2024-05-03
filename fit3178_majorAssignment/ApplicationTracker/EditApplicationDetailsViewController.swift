@@ -27,10 +27,10 @@ class EditApplicationDetailsViewController: UIViewController {
         jobTitleTextField.text = currentApplicationDetails?.jobTitle
         companyTextField.text = currentApplicationDetails?.company
         jobLocationTextField.text = currentApplicationDetails?.jobLocation
-        jobModeSegment.selectedSegmentIndex = Int(currentApplicationDetails!.jobMode)
+        jobModeSegment.selectedSegmentIndex = Int(currentApplicationDetails!.jobMode!)
         salaryTextField.text = String(format: "%.2f", currentApplicationDetails?.salary ?? 0)
         postURLTextField.text = currentApplicationDetails?.postURL
-        applicationStatusSegment.selectedSegmentIndex = Int(currentApplicationDetails!.applicationStatus)
+        applicationStatusSegment.selectedSegmentIndex = Int(currentApplicationDetails!.applicationStatus!)
         notesTextField.text = currentApplicationDetails?.notes
     }
     

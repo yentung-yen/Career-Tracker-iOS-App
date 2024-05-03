@@ -23,34 +23,34 @@ enum ApplicationStatus: Int {
 
 class ApplicationDetail: NSObject, Codable {
     @DocumentID var id: String?
-    var jobTitle: String = ""
-    var company: String = ""
-    var jobLocation: String = ""
-    var jobMode: Int = 0
-    var salary: Double = 0.0
-    var postURL: String = ""
-    var applicationStatus: Int = 0
-    var notes: String = ""
+    var jobTitle: String?
+    var company: String?
+    var jobLocation: String?
+    var jobMode: Int?
+    var salary: Double?
+    var postURL: String?
+    var applicationStatus: Int?
+    var notes: String?
 }
 
 // create CodingKeys to ensure that enums are excluded from the encode and decode process
 enum CodingKeys: String, CodingKey {
     case id
-    case jobTitle = "jobTitle"
-    case company = "company"
-    case jobLocation = "jobLocation"
-    case jobMode = "jobMode"
-    case salary = "salary"
-    case postURL = "postURL"
-    case applicationStatus = "applicationStatus"
-    case notes = "notes"
+    case jobTitle
+    case company
+    case jobLocation
+    case jobMode
+    case salary
+    case postURL
+    case applicationStatus
+    case notes
 }
 
 // setter and getter methods
 extension ApplicationDetail {
     var applicationJobMode: JobMode {
         get {
-            return JobMode(rawValue: self.jobMode)!
+            return JobMode(rawValue: self.jobMode!)!
         }
         set {
             self.jobMode = newValue.rawValue
@@ -58,7 +58,7 @@ extension ApplicationDetail {
     }
     var applicationApplicationStatus: ApplicationStatus {
         get {
-            return ApplicationStatus(rawValue: self.applicationStatus)!
+            return ApplicationStatus(rawValue: self.applicationStatus!)!
         }
         set {
             self.applicationStatus = newValue.rawValue

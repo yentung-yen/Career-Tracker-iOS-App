@@ -142,7 +142,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
             let infoCell = tableView.dequeueReusableCell(withIdentifier: CELL_ENTRIES_COUNT, for: indexPath)
             
             var content = infoCell.defaultContentConfiguration()
-            content.text = "Total Entries: \(allJournalEntries.count)"
+            content.text = "Total Entries: \(filteredJournalEntries.count)"
             infoCell.contentConfiguration = content
             
             return infoCell

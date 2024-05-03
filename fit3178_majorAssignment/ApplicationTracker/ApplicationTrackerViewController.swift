@@ -117,7 +117,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
             // we are including a row into our filtered list if it contains the search text
             filteredApplications = displayApplication.filter({ (application: ApplicationDetail) -> Bool in
                 // use nil-coalescing operator (??) since name property is optional
-                return (application.jobTitle.lowercased().contains(searchText) ?? false)
+                return (application.jobTitle!.lowercased().contains(searchText) ?? false)
             })
             displayApplication = filteredApplications
         } else {

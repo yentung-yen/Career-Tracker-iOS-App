@@ -18,8 +18,13 @@ class EditJournalEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: get date in string
+        
+        // TODO: handle categories
 
-        // Do any additional setup after loading the view.
+        titleTextField.text = currentJournalEntry?.entryTitle
+        descTextField.text = currentJournalEntry?.entryDes
     }
     
 

@@ -306,14 +306,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="totalCell" id="eS8-fv-jdb" customClass="ApplicationCountTableViewCell" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="99" width="333" height="37.333332061767578"/>
+                                        <rect key="frame" x="20" y="99" width="333" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eS8-fv-jdb" id="HHK-tk-CZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-SZ-AmM">
-                                                    <rect key="frame" x="20" y="11" width="293" height="15.333333333333336"/>
+                                                    <rect key="frame" x="20" y="11" width="293" height="15"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>

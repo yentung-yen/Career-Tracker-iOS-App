@@ -27,6 +27,7 @@ class EditJournalEntryViewController: UIViewController {
         descTextField.text = currentJournalEntry?.entryDes
     }
     
+    // TODO: implement code to edit journal details
 
     /*
     // MARK: - Navigation

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InterviewQuestionBankTableViewController: UITableViewController {
+class QuizTableViewController: UITableViewController {
     let SECTION_TITLE = 0
     let SECTION_QUESTION = 1
     

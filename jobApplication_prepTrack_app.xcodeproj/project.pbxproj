@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB4767E42BECF028008C5957 /* InterviewQuestionBankTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E32BECF028008C5957 /* InterviewQuestionBankTableViewController.swift */; };
+		BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E32BECF028008C5957 /* QuizTableViewController.swift */; };
 		BB4767E62BECF28D008C5957 /* InterviewPrepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E52BECF28D008C5957 /* InterviewPrepViewController.swift */; };
 		BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E72BECF855008C5957 /* QuestionData.swift */; };
 		BBA54C092BED1E7B00C03C97 /* QuestionBankData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuestionBankData.swift */; };
@@ -40,7 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BB4767E32BECF028008C5957 /* InterviewQuestionBankTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewQuestionBankTableViewController.swift; sourceTree = "<group>"; };
+		BB4767E32BECF028008C5957 /* QuizTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
 		BB4767E52BECF28D008C5957 /* InterviewPrepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepViewController.swift; sourceTree = "<group>"; };
 		BB4767E72BECF855008C5957 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		BBA54C082BED1E7B00C03C97 /* QuestionBankData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBankData.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		BB4767E02BECEC7B008C5957 /* InterviewPrep */ = {
 			isa = PBXGroup;
 			children = (
-				BB4767E32BECF028008C5957 /* InterviewQuestionBankTableViewController.swift */,
+				BB4767E32BECF028008C5957 /* QuizTableViewController.swift */,
 				BB4767E52BECF28D008C5957 /* InterviewPrepViewController.swift */,
 			);
 			path = InterviewPrep;
@@ -261,7 +261,7 @@
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
-				BB4767E42BECF028008C5957 /* InterviewQuestionBankTableViewController.swift in Sources */,
+				BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
 				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,

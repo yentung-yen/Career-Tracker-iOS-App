@@ -33,6 +33,17 @@ class FirebaseController: NSObject, DatabaseProtocol {
         
         super.init()
         
+        // clear cache
+//        database.clearPersistence { error in
+//            if let error = error {
+//                print("Error clearing Firestore cache: \(error)")
+//            } else {
+//                // Initialize listeners or perform other setup tasks after ensuring the cache is clear
+//                self.setupApplicationListener()
+//                self.setupJournalEntryListener()
+//            }
+//        }
+        
         // in firebase, we need to be authenticated with Firebase to be able to read and/or write to the database
         // we need to ensure that we have signed on, before any attempts to access Firestore
         Task {
@@ -189,6 +200,8 @@ class FirebaseController: NSObject, DatabaseProtocol {
         // create a for-each loop that goes through each document change in the snapshot.
         // documentChanges - only pay attention to changes as it allows us to easily handle different behaviour based on the type of change that has been made
         snapshot.documentChanges.forEach { (change) in
+            
+            print("Raw Document Data: \(change.document.data())")
             
             // decode the document's data as an ApplicationDetail object using codable
             var app: ApplicationDetail

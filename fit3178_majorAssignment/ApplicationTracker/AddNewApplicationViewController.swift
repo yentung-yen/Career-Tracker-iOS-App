@@ -30,15 +30,15 @@ class AddNewApplicationViewController: UIViewController {
     
     @IBAction func onAddApplication(_ sender: Any) {
         var errorMsg = ""
+        var salaryText = 0
         
         // validate the user input
         guard let jobTitle = jobTitleTextField.text,
               let company = companyTextField.text,
               let jobLocation = jobLocationTextField.text,
-              let jobMode = JobMode(rawValue: Int(jobModeSegmentControl.selectedSegmentIndex ?? 0)), // default to 0 (not changing option)
-              let salary = salaryTextField.text,
+              let jobMode = JobMode(rawValue: Int(jobModeSegmentControl.selectedSegmentIndex)),
               let jobPostURL = jobPostURLTextField.text,
-              let applicationStatus = ApplicationStatus(rawValue: Int(applicationStatusSegmentControl.selectedSegmentIndex ?? 0)),
+              let applicationStatus = ApplicationStatus(rawValue: Int(applicationStatusSegmentControl.selectedSegmentIndex)),
               let notes = notesTextField.text else {
             return
         }
@@ -59,11 +59,21 @@ class AddNewApplicationViewController: UIViewController {
             return
         }
         
+        // validate that salary must be empty (i.e. not required) or a valid number
+        if let salaryText = salaryTextField.text, !salaryText.isEmpty { // is salary not empty, check that its numeric
+            guard Double(salaryText) != nil else {
+                displayMessage(title: "Invalid Input", message: "Salary must be a numeric value.")
+                return
+            }
+        } else { // salary is empty
+            salaryText = 0
+        }
+        
         let _ = databaseController?.addApplication(jobTitle: jobTitle, 
                                                    company: company,
                                                    jobLocation: jobLocation,
                                                    jobMode: jobMode,
-                                                   salary: Double(salary) ?? 0,
+                                                   salary: Double(salaryText),
                                                    postURL: jobPostURL,
                                                    applicationStatus: applicationStatus,
                                                    notes: notes)

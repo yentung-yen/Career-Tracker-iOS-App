@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class EditApplicationDetailsViewController: UIViewController {
     var currentApplicationDetails: ApplicationDetail?
     var jobMode: Int32?
     var applicationStatus: Int32?
+    var db: Firestore!  // need to force unwrap because db needs to be initialised
     
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -24,6 +26,8 @@ class EditApplicationDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        db = Firestore.firestore()
+        
         jobTitleTextField.text = currentApplicationDetails?.jobTitle
         companyTextField.text = currentApplicationDetails?.company
         jobLocationTextField.text = currentApplicationDetails?.jobLocation
@@ -35,7 +39,68 @@ class EditApplicationDetailsViewController: UIViewController {
     }
     
     @IBAction func onSaveChanges(_ sender: Any) {
+        var errorMsg = ""
         
+        // validate the user input
+        guard let jobTitle = jobTitleTextField.text,
+              let company = companyTextField.text,
+              let jobLocation = jobLocationTextField.text,
+              let _ = JobMode(rawValue: Int(jobModeSegment.selectedSegmentIndex)),
+              let jobPostURL = postURLTextField.text,
+              let _ = ApplicationStatus(rawValue: Int(applicationStatusSegment.selectedSegmentIndex)),
+              let notes = notesTextField.text else {
+            return
+        }
+        
+        if jobTitle.isEmpty || company.isEmpty || jobLocation.isEmpty {
+            errorMsg = "Ensure these fields are filled:\n"
+            
+            if jobTitle.isEmpty {
+                errorMsg += "- Job Title must be provided\n"
+            }
+            if company.isEmpty {
+                errorMsg += "- Company must be provided\n"
+            }
+            if jobLocation.isEmpty {
+                errorMsg += "- Job location must be provided\n"
+            }
+            displayMessage(title: "Missing Fields", message: errorMsg)
+            return
+        }
+        
+        // validate that salary must be empty (i.e. not required) or a valid number
+        if let salaryText = salaryTextField.text, !salaryText.isEmpty { // is salary not empty, check that its numeric
+            guard Double(salaryText) != nil else {
+                displayMessage(title: "Invalid Input", message: "Salary must be a numeric value.")
+                return
+            }
+        } else { // salary is empty
+            let salaryText = 0
+        }
+        
+        // get id of current job application in firebase
+        let documentId = currentApplicationDetails?.id
+        
+        // get updated data from UI, edit the document in firebase, and save it
+        db.collection("applicationDetail").document(documentId!).updateData([
+            "applicationStatus": Int(applicationStatusSegment.selectedSegmentIndex),
+            "company": company,
+            "jobLocation": jobLocation,
+            "jobMode": Int(jobModeSegment.selectedSegmentIndex),
+            "jobTitle": jobTitle,
+            "notes": notes,
+            "postURL": jobPostURL,
+            "salary": Double(salaryTextField.text!) ?? 0
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+        
+        // navigate back to previous screen
+        navigationController?.popViewController(animated: true)
     }
     
     /*

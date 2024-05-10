@@ -10,6 +10,7 @@ import UIKit
 class ViewQuizQuestionViewController: UIViewController {
     var currentQuizQuestionDetails: QuestionData?
     
+    @IBOutlet weak var quizCategoryLabel: UILabel!
     @IBOutlet weak var difficultyLabel: UILabel!
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var descLabel: UILabel!
@@ -18,8 +19,9 @@ class ViewQuizQuestionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        questionTextView.text = currentQuizQuestionDetails?.question
+        quizCategoryLabel.text = currentQuizQuestionDetails?.questionCategory?.uppercased()
         difficultyLabel.text = currentQuizQuestionDetails?.difficulty
+        questionTextView.text = currentQuizQuestionDetails?.question
         descLabel.text = currentQuizQuestionDetails?.questionDescription
     }
     

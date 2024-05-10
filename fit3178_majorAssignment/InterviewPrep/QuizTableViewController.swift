@@ -147,7 +147,7 @@ class QuizTableViewController: UITableViewController {
         } else {
             let titleCell = tableView.dequeueReusableCell(withIdentifier: CELL_TITLE, for: indexPath)
             
-            titleCell.textLabel?.text = "\(category.capitalized) Quiz"
+            titleCell.textLabel?.text = "\(category.uppercased()) Quiz"
             titleCell.detailTextLabel?.text = "\(questionsList.count) Random Questions"
             
             return titleCell

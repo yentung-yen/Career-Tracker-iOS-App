@@ -998,19 +998,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-Jx-IAJ">
-                                <rect key="frame" x="30" y="146" width="333" height="24"/>
+                                <rect key="frame" x="30" y="167" width="333" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtZ-tf-qfx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtZ-tf-qfx">
                                 <rect key="frame" x="30" y="118" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avH-6j-LR9">
-                                <rect key="frame" x="30" y="403" width="333" height="21"/>
+                                <rect key="frame" x="30" y="393" width="333" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1024,40 +1024,50 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-CW-yEI">
-                                <rect key="frame" x="30" y="180" width="333" height="208"/>
+                                <rect key="frame" x="30" y="201" width="333" height="162"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0T-Bb-edE">
+                                <rect key="frame" x="30" y="139" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D23-KE-HRF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="MtZ-tf-qfx" secondAttribute="trailing" constant="30" id="1Fz-AM-uuN"/>
-                            <constraint firstItem="avH-6j-LR9" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="15" id="1o0-JQ-eMG"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="B0T-Bb-edE" secondAttribute="trailing" constant="30" id="6Zg-v3-0vY"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="Nf6-CW-yEI" secondAttribute="trailing" constant="30" id="6yY-bp-jFO"/>
-                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="MtZ-tf-qfx" secondAttribute="bottom" constant="7" id="7ow-3T-Zr4"/>
+                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="B0T-Bb-edE" secondAttribute="bottom" constant="7" id="DSq-Nd-QL6"/>
                             <constraint firstItem="hcf-Jx-IAJ" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="GPZ-F4-kfZ"/>
+                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="avH-6j-LR9" secondAttribute="bottom" constant="20" id="IpJ-JL-9op"/>
                             <constraint firstItem="Nf6-CW-yEI" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="Kxk-mU-Idv"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="hcf-Jx-IAJ" secondAttribute="trailing" constant="30" id="Mdr-gU-sRF"/>
+                            <constraint firstItem="avH-6j-LR9" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="30" id="Vyg-Ou-mgP"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="bottom" secondItem="yuR-8o-Y6C" secondAttribute="bottom" constant="300" id="ZTX-dr-hr9"/>
+                            <constraint firstItem="B0T-Bb-edE" firstAttribute="top" secondItem="MtZ-tf-qfx" secondAttribute="bottom" id="d6i-R6-aL8"/>
                             <constraint firstItem="yuR-8o-Y6C" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="gXU-Mg-MOp"/>
                             <constraint firstItem="MtZ-tf-qfx" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="j3Y-JP-2DN"/>
+                            <constraint firstItem="B0T-Bb-edE" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="lmR-e7-HmY"/>
                             <constraint firstItem="avH-6j-LR9" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="n7J-B4-w7Q"/>
                             <constraint firstItem="MtZ-tf-qfx" firstAttribute="top" secondItem="D23-KE-HRF" secondAttribute="top" constant="15" id="oiN-AE-pEV"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="avH-6j-LR9" secondAttribute="trailing" constant="30" id="pgl-KG-IdZ"/>
                             <constraint firstItem="Nf6-CW-yEI" firstAttribute="top" secondItem="hcf-Jx-IAJ" secondAttribute="bottom" constant="10" id="tdc-cA-kXT"/>
-                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="avH-6j-LR9" secondAttribute="bottom" constant="10" id="wMc-yR-ckJ"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="yuR-8o-Y6C" secondAttribute="trailing" constant="30" id="z3a-DA-Paz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9m-yQ-CYP"/>
                     <connections>
                         <outlet property="descLabel" destination="avH-6j-LR9" id="PuZ-UG-giZ"/>
-                        <outlet property="difficultyLabel" destination="MtZ-tf-qfx" id="5Sr-YZ-9i2"/>
+                        <outlet property="difficultyLabel" destination="B0T-Bb-edE" id="PZI-hY-7rc"/>
                         <outlet property="questionTextView" destination="Nf6-CW-yEI" id="bk3-HJ-7CH"/>
+                        <outlet property="quizCategoryLabel" destination="MtZ-tf-qfx" id="5Sr-YZ-9i2"/>
                     </connections>
                 </viewController>
             </objects>

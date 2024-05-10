@@ -917,7 +917,7 @@
             </objects>
             <point key="canvasLocation" x="-712" y="568"/>
         </scene>
-        <!--Quiz Table View Controller-->
+        <!--Quiz Question-->
         <scene sceneID="2Zd-xP-ihi">
             <objects>
                 <tableViewController id="Cib-Uq-Jhp" customClass="QuizTableViewController" customModule="jobApplication_prepTrack_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -972,6 +972,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="eAJ-sf-TLP" kind="show" identifier="viewQuestionSegue" id="MZc-Xf-beW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -979,11 +982,86 @@
                             <outlet property="delegate" destination="Cib-Uq-Jhp" id="M1k-CU-ijs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="PtQ-w2-ag5"/>
+                    <navigationItem key="navigationItem" title="Quiz Question" id="PtQ-w2-ag5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKN-2r-jdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="891" y="567"/>
+        </scene>
+        <!--View Quiz Question View Controller-->
+        <scene sceneID="9nA-iv-Dfe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bco-x1-NRU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="eAJ-sf-TLP" customClass="ViewQuizQuestionViewController" customModule="jobApplication_prepTrack_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hye-ia-ChT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-Jx-IAJ">
+                                <rect key="frame" x="30" y="146" width="333" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtZ-tf-qfx">
+                                <rect key="frame" x="30" y="118" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avH-6j-LR9">
+                                <rect key="frame" x="30" y="403" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuR-8o-Y6C">
+                                <rect key="frame" x="30" y="434" width="333" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="View Answer"/>
+                                <connections>
+                                    <action selector="onViewAnswer:" destination="eAJ-sf-TLP" eventType="touchUpInside" id="Tl2-mr-RKP"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-CW-yEI">
+                                <rect key="frame" x="30" y="180" width="333" height="208"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D23-KE-HRF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="MtZ-tf-qfx" secondAttribute="trailing" constant="30" id="1Fz-AM-uuN"/>
+                            <constraint firstItem="avH-6j-LR9" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="15" id="1o0-JQ-eMG"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="Nf6-CW-yEI" secondAttribute="trailing" constant="30" id="6yY-bp-jFO"/>
+                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="MtZ-tf-qfx" secondAttribute="bottom" constant="7" id="7ow-3T-Zr4"/>
+                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="GPZ-F4-kfZ"/>
+                            <constraint firstItem="Nf6-CW-yEI" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="Kxk-mU-Idv"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="hcf-Jx-IAJ" secondAttribute="trailing" constant="30" id="Mdr-gU-sRF"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="bottom" secondItem="yuR-8o-Y6C" secondAttribute="bottom" constant="300" id="ZTX-dr-hr9"/>
+                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="gXU-Mg-MOp"/>
+                            <constraint firstItem="MtZ-tf-qfx" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="j3Y-JP-2DN"/>
+                            <constraint firstItem="avH-6j-LR9" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="n7J-B4-w7Q"/>
+                            <constraint firstItem="MtZ-tf-qfx" firstAttribute="top" secondItem="D23-KE-HRF" secondAttribute="top" constant="15" id="oiN-AE-pEV"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="avH-6j-LR9" secondAttribute="trailing" constant="30" id="pgl-KG-IdZ"/>
+                            <constraint firstItem="Nf6-CW-yEI" firstAttribute="top" secondItem="hcf-Jx-IAJ" secondAttribute="bottom" constant="10" id="tdc-cA-kXT"/>
+                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="avH-6j-LR9" secondAttribute="bottom" constant="10" id="wMc-yR-ckJ"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="yuR-8o-Y6C" secondAttribute="trailing" constant="30" id="z3a-DA-Paz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g9m-yQ-CYP"/>
+                    <connections>
+                        <outlet property="descLabel" destination="avH-6j-LR9" id="PuZ-UG-giZ"/>
+                        <outlet property="difficultyLabel" destination="MtZ-tf-qfx" id="5Sr-YZ-9i2"/>
+                        <outlet property="questionTextView" destination="Nf6-CW-yEI" id="bk3-HJ-7CH"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1642" y="567"/>
         </scene>
         <!--Interview Prep-->
         <scene sceneID="3BF-MO-9mP">
@@ -1027,6 +1105,7 @@
                                 </collectionViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="Icv-GL-LPe" id="U5A-Ku-QGc"/>
+                                    <segue destination="Cib-Uq-Jhp" kind="show" identifier="interviewPrepMainToQuizSegue" id="o4j-Qt-jm8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -1036,11 +1115,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Interview Prep" id="yhS-dR-2sG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BZP-tL-8xy">
-                            <connections>
-                                <segue destination="Cib-Uq-Jhp" kind="show" identifier="testSegue" id="yoD-40-Jtt"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BZP-tL-8xy"/>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeK-B6-v0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

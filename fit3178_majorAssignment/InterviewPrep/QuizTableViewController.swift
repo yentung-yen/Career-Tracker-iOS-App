@@ -15,7 +15,7 @@ class QuizTableViewController: UITableViewController {
     let CELL_QUESTION = "questionCell"
     
     var API_KEY = "nAWGuORbcb5KqDoG4bhDpuG6Nce8jjLoOVGvZlac"
-    var category: String = "uncategorized"  // TODO: remove default
+    var category: String = ""
     
     var questionsList = [QuestionData]() // to show list of questions
     
@@ -72,7 +72,7 @@ class QuizTableViewController: UITableViewController {
             // tell our loading indicator to stop animating
             indicator.stopAnimating()
             
-            // print raw JSON string for debugging
+//            // print raw JSON string for debugging
 //            if let jsonString = String(data: data, encoding: .utf8) {
 //                print(jsonString)
 //                print(requestURL)
@@ -131,7 +131,7 @@ class QuizTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: CELL_QUESTION, for: indexPath)
             
             let question = questionsList[indexPath.row]
-            cell.textLabel?.text = "\(question.question)\n"
+            cell.textLabel?.text = "\(question.question!)\n"
             cell.detailTextLabel?.text = question.difficulty
             
             // allow the label to display multiple lines of text
@@ -190,14 +190,21 @@ class QuizTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "viewQuestionSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if let destinationVC = segue.destination as? ViewQuizQuestionViewController {
+                    destinationVC.currentQuizQuestionDetails = questionsList[indexPath.row]
+                }
+            }
+        }
     }
-    */
+    
 
 }

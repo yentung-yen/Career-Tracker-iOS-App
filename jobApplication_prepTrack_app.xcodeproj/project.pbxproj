@@ -12,6 +12,7 @@
 		BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */; };
 		BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */; };
 		BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */; };
+		BBA54C0F2BEDA59600C03C97 /* ViewQuizQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */; };
 		BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */; };
 		BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */; };
 		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
@@ -46,6 +47,7 @@
 		BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewController.swift; sourceTree = "<group>"; };
+		BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuizQuestionViewController.swift; sourceTree = "<group>"; };
 		BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntryTableViewController.swift; sourceTree = "<group>"; };
 		BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				BB4767E32BECF028008C5957 /* QuizTableViewController.swift */,
 				BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */,
 				BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */,
+				BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */,
 			);
 			path = InterviewPrep;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */,
+				BBA54C0F2BEDA59600C03C97 /* ViewQuizQuestionViewController.swift in Sources */,
 				BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */,
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */,

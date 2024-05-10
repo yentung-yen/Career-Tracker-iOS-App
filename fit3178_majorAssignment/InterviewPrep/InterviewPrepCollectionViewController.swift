@@ -4,6 +4,7 @@
 //
 //  Created by Chin Yen Tung on 10/5/2024.
 //
+// Note: Parts of this code was taken from the Workshop 9 Example on Compositional Layout
 
 import UIKit
 
@@ -101,15 +102,25 @@ class InterviewPrepCollectionViewController: UICollectionViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "interviewPrepMainToQuizSegue" {
+            if let destinationVC = segue.destination as? QuizTableViewController,
+               let cell = sender as? InterviewPrepCollectionViewCell,
+               let indexPath = collectionView.indexPath(for: cell) {
+                let item = categoryList[indexPath.row]  // access data array using the index path
+//                print(item.catName!.lowercased())
+                destinationVC.category = item.catName!.lowercased()
+            }
+        }
+        
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -120,8 +131,7 @@ class InterviewPrepCollectionViewController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        print(categoryList.count)
+//        print(categoryList.count)
         return categoryList.count
     }
 
@@ -129,7 +139,7 @@ class InterviewPrepCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CATEGORY_CELL, for: indexPath) as! InterviewPrepCollectionViewCell
         
         let catName = categoryList[indexPath.item].catName
-        print(catName)
+//        print(catName)
         cell.backgroundColor = UIColor.systemGray3
         cell.label.text = catName?.uppercased() // convert all letters to Caps
     

@@ -30,43 +30,6 @@ class QuestionData: NSObject, Decodable {
         case difficulty
     }
     
-//    // add Codable to conform to Encodable and Decodable which encodes & decodes data
-//    struct Answers: Codable {
-//        var answerA: String?
-//        var answerB: String?
-//        var answerC: String?
-//        var answerD: String?
-//        var answerE: String?
-//        var answerF: String?
-//
-//        enum CodingKeys: String, CodingKey {
-//            case answerA = "answer_a"
-//            case answerB = "answer_b"
-//            case answerC = "answer_c"
-//            case answerD = "answer_d"
-//            case answerE = "answer_e"
-//            case answerF = "answer_f"
-//        }
-//    }
-//
-//    struct CorrectAnswers: Codable {
-//        var answerACorrect: Bool
-//        var answerBCorrect: Bool
-//        var answerCCorrect: Bool
-//        var answerDCorrect: Bool
-//        var answerECorrect: Bool
-//        var answerFCorrect: Bool
-//
-//        enum CodingKeys: String, CodingKey {
-//            case answerACorrect = "answer_a_correct"
-//            case answerBCorrect = "answer_b_correct"
-//            case answerCCorrect = "answer_c_correct"
-//            case answerDCorrect = "answer_d_correct"
-//            case answerECorrect = "answer_e_correct"
-//            case answerFCorrect = "answer_f_correct"
-//        }
-//    }
-    
     // initializer - this initializer can throw an error
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: QuestionKeys.self)

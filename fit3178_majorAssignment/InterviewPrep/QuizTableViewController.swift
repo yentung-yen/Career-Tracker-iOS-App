@@ -15,7 +15,7 @@ class QuizTableViewController: UITableViewController {
     let CELL_QUESTION = "questionCell"
     
     var API_KEY = "nAWGuORbcb5KqDoG4bhDpuG6Nce8jjLoOVGvZlac"
-    var category: String = "linux"  // TODO: remove default
+    var category: String = "uncategorized"  // TODO: remove default
     
     var questionsList = [QuestionData]() // to show list of questions
     
@@ -148,7 +148,7 @@ class QuizTableViewController: UITableViewController {
             let titleCell = tableView.dequeueReusableCell(withIdentifier: CELL_TITLE, for: indexPath)
             
             titleCell.textLabel?.text = "\(category.capitalized) Quiz"
-            titleCell.detailTextLabel?.text = "20 Random Questions"
+            titleCell.detailTextLabel?.text = "\(questionsList.count) Random Questions"
             
             return titleCell
         }

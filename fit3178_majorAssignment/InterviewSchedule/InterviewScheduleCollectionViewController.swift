@@ -28,6 +28,9 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     // to store current year and month to pass over to other screens
     var currentYearShown: Int?
     var currentMonthShown: Int?
+    
+    // store index of previously selected cell
+    var lastSelectedCell: IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,9 +113,25 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "createInterviewScheduleSegue" {
+            if let destinationVC = segue.destination as? AddInterviewViewController {
+                let date = dates[lastSelectedCell!.item]
+                let month = currentMonthShown
+                let year = currentYearShown
+                
+                destinationVC.selectedDate = date
+                destinationVC.selectedMonth = currentMonthShown
+                destinationVC.selectedYear = currentYearShown
+                
+//                print(date)
+//                print(currentMonthShown!)
+//                print(currentYearShown!)
+            }
+        }
+        
     }
     
-
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -179,8 +198,8 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         return todayDay == date && todayYear == currentYearShown && todayMonth == currentMonthShown
     }
     
-    
-    // MARK: Collection View Layout
+
+    // MARK: Collection View Layout Settings/Configuration
     
     func setSectionLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { [self] (section, enviroment) in
@@ -246,7 +265,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
             
             // create a date object from month and year only
             if let monthDate = calendar.date(from: components) {
-                dateFormatter.dateFormat = "MMMM YYYY"  // format to full month name and year
+                dateFormatter.dateFormat = "MMM YYYY"
                 sectionHeader.MonthLabel.text = dateFormatter.string(from: monthDate)
             } else {
                 print("Failed to create date from components")
@@ -255,6 +274,28 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
             return sectionHeader
         }
         return UICollectionReusableView()
+    }
+    
+    // function to highlight cell that is selected
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // check if there's a previously selected cell
+        // if there is, check if it's different from the current selection
+        if let lastIndexPath = lastSelectedCell, lastIndexPath != indexPath {
+            // Get the previous cell and reset its border
+            if let lastCell = collectionView.cellForItem(at: lastIndexPath) as? InterviewScheduleCollectionViewCell {
+                lastCell.layer.borderWidth = 0
+            }
+        }
+
+        // update appearance of current selected cell
+        if let cell = collectionView.cellForItem(at: indexPath) as? InterviewScheduleCollectionViewCell {
+            cell.layer.borderWidth = 1.5
+            cell.layer.borderColor = UIColor.red.cgColor
+        }
+
+        // update last selected index path var
+        lastSelectedCell = indexPath
+        print(lastSelectedCell)
     }
 
 

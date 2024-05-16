@@ -38,6 +38,7 @@
 		BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */; };
 		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
+		BBF5832A2BF628B00049DC50 /* AddInterviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */; };
 		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
 		BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */; };
 		BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */; };
@@ -75,6 +76,7 @@
 		BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCountTableViewCell.swift; sourceTree = "<group>"; };
 		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
+		BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterviewViewController.swift; sourceTree = "<group>"; };
 		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicationDetailsViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */,
 				BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */,
 				BB10A0682BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift */,
+				BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */,
 			);
 			path = InterviewSchedule;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */,
 				BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */,
+				BBF5832A2BF628B00049DC50 /* AddInterviewViewController.swift in Sources */,
 				BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */,
 				BB10A0672BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,

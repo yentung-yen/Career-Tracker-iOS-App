@@ -12,6 +12,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     let DATES_SECTION = 1
     
     let CALENDAR_CELL = "calendarCell"
+    let dateFormatter = DateFormatter()
     
     // for setting dates in calendar
     var dates: [Int] = []
@@ -23,6 +24,10 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     let daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"]
     var userFirstWeekday = 0
     var calendarStartDayIndex = 0
+    
+    // to store current year and month to pass over to other screens
+    var currentYear: Int?
+    var currentMonth: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +42,12 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         getNumOfCellsInCalendarMonth()
         getCalendarHeader()
         
-        // conform to UICollectionViewDelegate and UICollectionViewDataSource protocols
+        // set current year and month
+        currentYear = calendar.component(.year, from: currentDate)
+        currentMonth = calendar.component(.month, from: currentDate)
+//        print(currentYear!)
+//        print(currentMonth!)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -93,7 +103,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         dayHeaderList = Array(daysOfWeek[index...] + daysOfWeek[..<index])
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -101,7 +111,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -144,7 +154,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
             }
             
             //TODO: remove
-            cell.backgroundColor = UIColor.systemBlue
+            cell.backgroundColor = UIColor.systemGray5
         }
         return cell
     }
@@ -171,14 +181,19 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/7), heightDimension: .fractionalHeight(1))
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
         // Add padding around each item
-        itemLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3)
+        itemLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2)
         
         // set fixed height
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [itemLayout])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 10, trailing: 15)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 25, bottom: 10, trailing: 25)
+        
+        // Define header for month label
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        layoutSection.boundarySupplementaryItems = [header]
         
         return layoutSection
     }
@@ -188,29 +203,39 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/7), heightDimension: .fractionalHeight(1))
         let itemLayout = NSCollectionLayoutItem(layoutSize: itemSize)
         // Add padding around each item
-        itemLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 3, bottom: 0, trailing: 3)
+        itemLayout.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 2)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1/9))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [itemLayout])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.interGroupSpacing = 5
-        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 15, bottom: 15, trailing: 15)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 25, bottom: 15, trailing: 25)
         
         return layoutSection
     }
     
     // To set section header title
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//        let year = 2024 - indexPath.section
-//
-//        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as? HeaderCollectionReusableView {
-//            sectionHeader.labelTextView.text = String(year)
-//            return sectionHeader
-//        }
-//        return UICollectionReusableView()
-//    }
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "monthTitleCell", for: indexPath) as? InterviewScheduleMonthCollectionReusableView {
+            
+            // set month label
+            var components = DateComponents()
+            components.year = currentYear
+            components.month = currentMonth
+            
+            // create a date object from month and year only
+            if let monthDate = calendar.date(from: components) {
+                dateFormatter.dateFormat = "MMMM YYYY"  // format to full month name and year
+                sectionHeader.MonthLabel.text = dateFormatter.string(from: monthDate)
+            } else {
+                print("Failed to create date from components")
+            }
+            
+            return sectionHeader
+        }
+        return UICollectionReusableView()
+    }
 
 
     // MARK: UICollectionViewDelegate

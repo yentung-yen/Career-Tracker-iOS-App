@@ -26,8 +26,8 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     var calendarStartDayIndex = 0
     
     // to store current year and month to pass over to other screens
-    var currentYear: Int?
-    var currentMonth: Int?
+    var currentYearShown: Int?
+    var currentMonthShown: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,8 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         getCalendarHeader()
         
         // set current year and month
-        currentYear = calendar.component(.year, from: currentDate)
-        currentMonth = calendar.component(.month, from: currentDate)
+        currentYearShown = calendar.component(.year, from: currentDate)
+        currentMonthShown = calendar.component(.month, from: currentDate)
 //        print(currentYear!)
 //        print(currentMonth!)
         
@@ -135,15 +135,18 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CALENDAR_CELL, for: indexPath) as! InterviewScheduleCollectionViewCell
         
         // Configure the cell
-        if indexPath.section == 0 {
+        if indexPath.section == DAY_HEADER_SECTION {
             let day = dayHeaderList[indexPath.item]
             cell.dateLabel.text = day
             
             //TODO: remove
             cell.backgroundColor = UIColor.systemGray3
             
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == DATES_SECTION {
             let date = dates[indexPath.item]
+            
+            //TODO: remove
+            cell.backgroundColor = UIColor.systemGray5
             
             // front of dates list is prefilled with 100 just so we start on the right index when creating the calendar
             // so if the date is 100, just show an empty string on the label
@@ -151,12 +154,29 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
                 cell.dateLabel.text = ""
             } else {
                 cell.dateLabel.text = String(date)
+                
+                // check if this cell represents today's date
+                if isToday(date: date) {
+                    // highlight today's date
+                    cell.backgroundColor = UIColor.systemIndigo
+                    
+                    // Make font bold and change font colour
+                    cell.dateLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+                    cell.dateLabel.textColor = UIColor.white
+                }
             }
-            
-            //TODO: remove
-            cell.backgroundColor = UIColor.systemGray5
         }
         return cell
+    }
+    
+    // function to identify if a cell is today's date
+    func isToday(date: Int) -> Bool {
+        let todayDay = calendar.component(.day, from: currentDate)
+        let todayYear = calendar.component(.year, from: currentDate)
+        let todayMonth = calendar.component(.month, from: currentDate)
+
+        // Only highlight if the year, month, and day match
+        return todayDay == date && todayYear == currentYearShown && todayMonth == currentMonthShown
     }
     
     
@@ -221,8 +241,8 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
             
             // set month label
             var components = DateComponents()
-            components.year = currentYear
-            components.month = currentMonth
+            components.year = currentYearShown
+            components.month = currentMonthShown
             
             // create a date object from month and year only
             if let monthDate = calendar.date(from: components) {

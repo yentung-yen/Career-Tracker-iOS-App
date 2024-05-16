@@ -198,7 +198,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
             if let indexPath = tableView.indexPathForSelectedRow{
                 if let destinationVC = segue.destination as? ViewJournalEntryViewController {
                     destinationVC.currentJournalEntry = filteredJournalEntries[indexPath.row]
-                    print(filteredJournalEntries[indexPath.row])
+//                    print(filteredJournalEntries[indexPath.row])
                 }
             }
         }

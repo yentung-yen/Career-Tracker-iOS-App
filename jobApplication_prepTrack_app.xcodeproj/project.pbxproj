@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB10A0652BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */; };
+		BB10A0672BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */; };
 		BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E32BECF028008C5957 /* QuizTableViewController.swift */; };
 		BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E72BECF855008C5957 /* QuestionData.swift */; };
 		BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+		BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB4767E32BECF028008C5957 /* QuizTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
 		BB4767E72BECF855008C5957 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
@@ -89,12 +93,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB10A0632BF58AAE007A423A /* InterviewSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */,
+				BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */,
+			);
+			path = InterviewSchedule;
+			sourceTree = "<group>";
+		};
 		BB4767E02BECEC7B008C5957 /* InterviewPrep */ = {
 			isa = PBXGroup;
 			children = (
-				BB4767E32BECF028008C5957 /* QuizTableViewController.swift */,
-				BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */,
 				BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */,
+				BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */,
+				BB4767E32BECF028008C5957 /* QuizTableViewController.swift */,
 				BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */,
 			);
 			path = InterviewPrep;
@@ -103,9 +116,9 @@
 		BBA559DA2BE349E90099D458 /* JournalEntry */ = {
 			isa = PBXGroup;
 			children = (
+				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
 				BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */,
 				BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */,
-				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
 				BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */,
 				BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */,
 			);
@@ -136,6 +149,7 @@
 				BBA559DA2BE349E90099D458 /* JournalEntry */,
 				BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */,
 				BB4767E02BECEC7B008C5957 /* InterviewPrep */,
+				BB10A0632BF58AAE007A423A /* InterviewSchedule */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
 				BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */,
@@ -151,10 +165,10 @@
 		BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */,
-				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
-				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
 				BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */,
+				BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */,
+				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
+				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
 				BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */,
 				BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */,
 			);
@@ -269,6 +283,7 @@
 				BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */,
 				BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */,
 				BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */,
+				BB10A0672BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
 				BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
@@ -279,6 +294,7 @@
 				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
 				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
+				BB10A0652BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
 				BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */,
 				BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */,

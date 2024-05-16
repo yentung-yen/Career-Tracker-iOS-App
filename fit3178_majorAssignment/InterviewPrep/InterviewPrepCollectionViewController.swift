@@ -40,10 +40,11 @@ class InterviewPrepCollectionViewController: UICollectionViewController {
             await requestCategoryData()
         }
         
-        // set collection view layout
+        // conform to UICollectionViewDelegate and UICollectionViewDataSource protocols
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        // set collection view layout
         collectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout(section: createTiledLayoutSection()), animated: false)
     }
     

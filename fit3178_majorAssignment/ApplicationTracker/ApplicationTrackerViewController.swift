@@ -232,7 +232,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
             if let indexPath = tableView.indexPathForSelectedRow{
                 if let destinationVC = segue.destination as? ViewApplicationDetailsViewController {
                     destinationVC.currentApplicationDetails = displayApplication[indexPath.row]
-                    print(displayApplication[indexPath.row])
+//                    print(displayApplication[indexPath.row])
                 }
             }
         }

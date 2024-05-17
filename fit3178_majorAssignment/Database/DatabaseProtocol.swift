@@ -19,6 +19,7 @@ enum DatabaseChange {
 enum ListenerType {
     case applicationDetails
     case journalEntry
+    case interviewSchedule
 }
 
 // define the listener
@@ -36,6 +37,8 @@ protocol DatabaseListener: AnyObject {
     
     // method for when a change of journal entry has occurred
     func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry])
+    
+    func onAllInterviewScheduleChange(change: DatabaseChange, interviewScheduleDetail: [InterviewScheduleDetail])
     // ===================================================================
 }
 
@@ -53,4 +56,8 @@ protocol DatabaseProtocol: AnyObject {
     // functionality to add, delete journal entries
     func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: [String], entryDes: String) -> JournalEntry
     func deleteJournalEntry(journalEntry: JournalEntry)
+    
+    // functionality to add, delete interview schedule
+    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail
+    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail)
 }

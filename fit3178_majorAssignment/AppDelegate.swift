@@ -5,16 +5,20 @@
 //  Created by Chin Yen Tung on 1/5/2024.
 //
 
+// TODO: remove commented code to do with core data controller
+
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var databaseController: DatabaseProtocol?
+    var firebaseDatabaseController: DatabaseProtocol?
+//    var coreDataDatabaseController: DatabaseProtocol?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        databaseController = FirebaseController()
+        firebaseDatabaseController = FirebaseController()
+//        coreDataDatabaseController = CoreDataController()
         return true
     }
 

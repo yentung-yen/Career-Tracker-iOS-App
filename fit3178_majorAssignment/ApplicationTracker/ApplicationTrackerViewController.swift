@@ -35,7 +35,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // Do any additional setup after loading the view.
         // code to set the databaseController
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.databaseController
+        databaseController = appDelegate?.firebaseDatabaseController
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -138,6 +138,10 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
     }
     
     func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry]) {
+        // do nothing
+    }
+    
+    func onAllInterviewScheduleChange(change: DatabaseChange, interviewScheduleDetail: [InterviewScheduleDetail]) {
         // do nothing
     }
     

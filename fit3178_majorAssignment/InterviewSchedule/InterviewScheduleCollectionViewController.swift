@@ -51,6 +51,10 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
 //        print(currentYear!)
 //        print(currentMonth!)
         
+        // set last selected cell to default to today's date
+        let todayDay = calendar.component(.day, from: currentDate)
+        lastSelectedCell = [DATES_SECTION, todayDay]
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -116,13 +120,25 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         if segue.identifier == "createInterviewScheduleSegue" {
             if let destinationVC = segue.destination as? AddInterviewViewController {
                 let date = dates[lastSelectedCell!.item]
-                let month = currentMonthShown
-                let year = currentYearShown
                 
                 destinationVC.selectedDate = date
                 destinationVC.selectedMonth = currentMonthShown
                 destinationVC.selectedYear = currentYearShown
                 
+//                print("createInterviewScheduleSegue")
+//                print(date)
+//                print(currentMonthShown!)
+//                print(currentYearShown!)
+            }
+        } else if segue.identifier == "viewDateInterviewScheduleSegue" {
+            if let destinationVC = segue.destination as? ViewSingleDateInterviewScheduleCollectionViewController {
+                let date = dates[lastSelectedCell!.item] 
+                
+                destinationVC.selectedDate = date
+                destinationVC.selectedMonth = currentMonthShown
+                destinationVC.selectedYear = currentYearShown
+                
+//                print("viewDateInterviewScheduleSegue")
 //                print(date)
 //                print(currentMonthShown!)
 //                print(currentYearShown!)
@@ -266,7 +282,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
             // create a date object from month and year only
             if let monthDate = calendar.date(from: components) {
                 dateFormatter.dateFormat = "MMM YYYY"
-                sectionHeader.MonthLabel.text = dateFormatter.string(from: monthDate)
+                sectionHeader.headerLabel.text = dateFormatter.string(from: monthDate)
             } else {
                 print("Failed to create date from components")
             }
@@ -295,7 +311,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
 
         // update last selected index path var
         lastSelectedCell = indexPath
-        print(lastSelectedCell)
+//        print(lastSelectedCell)
     }
 
 

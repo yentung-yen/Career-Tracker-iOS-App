@@ -5,6 +5,8 @@
 //  Created by Chin Yen Tung on 1/5/2024.
 //
 
+// TODO: remove commented code to do with core data controller
+
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -35,7 +37,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.databaseController?.cleanup()
+        appDelegate?.firebaseDatabaseController?.cleanup()
+//        appDelegate?.coreDataDatabaseController?.cleanup()
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {

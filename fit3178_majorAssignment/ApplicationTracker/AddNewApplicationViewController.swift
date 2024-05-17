@@ -25,7 +25,7 @@ class AddNewApplicationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.databaseController
+        databaseController = appDelegate?.firebaseDatabaseController
     }
     
     @IBAction func onAddApplication(_ sender: Any) {

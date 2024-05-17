@@ -20,9 +20,16 @@ class AddInterviewViewController: UIViewController {
     var selectedDate: Int?
     var selectedMonth: Int?
     var selectedYear: Int?
+    
+    weak var databaseController: DatabaseProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // get access to the AppDelegate
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        // store a reference to the coreDataDatabaseController
+        databaseController = appDelegate?.firebaseDatabaseController
         
         // set start date time and notification date time
         var dateComponents = DateComponents()
@@ -37,7 +44,7 @@ class AddInterviewViewController: UIViewController {
         dateComponents.hour = currentTimeComponents.hour
         dateComponents.minute = currentTimeComponents.minute
         dateComponents.second = currentTimeComponents.second
-        
+          
         if let date = calendar.date(from: dateComponents) { // create date object
             startDateTime.date = date  // set date picker to created date
             notifDatePicker.date = date
@@ -55,7 +62,25 @@ class AddInterviewViewController: UIViewController {
     }
     
     @IBAction func onSaveInterview(_ sender: Any) {
+        //TODO: validate date picker
+        // validate the user input
+        guard let title = titleTextField.text else {
+            return
+        }
+        // - ensure title is not empty
+        if title.isEmpty {
+            var errorMsg = "Please ensure these fields are filled:\n"
+            
+            if title.isEmpty {
+                errorMsg += "- Title must be provided\n"
+            }
+            
+            displayMessage(title: "Missing Fields", message: errorMsg)
+            return
+        }
         
+        let _ = databaseController?.addInterviewSchedule(interviewTitle: title, interviewStartDatetime: startDateTime.date, interviewEndDatetime: endDateTime.date, interviewVideoLink: vidLinkTextField.text ?? "", interviewLocation: locationTextField.text ?? "", interviewNotifDatetime: notifDatePicker.date, interviewNotes: notesTextField.text ?? "")
+        navigationController?.popViewController(animated: true)
     }
     
     /*

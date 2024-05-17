@@ -8,6 +8,6 @@
 import UIKit
 
 class InterviewScheduleMonthCollectionReusableView: UICollectionReusableView {
-    @IBOutlet weak var MonthLabel: UILabel!
+    @IBOutlet weak var headerLabel: UILabel!
     
 }

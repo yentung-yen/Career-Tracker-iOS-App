@@ -22,6 +22,14 @@ class AddInterviewViewController: UIViewController {
     var selectedYear: Int?
     
     weak var databaseController: DatabaseProtocol?
+    
+    // ask for app delegate for setting notifications
+    lazy var appDelegate = {
+        guard let appDelegate =  UIApplication.shared.delegate as?  AppDelegate else {
+            fatalError("No AppDelegate")
+        }
+        return appDelegate
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +38,14 @@ class AddInterviewViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         // store a reference to the coreDataDatabaseController
         databaseController = appDelegate?.firebaseDatabaseController
+        
+        // notification set up
+        if let response = UserDefaults.standard.string(forKey: "response") {
+            print("There was a stored response: \(response)")
+        }
+        else {
+            print("No stored response")
+        }
         
         // set start date time and notification date time
         var dateComponents = DateComponents()
@@ -80,7 +96,70 @@ class AddInterviewViewController: UIViewController {
         }
         
         let _ = databaseController?.addInterviewSchedule(interviewTitle: title, interviewStartDatetime: startDateTime.date, interviewEndDatetime: endDateTime.date, interviewVideoLink: vidLinkTextField.text ?? "", interviewLocation: locationTextField.text ?? "", interviewNotifDatetime: notifDatePicker.date, interviewNotes: notesTextField.text ?? "")
+        
+        // schedule local notification
+        scheduleStartDateTimeNotification()
+        scheduleNotifDateTimeNotification()
+        
         navigationController?.popViewController(animated: true)
+    }
+    
+    func scheduleStartDateTimeNotification() {
+        // set a simple notification
+        // check that notifications were enabled
+        guard appDelegate.notificationsEnabled else {
+            print("Notifications not enabled")
+            return
+        }
+        
+        // set notification for interview start date time =================================
+        let content = UNMutableNotificationContent()
+        content.title = "Interview Reminder"
+        content.body = "Your interview starts now."
+        content.sound = UNNotificationSound.default
+
+        let interviewStartDatetime = startDateTime.date
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: interviewStartDatetime)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+
+        // create a request
+        let request = UNNotificationRequest(identifier: AppDelegate.NOTIFICATION_IDENTIFIER, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling (interviewStartDatetime) notification: \(error)")
+            } else {
+                print("interviewStartDatetime Notification scheduled.")
+            }
+        }
+    }
+    
+    func scheduleNotifDateTimeNotification() {
+        // check that notifications were enabled
+        guard appDelegate.notificationsEnabled else {
+            print("Notifications not enabled")
+            return
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Interview Reminder"
+        content.body = "Your interview starts soon."
+        content.sound = UNNotificationSound.default
+
+        let selectedNotifDatetime = notifDatePicker.date
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: selectedNotifDatetime)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+
+        // create a request
+        let request = UNNotificationRequest(identifier: AppDelegate.NOTIFICATION_IDENTIFIER, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling (NotifDatetime) notification: \(error)")
+            } else {
+                print("NotifDatetime Notification scheduled.")
+            }
+        }
     }
     
     /*

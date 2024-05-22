@@ -18,6 +18,7 @@
 		BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */; };
 		BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */; };
 		BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */; };
+		BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */; };
 		BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */; };
 		BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */; };
 		BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */; };
@@ -63,6 +64,7 @@
 		BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMetricViewController.swift; sourceTree = "<group>"; };
 		BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 			path = InterviewPrep;
 			sourceTree = "<group>";
 		};
+		BB9D2CAA2BFCE4F800DAAD8F /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
 		BBA559DA2BE349E90099D458 /* JournalEntry */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 				BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */,
 				BB4767E02BECEC7B008C5957 /* InterviewPrep */,
 				BB10A0632BF58AAE007A423A /* InterviewSchedule */,
+				BB9D2CAA2BFCE4F800DAAD8F /* Metrics */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
 				BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */,
@@ -311,6 +322,7 @@
 				BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */,
 				BB10A0672BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
+				BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */,
 				BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
 				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,

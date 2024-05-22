@@ -123,7 +123,7 @@ class AddInterviewViewController: UIViewController {
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
 
         // create a request
-        let request = UNNotificationRequest(identifier: AppDelegate.NOTIFICATION_IDENTIFIER, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: AppDelegate.INTERVIEW_STARTTIME_NOTIF_IDENTIFIER, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
@@ -151,7 +151,7 @@ class AddInterviewViewController: UIViewController {
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
 
         // create a request
-        let request = UNNotificationRequest(identifier: AppDelegate.NOTIFICATION_IDENTIFIER, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: AppDelegate.INTERVIEW_REMINDER_NOTIF_IDENTIFIER, content: content, trigger: trigger)
 
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {

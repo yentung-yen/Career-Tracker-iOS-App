@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 //    var coreDataDatabaseController: DatabaseProtocol?
     
     var notificationsEnabled = false
-    static let NOTIFICATION_IDENTIFIER = "jobApplicationTrackerPrepApp.fit3178.yentung" // just need to make sure it's unique
+    static let INTERVIEW_STARTTIME_NOTIF_IDENTIFIER = "jobApplicationTrackerPrepApp.interview.starttime" // just need to make sure it's unique
+    static let INTERVIEW_REMINDER_NOTIF_IDENTIFIER = "jobApplicationTrackerPrepApp.interview.reminder"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

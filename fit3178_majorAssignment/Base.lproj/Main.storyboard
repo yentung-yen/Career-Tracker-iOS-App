@@ -114,6 +114,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Journal Entries" id="XeX-EP-CLN">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" image="person.crop.circle" catalog="system" id="bbO-Wm-yCe"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mpc-As-G2G">
                             <connections>
                                 <segue destination="eVx-OT-Jhe" kind="show" identifier="createJournalEntrySegue" id="ti0-Kq-dNz"/>
@@ -350,6 +351,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Application Tracker" id="JdK-4p-sja">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="DSu-8U-0fE"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uE3-Pq-tnZ">
                             <connections>
                                 <segue destination="krR-ih-6jb" kind="show" identifier="createApplicationSegue" id="Zij-bb-1O6"/>
@@ -1125,6 +1127,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Interview Prep" id="yhS-dR-2sG">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="3Zh-WY-oBr"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BZP-tL-8xy"/>
                     </navigationItem>
                 </collectionViewController>
@@ -1228,6 +1231,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Interview Schedule" id="x6g-2r-Ykd">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="SWg-xw-guq"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hcl-js-fbE">
                             <connections>
                                 <segue destination="VsK-B3-9rS" kind="show" identifier="createInterviewScheduleSegue" id="2Ap-O1-Q9c"/>
@@ -1540,23 +1544,25 @@
                             <constraint firstItem="wrg-hZ-3Kz" firstAttribute="trailing" secondItem="Y7W-OV-iLw" secondAttribute="trailing" constant="40" id="mLe-A8-5vs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Metrics" id="EEJ-iF-2OS"/>
+                    <navigationItem key="navigationItem" title="Metrics" id="EEJ-iF-2OS">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" image="line.3.horizontal" catalog="system" id="aRh-vx-Rw1"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7l0-g4-J7u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="97" y="2620"/>
         </scene>
-        <!--Application Data-->
+        <!--Application Metrics-->
         <scene sceneID="v4c-FH-UEP">
             <objects>
-                <viewController id="Up9-VO-7aM" sceneMemberID="viewController">
+                <viewController id="Up9-VO-7aM" customClass="ApplicationMetricViewController" customModule="jobApplication_prepTrack_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uPW-3p-cDQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="4la-vc-TCC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Application Data" id="4MB-S8-Ptl"/>
+                    <navigationItem key="navigationItem" title="Application Metrics" id="4MB-S8-Ptl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgB-Vj-PUV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1798,9 +1804,11 @@
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="clock.fill" width="38.525398254394531" height="38.188499450683594"/>
+        <image name="line.3.horizontal" catalog="system" width="128" height="65"/>
         <image name="map.fill" width="38.876998901367188" height="36.665000915527344"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="88"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="123"/>
         <image name="text.alignleft" catalog="system" width="128" height="99"/>
         <image name="text.justify.leading" width="38.041999816894531" height="32.270500183105469"/>
         <image name="video.fill" width="48.662101745605469" height="30.629899978637695"/>

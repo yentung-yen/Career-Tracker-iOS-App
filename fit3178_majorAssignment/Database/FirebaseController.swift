@@ -21,6 +21,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var applicationRef: CollectionReference?
     var journalEntryRef: CollectionReference?
     var currentUser: FirebaseAuth.User?
+    var successfulSignUp: Bool = false
+    
     var listeners = MulticastDelegate<DatabaseListener>()
     
     var applicationList: [ApplicationDetail]
@@ -90,13 +92,6 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         
         super.init()
         
-        // CoreData stuff =======================================
-        // attempt to fetch all the heroes from the database. If this returns an empty array:
-        if fetchAllInterview().count == 0 {
-            createDefaultInterviews()
-        }
-        // ======================================================
-        
         // clear cache
 //        database.clearPersistence { error in
 //            if let error = error {
@@ -110,25 +105,36 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         
         // in firebase, we need to be authenticated with Firebase to be able to read and/or write to the database
         // we need to ensure that we have signed on, before any attempts to access Firestore
-        Task {
-            do {
-                // using anonymous authentication to sign on
-                // do not need to provide any login credentials
-                // Firebase will create an anonymous token for our device if we do not have one already
-                let authDataResult = try await authController.signInAnonymously()
-                
-                // If no error, set currentUser to the fetched user  information
-                currentUser = authDataResult.user
-            }
-            catch {
-                // if there are any errors, use the fatalError method to stop application from running
-                fatalError("Firebase Authentication Failed with Error\(String(describing:error))")
-            }
-            // call setupHeroListener method to begin setting up the database listeners.
-            self.setupApplicationListener()
-            self.setupJournalEntryListener()
+//        Task {
+//            do {
+//                // using anonymous authentication to sign on
+//                // do not need to provide any login credentials
+//                // Firebase will create an anonymous token for our device if we do not have one already
+//                let authDataResult = try await authController.signInAnonymously()
+//                
+//                // If no error, set currentUser to the fetched user  information
+//                currentUser = authDataResult.user
+//            }
+//            catch {
+//                // if there are any errors, use the fatalError method to stop application from running
+//                fatalError("Firebase Authentication Failed with Error\(String(describing:error))")
+//            }
+//            // call setupListener methods to begin setting up the database listeners.
+//            self.setupApplicationListener()
+//            self.setupJournalEntryListener()
+//        }
+        
+        // CoreData stuff =======================================
+        // attempt to fetch all the heroes from the database. If this returns an empty array:
+        if fetchAllInterview().count == 0 {
+            createDefaultInterviews()
         }
-         
+        // ======================================================
+        
+        // call setupListener methods to begin setting up the database listeners.
+        // fetch application and journal entry data
+        self.setupApplicationListener()
+        self.setupJournalEntryListener()
     }
     
     // CoreData stuff =======================================
@@ -416,4 +422,37 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
     // ======================================================
+    
+    
+    // MARK: - Authentication
+    func createUser(email: String, password: String, completion: @escaping () -> Void) {
+        print("Attempting to create user with email: \(email)")
+        
+        authController.createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Error creating account: \(String(describing: error))")
+            } else {
+                self.successfulSignUp = true
+                print("create account successful")
+            }
+            completion()
+        }
+    }
+    
+    func loginUser(email: String, password: String, completion: @escaping () -> Void) {
+        authController.signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Error signing in: \(String(describing: error))")
+            }
+            completion()
+        }
+    }
+    
+    func signOutUser() {
+        do {
+            try authController.signOut()
+        } catch {
+            print("Error signing out: \(String(describing: error))")
+        }
+    }
 }

@@ -18,6 +18,9 @@
 		BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */; };
 		BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */; };
 		BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */; };
+		BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977B2BFEE5640069F424 /* LogInViewController.swift */; };
+		BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */; };
+		BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977F2BFEFB990069F424 /* ProfileViewController.swift */; };
 		BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */; };
 		BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */; };
 		BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */; };
@@ -64,6 +67,9 @@
 		BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB82977B2BFEE5640069F424 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSignUpViewController.swift; sourceTree = "<group>"; };
+		BB82977F2BFEFB990069F424 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMetricViewController.swift; sourceTree = "<group>"; };
 		BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -135,6 +141,16 @@
 			path = InterviewPrep;
 			sourceTree = "<group>";
 		};
+		BB82977A2BFEE5380069F424 /* LogIn-SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				BB82977B2BFEE5640069F424 /* LogInViewController.swift */,
+				BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */,
+				BB82977F2BFEFB990069F424 /* ProfileViewController.swift */,
+			);
+			path = "LogIn-SignUp";
+			sourceTree = "<group>";
+		};
 		BB9D2CAA2BFCE4F800DAAD8F /* Metrics */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +197,7 @@
 				BB4767E02BECEC7B008C5957 /* InterviewPrep */,
 				BB10A0632BF58AAE007A423A /* InterviewSchedule */,
 				BB9D2CAA2BFCE4F800DAAD8F /* Metrics */,
+				BB82977A2BFEE5380069F424 /* LogIn-SignUp */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
 				BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */,
@@ -328,6 +345,7 @@
 				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
 				BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */,
+				BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BB10A0692BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift in Sources */,
 				BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */,
@@ -345,6 +363,8 @@
 				BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
 				BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */,
+				BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */,
+				BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */,
 				BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */,
 				BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */,
 			);

@@ -17,6 +17,9 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
     var allInterviewScheduleFetchedResultsController: NSFetchedResultsController<InterviewScheduleDetail>?
     
+    // TODO: delete?
+    var successfulSignUp: Bool = false
+    
     // fetchAllApplications method:
     // used to query Core Data to retrieve all application entities stored within persistent memory
     func fetchAllInterview() -> [InterviewScheduleDetail] {
@@ -138,6 +141,26 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     func deleteJournalEntry(journalEntry: JournalEntry) {
+        // do nothing
+    }
+    
+    func createUser(email: String, password: String, completion: @escaping () -> Void) {
+        // do nothing
+    }
+    
+    func loginUser(email: String, password: String, completion: @escaping () -> Void) {
+        // do nothing
+    }
+    
+    func signOutUser() {
+        // do nothing
+    }
+    
+    func setupApplicationListener() {
+        // do nothing
+    }
+    
+    func setupJournalEntryListener() {
         // do nothing
     }
     

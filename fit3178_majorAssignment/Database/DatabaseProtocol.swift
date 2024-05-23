@@ -60,4 +60,13 @@ protocol DatabaseProtocol: AnyObject {
     // functionality to add, delete interview schedule
     func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail
     func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail)
+    
+    // authentication functions
+    var successfulSignUp: Bool {get set}    // variable to tell us if a sign up was successful or not
+    func createUser(email: String, password: String, completion: @escaping () -> Void)
+    func loginUser(email: String, password: String, completion: @escaping () -> Void)
+    func signOutUser()
+    
+    func setupApplicationListener()
+    func setupJournalEntryListener()
 }

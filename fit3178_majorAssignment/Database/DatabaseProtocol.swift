@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 // used to define what type of change has been done to the database
 enum DatabaseChange {
@@ -63,8 +64,8 @@ protocol DatabaseProtocol: AnyObject {
     
     // authentication functions
     var successfulSignUp: Bool {get set}    // variable to tell us if a sign up was successful or not
-    func createUser(email: String, password: String, completion: @escaping () -> Void)
-    func loginUser(email: String, password: String, completion: @escaping () -> Void)
+    func createUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void)
+    func loginUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void)
     func signOutUser()
     
     func setupApplicationListener()

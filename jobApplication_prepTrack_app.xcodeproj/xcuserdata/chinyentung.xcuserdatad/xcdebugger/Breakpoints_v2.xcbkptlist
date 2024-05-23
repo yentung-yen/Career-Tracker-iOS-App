@@ -142,8 +142,8 @@
             filePath = "fit3178_majorAssignment/LogIn-SignUp/RegisterSignUpViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "onRegisterSignUp(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,10 +174,10 @@
             filePath = "fit3178_majorAssignment/Database/FirebaseController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "440"
-            endingLineNumber = "440"
-            landmarkName = "FirebaseController"
-            landmarkType = "3">
+            startingLineNumber = "441"
+            endingLineNumber = "441"
+            landmarkName = "createUser(email:password:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

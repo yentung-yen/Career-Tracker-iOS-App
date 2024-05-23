@@ -21,6 +21,7 @@
 		BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977B2BFEE5640069F424 /* LogInViewController.swift */; };
 		BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */; };
 		BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977F2BFEFB990069F424 /* ProfileViewController.swift */; };
+		BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8297812BFF1C540069F424 /* ForgotPasswordViewController.swift */; };
 		BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */; };
 		BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */; };
 		BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */; };
@@ -70,6 +71,7 @@
 		BB82977B2BFEE5640069F424 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSignUpViewController.swift; sourceTree = "<group>"; };
 		BB82977F2BFEFB990069F424 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BB8297812BFF1C540069F424 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMetricViewController.swift; sourceTree = "<group>"; };
 		BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				BB82977B2BFEE5640069F424 /* LogInViewController.swift */,
 				BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */,
 				BB82977F2BFEFB990069F424 /* ProfileViewController.swift */,
+				BB8297812BFF1C540069F424 /* ForgotPasswordViewController.swift */,
 			);
 			path = "LogIn-SignUp";
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
 				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
+				BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */,
 				BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */,
 				BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,

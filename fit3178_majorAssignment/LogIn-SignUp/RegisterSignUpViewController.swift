@@ -30,15 +30,16 @@ class RegisterSignUpViewController: UIViewController {
         print("register is \(valid)")
         
         if (valid){
-            databaseController?.createUser(email: emailTextField.text!, password: passwordTextField.text!){
-                if self.databaseController!.successfulSignUp {  // if true (ie new user was created successfully)
+            databaseController?.createUser(email: emailTextField.text!, password: passwordTextField.text!){ authResult, error in
+                if let error = error {
+                    self.displayMessage(title: "Error", message: error.localizedDescription)
+                    
+                } else if self.databaseController!.successfulSignUp {  // if true (ie new user was created successfully)
                     // reset successfulSignUp switch to false so that future users can still register on this device
                     self.databaseController!.successfulSignUp = false
                     
                     // go back to login screen
                     self.performSegue(withIdentifier: "registerToSignInSegue", sender: self)
-                } else {
-                    self.displayMessage(title: "Error", message: "Sign Up Error")
                 }
             }
         }

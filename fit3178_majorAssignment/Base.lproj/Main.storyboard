@@ -51,6 +51,9 @@
                                 <rect key="frame" x="203" y="431" width="160" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Forgot password?"/>
+                                <connections>
+                                    <segue destination="Jq4-yT-Rc4" kind="presentation" identifier="forgotPasswordSegue" id="JHi-ca-Ei0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkF-Yd-czN">
                                 <rect key="frame" x="40" y="473" width="313" height="35"/>
@@ -251,7 +254,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qyB-oc-JkV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2553" y="1018"/>
+            <point key="canvasLocation" x="-3007" y="972"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="eVB-Gd-iWh">
+            <objects>
+                <viewController id="Jq4-yT-Rc4" customClass="ForgotPasswordViewController" customModule="jobApplication_prepTrack_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F5J-sP-VEp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UI-QY-vN6">
+                                <rect key="frame" x="40" y="50" width="313" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMj-vB-PIa">
+                                <rect key="frame" x="40" y="137" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dgr-67-qPe">
+                                <rect key="frame" x="40" y="165" width="313" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSJ-hI-cr6">
+                                <rect key="frame" x="40" y="219" width="313" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reset Password"/>
+                                <connections>
+                                    <action selector="onResetPassword:" destination="Jq4-yT-Rc4" eventType="touchUpInside" id="5yE-p6-22p"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter email to reset password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzC-VE-Jra">
+                                <rect key="frame" x="40" y="86" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AaH-XX-gnF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YzC-VE-Jra" firstAttribute="leading" secondItem="AaH-XX-gnF" secondAttribute="leading" constant="40" id="8yv-F0-ZBG"/>
+                            <constraint firstItem="AaH-XX-gnF" firstAttribute="trailing" secondItem="dgr-67-qPe" secondAttribute="trailing" constant="40" id="AO3-Ur-SMq"/>
+                            <constraint firstItem="2UI-QY-vN6" firstAttribute="leading" secondItem="AaH-XX-gnF" secondAttribute="leading" constant="40" id="BMl-74-owg"/>
+                            <constraint firstItem="oMj-vB-PIa" firstAttribute="leading" secondItem="AaH-XX-gnF" secondAttribute="leading" constant="40" id="JXB-zC-Yc4"/>
+                            <constraint firstItem="AaH-XX-gnF" firstAttribute="trailing" secondItem="hSJ-hI-cr6" secondAttribute="trailing" constant="40" id="KSM-5T-haf"/>
+                            <constraint firstItem="hSJ-hI-cr6" firstAttribute="top" secondItem="dgr-67-qPe" secondAttribute="bottom" constant="20" id="NlG-Ll-DiM"/>
+                            <constraint firstItem="AaH-XX-gnF" firstAttribute="trailing" secondItem="2UI-QY-vN6" secondAttribute="trailing" constant="40" id="OjP-hY-h0M"/>
+                            <constraint firstItem="AaH-XX-gnF" firstAttribute="trailing" secondItem="YzC-VE-Jra" secondAttribute="trailing" constant="40" id="baU-Jg-LJY"/>
+                            <constraint firstItem="dgr-67-qPe" firstAttribute="top" secondItem="oMj-vB-PIa" secondAttribute="bottom" constant="7" id="dK5-ch-dGh"/>
+                            <constraint firstItem="YzC-VE-Jra" firstAttribute="top" secondItem="2UI-QY-vN6" secondAttribute="bottom" constant="7" id="etF-gm-gz7"/>
+                            <constraint firstItem="hSJ-hI-cr6" firstAttribute="leading" secondItem="AaH-XX-gnF" secondAttribute="leading" constant="40" id="fij-m5-iOi"/>
+                            <constraint firstItem="dgr-67-qPe" firstAttribute="leading" secondItem="AaH-XX-gnF" secondAttribute="leading" constant="40" id="ftE-rM-FnK"/>
+                            <constraint firstItem="2UI-QY-vN6" firstAttribute="top" secondItem="AaH-XX-gnF" secondAttribute="top" constant="50" id="guX-ab-We1"/>
+                            <constraint firstItem="AaH-XX-gnF" firstAttribute="trailing" secondItem="oMj-vB-PIa" secondAttribute="trailing" constant="40" id="t8S-u0-kqI"/>
+                            <constraint firstItem="oMj-vB-PIa" firstAttribute="top" secondItem="YzC-VE-Jra" secondAttribute="bottom" constant="30" id="xQR-ld-bA7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="md3-LZ-FO6"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="dgr-67-qPe" id="bqQ-PJ-AHB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zX-od-OGp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2208" y="980"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="lFt-tu-7SP">
@@ -479,7 +551,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cyQ-ZX-MVf">
-                                <rect key="frame" x="30" y="86.333333333333329" width="333" height="34.000000000000014"/>
+                                <rect key="frame" x="30" y="86.333333333333329" width="333" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -628,14 +700,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="totalCell" id="eS8-fv-jdb" customClass="ApplicationCountTableViewCell" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="99" width="333" height="37.333332061767578"/>
+                                        <rect key="frame" x="20" y="99" width="333" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eS8-fv-jdb" id="HHK-tk-CZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-SZ-AmM">
-                                                    <rect key="frame" x="20" y="11" width="293" height="15.333333333333336"/>
+                                                    <rect key="frame" x="20" y="11" width="293" height="15"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -748,7 +820,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZq-bG-1xl">
-                                <rect key="frame" x="30" y="83.333333333333329" width="333" height="34.000000000000014"/>
+                                <rect key="frame" x="30" y="83.333333333333329" width="333" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -1904,7 +1976,7 @@
             </objects>
             <point key="canvasLocation" x="97" y="3009"/>
         </scene>
-        <!--Journal Data-->
+        <!--Journal Entry Metrics-->
         <scene sceneID="Efb-d6-QJX">
             <objects>
                 <viewController id="ggV-bC-m9z" sceneMemberID="viewController">
@@ -1914,13 +1986,13 @@
                         <viewLayoutGuide key="safeArea" id="pii-Lq-hcI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Journal Data" id="Dau-Pz-ZeP"/>
+                    <navigationItem key="navigationItem" title="Journal Entry Metrics" id="Dau-Pz-ZeP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MvH-cr-HKz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="891" y="2275"/>
         </scene>
-        <!--Interview Data-->
+        <!--Interview Metrics-->
         <scene sceneID="jI1-a9-ckL">
             <objects>
                 <viewController id="xlY-jb-U05" sceneMemberID="viewController">
@@ -1930,7 +2002,7 @@
                         <viewLayoutGuide key="safeArea" id="kDd-jk-YFK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Interview Data" id="VDq-Bu-jZu"/>
+                    <navigationItem key="navigationItem" title="Interview Metrics" id="VDq-Bu-jZu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9b-YO-RMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2064,7 +2136,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hwr-jx-z1w">
-                                <rect key="frame" x="30" y="86.333333333333329" width="333" height="34.000000000000014"/>
+                                <rect key="frame" x="30" y="86.333333333333329" width="333" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -2154,7 +2226,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="2rC-yJ-26S"/>
-        <segue reference="dDc-06-Ww4"/>
+        <segue reference="Ibb-KV-UTJ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bell.fill" width="35.698200225830078" height="39.213901519775391"/>

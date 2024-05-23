@@ -11,6 +11,7 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
 
 class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate {
     var listeners = MulticastDelegate<DatabaseListener>()
@@ -144,11 +145,11 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // do nothing
     }
     
-    func createUser(email: String, password: String, completion: @escaping () -> Void) {
+    func createUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
         // do nothing
     }
     
-    func loginUser(email: String, password: String, completion: @escaping () -> Void) {
+    func loginUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
         // do nothing
     }
     

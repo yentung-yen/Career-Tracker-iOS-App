@@ -36,13 +36,14 @@ class LogInViewController: UIViewController {
         valid = validateLoginSignUp()
         
         if (valid){
-            databaseController?.loginUser(email: emailTextField.text!, password: passwordTextField.text!){
-                if self.authController?.currentUser == nil {
-                    // unsuccessful login
-                    self.displayMessage(title: "Login Error", message: "Wrong email or password")
+            databaseController?.loginUser(email: emailTextField.text!, password: passwordTextField.text!){ authResult, error in
+                if let error = error {
+                    if self.authController?.currentUser == nil {
+                        // unsuccessful login
+                        self.displayMessage(title: "Login Error", message: "Wrong email or password.")
+                    }
                 } else {
                     print("Login Successful")
-                    
                 }
             }
         }

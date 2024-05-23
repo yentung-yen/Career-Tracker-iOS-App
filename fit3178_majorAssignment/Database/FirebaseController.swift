@@ -425,26 +425,30 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     
     
     // MARK: - Authentication
-    func createUser(email: String, password: String, completion: @escaping () -> Void) {
+    func createUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
         print("Attempting to create user with email: \(email)")
         
         authController.createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error creating account: \(String(describing: error))")
+                completion(nil, error)
             } else {
                 self.successfulSignUp = true
                 print("create account successful")
+                completion(authResult, nil)
             }
-            completion()
         }
     }
     
-    func loginUser(email: String, password: String, completion: @escaping () -> Void) {
+    func loginUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
         authController.signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 print("Error signing in: \(String(describing: error))")
+                completion(nil, error)
+            } else {
+                print("login user successful")
+                completion(authResult, nil)
             }
-            completion()
         }
     }
     

@@ -26,6 +26,14 @@ class ProfileViewController: UIViewController {
         
         // access authController
         authController = Auth.auth()
+        
+        // setup initial views to show user email
+        // (https://stackoverflow.com/questions/51346492/ios-firauth-is-there-any-way-to-get-user-email-from-user-uid)
+        let user = authController?.currentUser
+        
+        if let user = user {
+            emailLabel.text = user.email
+        }
     }
     
     @IBAction func onSignOut(_ sender: Any) {

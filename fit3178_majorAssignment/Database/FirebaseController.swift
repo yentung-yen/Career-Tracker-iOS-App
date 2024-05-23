@@ -16,17 +16,20 @@ import FirebaseFirestoreSwift
 import CoreData
 
 class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate {
-    var authController: Auth
+    var listeners = MulticastDelegate<DatabaseListener>()
+    
     var database: Firestore
+    var userRef: CollectionReference?
     var applicationRef: CollectionReference?
     var journalEntryRef: CollectionReference?
-    var currentUser: FirebaseAuth.User?
-    var successfulSignUp: Bool = false
-    
-    var listeners = MulticastDelegate<DatabaseListener>()
     
     var applicationList: [ApplicationDetail]
     var journalEntryList: [JournalEntry]
+    
+    var authController: Auth
+    var currentUser: FirebaseAuth.User?
+    var successfulSignUp: Bool = false
+    var currentUserUID: String?
     
     // CoreData stuff =======================================
     var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
@@ -458,5 +461,9 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         } catch {
             print("Error signing out: \(String(describing: error))")
         }
+    }
+    
+    func activeUserExist() -> Bool {
+        return authController.currentUser != nil
     }
 }

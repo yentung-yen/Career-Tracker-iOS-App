@@ -19,7 +19,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var listeners = MulticastDelegate<DatabaseListener>()
     
     var database: Firestore
-    var userRef: CollectionReference?
+    var userRef: DocumentReference?
     var applicationRef: CollectionReference?
     var journalEntryRef: CollectionReference?
     
@@ -134,10 +134,11 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
         // ======================================================
         
-        // call setupListener methods to begin setting up the database listeners.
-        // fetch application and journal entry data
-        self.setupApplicationListener()
-        self.setupJournalEntryListener()
+        // setup & initialise firebase
+        currentUser = authController.currentUser
+        currentUserUID = currentUser?.uid
+        print(currentUserUID)
+        initializeFirebaseDatabase()
     }
     
     // CoreData stuff =======================================
@@ -197,11 +198,11 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         application.notes = notes
         
         do {
-            if let applicationRef = try applicationRef?.addDocument(from: application) {
-                // Adding a document to Firestore returns a Database Reference to that specific object if successful.
-                // use this reference to get the documentID - we use this to refer to documents in FIrestore
-                application.id = applicationRef.documentID
-            }
+            let newApplicationDoc = try applicationRef?.addDocument(from: application)
+            // Adding a document to Firestore returns a Database Reference to that specific object if successful.
+            // use this reference to get the documentID - we use this to refer to documents in FIrestore
+            application.id = newApplicationDoc?.documentID
+            
         } catch {
             print("Failed to add application")
         }
@@ -226,11 +227,11 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         entry.entryDes = entryDes
         
         do {
-            if let journalEntryRef = try journalEntryRef?.addDocument(from: entry) {
-                // Adding a document to Firestore returns a Database Reference to that specific object if successful.
-                // use this reference to get the documentID - we use this to refer to documents in FIrestore
-                entry.id = journalEntryRef.documentID
-            }
+            let newJournalEntryDoc = try journalEntryRef?.addDocument(from: entry)
+            // Adding a document to Firestore returns a Database Reference to that specific object if successful.
+            // use this reference to get the documentID - we use this to refer to documents in FIrestore
+            entry.id = newJournalEntryDoc?.documentID
+            
         } catch {
             print("Failed to add journal entry")
         }
@@ -245,6 +246,21 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             journalEntryRef?.document(entryID).delete()
         }
     }
+    
+//    func addUser(name: String) -> User {
+//        let user = User()
+//        
+//        user.name = name
+//        
+//        do {
+//            let newUserDoc = try database.collection("users").addDocument(from: user)
+//            user.id = currentUserUID
+//        } catch {
+//            print("Failed to add user to database")
+//        }
+//        
+//        return user
+//    }
     
     // CoreData stuff =======================================
     func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail {
@@ -274,9 +290,6 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     
     // called once we have received an authentication result from Firebase.
     func setupApplicationListener(){
-        // get Firestore reference to the applicationDetail collection
-        applicationRef = database.collection("applicationDetail")
-        
         // set up a snapshotListener to listen for ALL changes on applicationDetail collection
         applicationRef?.addSnapshotListener() { (querySnapshot, error) in
             // closure to be called whenever a change occurs
@@ -293,9 +306,6 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     func setupJournalEntryListener(){
-        // get Firestore reference to the journalEntry collection
-        journalEntryRef = database.collection("journalEntry")
-        
         // set up a snapshotListener to listen for ALL changes on journalEntry collection
         journalEntryRef?.addSnapshotListener() { (querySnapshot, error) in
             // closure to be called whenever a change occurs
@@ -436,8 +446,20 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
                 print("Error creating account: \(String(describing: error))")
                 completion(nil, error)
             } else {
-                self.successfulSignUp = true
                 print("create account successful")
+                self.successfulSignUp = true
+                
+                // login straightaway
+                let _ = self.loginUser(email: email, password: password){ authResult, error in
+                    if let error = error {
+                        if self.authController.currentUser == nil {
+                            // unsuccessful login
+                            print("Login Error")
+                        }
+                    } else {
+                        print("Login Successful")
+                    }
+                }
                 completion(authResult, nil)
             }
         }
@@ -450,6 +472,9 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
                 completion(nil, error)
             } else {
                 print("login user successful")
+                self.currentUser = authResult?.user
+                self.currentUserUID = self.currentUser?.uid
+                self.initializeFirebaseDatabase()
                 completion(authResult, nil)
             }
         }
@@ -458,8 +483,32 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     func signOutUser() {
         do {
             try authController.signOut()
+            
+            // reset params
+            currentUser = nil
+            currentUserUID = nil
+            applicationRef = nil
+            journalEntryRef = nil
+            userRef = nil
+            applicationList = [ApplicationDetail]()
+            journalEntryList = [JournalEntry]()
         } catch {
             print("Error signing out: \(String(describing: error))")
+        }
+    }
+    
+    func initializeFirebaseDatabase() {
+        if let uid = currentUserUID {
+//            print(currentUserUID)
+            
+            userRef = database.collection("users").document(uid)
+            applicationRef = userRef?.collection("applicationDetail")
+            journalEntryRef = userRef?.collection("journalEntry")
+            
+            // call setupListener methods to begin setting up the database listeners.
+            // fetch application and journal entry data
+            setupApplicationListener()
+            setupJournalEntryListener()
         }
     }
     

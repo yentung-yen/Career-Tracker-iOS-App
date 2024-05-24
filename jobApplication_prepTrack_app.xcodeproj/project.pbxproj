@@ -50,6 +50,7 @@
 		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
 		BBF5832A2BF628B00049DC50 /* AddInterviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */; };
+		BBF679292C001DFB000F36E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF679282C001DFB000F36E5 /* User.swift */; };
 		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
 		BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */; };
 		BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */; };
@@ -99,6 +100,7 @@
 		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
 		BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterviewViewController.swift; sourceTree = "<group>"; };
+		BBF679282C001DFB000F36E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicationDetailsViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				BB53C7652BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift */,
 				BB53C7662BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift */,
+				BBF679282C001DFB000F36E5 /* User.swift */,
 				BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */,
 				BBB99FDE2BE3B336009F602D /* JournalEntry.swift */,
 				BB4767E72BECF855008C5957 /* QuestionData.swift */,
@@ -349,6 +352,7 @@
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
 				BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */,
 				BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */,
+				BBF679292C001DFB000F36E5 /* User.swift in Sources */,
 				BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BB10A0692BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift in Sources */,

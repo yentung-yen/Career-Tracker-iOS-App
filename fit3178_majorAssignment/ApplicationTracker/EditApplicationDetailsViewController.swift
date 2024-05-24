@@ -7,12 +7,16 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class EditApplicationDetailsViewController: UIViewController {
     var currentApplicationDetails: ApplicationDetail?
     var jobMode: Int32?
     var applicationStatus: Int32?
-    var db: Firestore!  // need to force unwrap because db needs to be initialised
+    
+    // initialise firestore database and authentication
+    var db: Firestore = Firestore.firestore()
+    var authController: Auth = Auth.auth()
     
     @IBOutlet weak var jobTitleTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -25,8 +29,6 @@ class EditApplicationDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        db = Firestore.firestore()
         
         jobTitleTextField.text = currentApplicationDetails?.jobTitle
         companyTextField.text = currentApplicationDetails?.company
@@ -81,8 +83,13 @@ class EditApplicationDetailsViewController: UIViewController {
         // get id of current job application in firebase
         let documentId = currentApplicationDetails?.id
         
+        // get database of current user
+        let currentUserUID = authController.currentUser?.uid
+        print(currentUserUID!)
+        let userDb = db.collection("users").document(currentUserUID!)
+        
         // get updated data from UI, edit the document in firebase, and save it
-        db.collection("applicationDetail").document(documentId!).updateData([
+        userDb.collection("applicationDetail").document(documentId!).updateData([
             "applicationStatus": Int(applicationStatusSegment.selectedSegmentIndex),
             "company": company,
             "jobLocation": jobLocation,

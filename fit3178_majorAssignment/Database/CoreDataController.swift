@@ -165,6 +165,17 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // do nothing
     }
     
+    func activeUserExist() -> Bool {
+        // do nothing
+        return false
+    }
+    
+//    func addUser(name: String) -> User {
+//        // do nothing
+//        return User()
+//    }
+    
+    
     // addListener method:
     func addListener(listener: DatabaseListener) {
         // adds the new database listener to the list of listeners.

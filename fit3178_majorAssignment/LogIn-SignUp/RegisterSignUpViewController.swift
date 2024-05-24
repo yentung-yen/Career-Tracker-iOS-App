@@ -12,6 +12,7 @@ class RegisterSignUpViewController: UIViewController {
     weak var databaseController: DatabaseProtocol?
     var valid: Bool = false
 
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -30,13 +31,16 @@ class RegisterSignUpViewController: UIViewController {
         print("register is \(valid)")
         
         if (valid){
-            databaseController?.createUser(email: emailTextField.text!, password: passwordTextField.text!){ authResult, error in
+            databaseController?.createUser(email: emailTextField.text!, password: passwordTextField.text!){ [self] authResult, error in
                 if let error = error {
                     self.displayMessage(title: "Error", message: error.localizedDescription)
                     
                 } else if self.databaseController!.successfulSignUp {  // if true (ie new user was created successfully)
                     // reset successfulSignUp switch to false so that future users can still register on this device
                     self.databaseController!.successfulSignUp = false
+                    
+                    // add user to database
+//                    let _ = self.databaseController?.addUser(name: nameTextField.text!)
                     
                     // go back to login screen
                     self.performSegue(withIdentifier: "registerToSignInSegue", sender: self)
@@ -77,11 +81,12 @@ class RegisterSignUpViewController: UIViewController {
         print("validate fields func")
         
         // ensure the user does not leave either field blank
+        let name = nameTextField.text
         let email = emailTextField.text
         let pass = passwordTextField.text
         let confirmPass = confirmPasswordTextField.text
         
-        if pass == "" || email == "" || confirmPass == "" {
+        if name == "" || pass == "" || email == "" || confirmPass == "" {
             displayMessage(title: "Invalid Entry", message: "Please fill up all fields.")
             return false
         } else if pass!.count < 6 {

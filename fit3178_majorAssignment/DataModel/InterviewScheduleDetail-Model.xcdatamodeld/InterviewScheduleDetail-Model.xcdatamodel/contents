@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23E224" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="InterviewScheduleDetail" representedClassName="InterviewScheduleDetail" syncable="YES">
+        <attribute name="interviewEndDatetime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="interviewLocation" optional="YES" attributeType="String"/>
+        <attribute name="interviewNotes" optional="YES" attributeType="String"/>
+        <attribute name="interviewNotifDatetime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="interviewStartDatetime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="interviewTitle" optional="YES" attributeType="String"/>
+        <attribute name="interviewVideoLink" optional="YES" attributeType="String"/>
+    </entity>
+</model>

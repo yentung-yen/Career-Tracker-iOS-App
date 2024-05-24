@@ -5,6 +5,7 @@
 //  Created by Chin Yen Tung on 2/5/2024.
 //
 
+// TODO: rmb to delete (?) - maybe not needed
 import Foundation
 
 // to create a delegate, we use the "protocol" keyword

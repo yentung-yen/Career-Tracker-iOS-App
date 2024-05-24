@@ -7,8 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB10A0652BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */; };
+		BB10A0672BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */; };
+		BB10A0692BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB10A0682BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift */; };
 		BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E32BECF028008C5957 /* QuizTableViewController.swift */; };
 		BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB4767E72BECF855008C5957 /* QuestionData.swift */; };
+		BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7622BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld */; };
+		BB53C7672BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7652BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift */; };
+		BB53C7682BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7662BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift */; };
+		BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */; };
+		BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */; };
+		BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */; };
+		BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977B2BFEE5640069F424 /* LogInViewController.swift */; };
+		BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */; };
+		BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977F2BFEFB990069F424 /* ProfileViewController.swift */; };
+		BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8297812BFF1C540069F424 /* ForgotPasswordViewController.swift */; };
+		BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */; };
 		BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */; };
 		BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */; };
 		BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */; };
@@ -35,6 +49,8 @@
 		BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */; };
 		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
+		BBF5832A2BF628B00049DC50 /* AddInterviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */; };
+		BBF679292C001DFB000F36E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF679282C001DFB000F36E5 /* User.swift */; };
 		BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */; };
 		BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */; };
 		BBFD17AF2BE2A0D400A33FED /* ViewApplicationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */; };
@@ -42,8 +58,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+		BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB10A0682BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewScheduleMonthCollectionReusableView.swift; sourceTree = "<group>"; };
 		BB4767E32BECF028008C5957 /* QuizTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewController.swift; sourceTree = "<group>"; };
 		BB4767E72BECF855008C5957 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		BB53C7632BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "InterviewScheduleDetail-Model.xcdatamodel"; sourceTree = "<group>"; };
+		BB53C7652BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterviewScheduleDetail+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		BB53C7662BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterviewScheduleDetail+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
+		BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB82977B2BFEE5640069F424 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSignUpViewController.swift; sourceTree = "<group>"; };
+		BB82977F2BFEFB990069F424 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BB8297812BFF1C540069F424 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMetricViewController.swift; sourceTree = "<group>"; };
 		BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
 		BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewPrepCollectionViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +99,8 @@
 		BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCountTableViewCell.swift; sourceTree = "<group>"; };
 		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
+		BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterviewViewController.swift; sourceTree = "<group>"; };
+		BBF679282C001DFB000F36E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewApplicationDetailsViewController.swift; sourceTree = "<group>"; };
@@ -89,23 +121,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB10A0632BF58AAE007A423A /* InterviewSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */,
+				BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */,
+				BB10A0682BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift */,
+				BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */,
+				BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */,
+				BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */,
+			);
+			path = InterviewSchedule;
+			sourceTree = "<group>";
+		};
 		BB4767E02BECEC7B008C5957 /* InterviewPrep */ = {
 			isa = PBXGroup;
 			children = (
-				BB4767E32BECF028008C5957 /* QuizTableViewController.swift */,
-				BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */,
 				BBA54C0C2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift */,
+				BBA54C0A2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift */,
+				BB4767E32BECF028008C5957 /* QuizTableViewController.swift */,
 				BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */,
 			);
 			path = InterviewPrep;
 			sourceTree = "<group>";
 		};
+		BB82977A2BFEE5380069F424 /* LogIn-SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				BB82977B2BFEE5640069F424 /* LogInViewController.swift */,
+				BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */,
+				BB82977F2BFEFB990069F424 /* ProfileViewController.swift */,
+				BB8297812BFF1C540069F424 /* ForgotPasswordViewController.swift */,
+			);
+			path = "LogIn-SignUp";
+			sourceTree = "<group>";
+		};
+		BB9D2CAA2BFCE4F800DAAD8F /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				BB9D2CAB2BFCE53000DAAD8F /* ApplicationMetricViewController.swift */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
 		BBA559DA2BE349E90099D458 /* JournalEntry */ = {
 			isa = PBXGroup;
 			children = (
+				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
 				BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */,
 				BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */,
-				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
 				BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */,
 				BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */,
 			);
@@ -136,6 +200,9 @@
 				BBA559DA2BE349E90099D458 /* JournalEntry */,
 				BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */,
 				BB4767E02BECEC7B008C5957 /* InterviewPrep */,
+				BB10A0632BF58AAE007A423A /* InterviewSchedule */,
+				BB9D2CAA2BFCE4F800DAAD8F /* Metrics */,
+				BB82977A2BFEE5380069F424 /* LogIn-SignUp */,
 				BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */,
 				BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */,
 				BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */,
@@ -151,10 +218,10 @@
 		BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */,
-				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
-				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
 				BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */,
+				BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */,
+				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
+				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
 				BBFD17AE2BE2A0D300A33FED /* ViewApplicationDetailsViewController.swift */,
 				BBFD17B02BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift */,
 			);
@@ -164,10 +231,14 @@
 		BBFD179F2BE2780800A33FED /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				BB53C7652BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift */,
+				BB53C7662BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift */,
+				BBF679282C001DFB000F36E5 /* User.swift */,
 				BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */,
 				BBB99FDE2BE3B336009F602D /* JournalEntry.swift */,
 				BB4767E72BECF855008C5957 /* QuestionData.swift */,
 				BBA54C082BED1E7B00C03C97 /* QuizCategory.swift */,
+				BB53C7622BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -178,6 +249,7 @@
 				BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */,
 				BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */,
 				BBB99FE02BE3B452009F602D /* FirebaseController.swift */,
+				BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -268,23 +340,39 @@
 				BBFD17B12BE2B7FC00A33FED /* EditApplicationDetailsViewController.swift in Sources */,
 				BBA54C0B2BED3B9700C03C97 /* InterviewPrepCollectionViewCell.swift in Sources */,
 				BB4767E82BECF855008C5957 /* QuestionData.swift in Sources */,
+				BBF5832A2BF628B00049DC50 /* AddInterviewViewController.swift in Sources */,
+				BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */,
 				BBA54C0D2BED402C00C03C97 /* InterviewPrepCollectionViewController.swift in Sources */,
+				BB10A0672BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift in Sources */,
 				BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */,
+				BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */,
 				BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
 				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
+				BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */,
 				BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */,
+				BBF679292C001DFB000F36E5 /* User.swift in Sources */,
+				BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
+				BB10A0692BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift in Sources */,
+				BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */,
+				BB53C7672BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift in Sources */,
+				BB53C7682BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift in Sources */,
+				BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */,
 				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
 				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
+				BB10A0652BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
 				BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */,
 				BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */,
 				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
 				BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
+				BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */,
+				BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */,
+				BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */,
 				BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */,
 				BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */,
 			);
@@ -538,6 +626,20 @@
 			productName = FirebaseFirestoreSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BB53C7622BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB53C7632BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodel */,
+			);
+			currentVersion = BB53C7632BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodel */;
+			name = "InterviewScheduleDetail-Model.xcdatamodeld";
+			path = "/Users/chinyentung/Library/CloudStorage/OneDrive-MonashUniversity/6. Y3S1/FIT3178 - iOS app development/FIT3178_Assessments/fit3178_majorAssignment/job-application-tracker-ios-app/fit3178_majorAssignment/DataModel/InterviewScheduleDetail-Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BBC70AB02BE14B89003D2052 /* Project object */;
 }

@@ -22,7 +22,7 @@ class CreateJournalEntryViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as? AppDelegate // get access to the AppDelegate
-        databaseController = appDelegate?.databaseController    // store a reference to the databaseController
+        databaseController = appDelegate?.firebaseDatabaseController    // store a reference to the databaseController
     }
     
     @IBAction func onAddEntryClick(_ sender: Any) {

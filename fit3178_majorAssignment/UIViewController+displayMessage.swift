@@ -9,7 +9,8 @@ import UIKit
 
 extension UIViewController {
     
-    //    display message method
+    // display message method with handler
+    // params: title, message, completion
     func displayMessage(title: String, message: String){
         // When creating a UIAlertController we specify the title, message, and preferred UI style.
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -20,5 +21,4 @@ extension UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
-    
 }

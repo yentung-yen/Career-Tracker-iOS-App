@@ -35,7 +35,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // Do any additional setup after loading the view.
         // code to set the databaseController
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.databaseController
+        databaseController = appDelegate?.firebaseDatabaseController
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -141,6 +141,10 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // do nothing
     }
     
+    func onAllInterviewScheduleChange(change: DatabaseChange, interviewScheduleDetail: [InterviewScheduleDetail]) {
+        // do nothing
+    }
+    
     // MARK: - Table Controllers
     
     // determines the number of sections in the Table View
@@ -232,7 +236,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
             if let indexPath = tableView.indexPathForSelectedRow{
                 if let destinationVC = segue.destination as? ViewApplicationDetailsViewController {
                     destinationVC.currentApplicationDetails = displayApplication[indexPath.row]
-                    print(displayApplication[indexPath.row])
+//                    print(displayApplication[indexPath.row])
                 }
             }
         }

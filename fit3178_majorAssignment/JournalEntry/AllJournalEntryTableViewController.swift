@@ -24,7 +24,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
         super.viewDidLoad()
 
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.databaseController
+        databaseController = appDelegate?.firebaseDatabaseController
         
         filteredJournalEntries = allJournalEntries
         
@@ -61,6 +61,10 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     // - deregister itself when it’s about to disappear.
     
     func onAllApplicationDetailsChange(change: DatabaseChange, applicationDetails: [ApplicationDetail]) {
+        // do nothing
+    }
+    
+    func onAllInterviewScheduleChange(change: DatabaseChange, interviewScheduleDetail: [InterviewScheduleDetail]) {
         // do nothing
     }
     
@@ -198,7 +202,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
             if let indexPath = tableView.indexPathForSelectedRow{
                 if let destinationVC = segue.destination as? ViewJournalEntryViewController {
                     destinationVC.currentJournalEntry = filteredJournalEntries[indexPath.row]
-                    print(filteredJournalEntries[indexPath.row])
+//                    print(filteredJournalEntries[indexPath.row])
                 }
             }
         }

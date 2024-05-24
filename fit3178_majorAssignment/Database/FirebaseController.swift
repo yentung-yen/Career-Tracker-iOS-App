@@ -5,22 +5,70 @@
 //  Created by Chin Yen Tung on 2/5/2024.
 //
 
+// TODO: figure out how firebase and coredata should work together
+// - do we have separate controllers for them? or have them on the same controller swift file?
+// - reformat this file if we have them on the same controller file so that it looks cleaner
+//      - e.g. add MARK so that we can identify core data stuff more easily
+
 import UIKit
 import Firebase
 import FirebaseFirestoreSwift
+import CoreData
 
-class FirebaseController: NSObject, DatabaseProtocol {
-    func cleanup() {}
+class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate {
+    var listeners = MulticastDelegate<DatabaseListener>()
     
-    var authController: Auth
     var database: Firestore
+    var userRef: DocumentReference?
     var applicationRef: CollectionReference?
     var journalEntryRef: CollectionReference?
-    var currentUser: FirebaseAuth.User?
-    var listeners = MulticastDelegate<DatabaseListener>()
     
     var applicationList: [ApplicationDetail]
     var journalEntryList: [JournalEntry]
+    
+    var authController: Auth
+    var currentUser: FirebaseAuth.User?
+    var successfulSignUp: Bool = false
+    var currentUserUID: String?
+    
+    // CoreData stuff =======================================
+    var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
+    var allInterviewScheduleFetchedResultsController: NSFetchedResultsController<InterviewScheduleDetail>?
+    
+    // fetchAllApplications method:
+    // used to query Core Data to retrieve all application entities stored within persistent memory
+    func fetchAllInterview() -> [InterviewScheduleDetail] {
+        let request: NSFetchRequest<InterviewScheduleDetail> = InterviewScheduleDetail.fetchRequest()       // create a fetch request.
+        let nameSortDescriptor = NSSortDescriptor(key: "interviewTitle", ascending: true) // specify a sort descriptor.
+        request.sortDescriptors = [nameSortDescriptor]                          // this ensures that the results have an order.
+        
+        // Initialise Fetched Results Controller
+        // need to provide: the fetch request, the managed object context we want to perform the fetch on
+        allInterviewScheduleFetchedResultsController = NSFetchedResultsController<InterviewScheduleDetail>(
+            fetchRequest: request, managedObjectContext: persistentContainer.viewContext,
+            sectionNameKeyPath: nil, cacheName: nil
+        )
+        
+        // Set this class to be the results delegate
+        allInterviewScheduleFetchedResultsController?.delegate = self      // the database controller is set to be its delegate
+        
+        // perform the fetch request (which will begin the listening process)
+        do {
+            try allInterviewScheduleFetchedResultsController?.performFetch()
+        } catch {
+            print("Fetch Request Failed: \(error)")
+        }
+        
+        if allInterviewScheduleFetchedResultsController == nil {   // check if the fetched results controller is nil (ie. not instantiated)
+        // Do something
+        }
+        //check if it contains fetched objects
+        if let interviews = allInterviewScheduleFetchedResultsController?.fetchedObjects {
+            return interviews   // If it does, return the array
+        }
+        return [InterviewScheduleDetail]()
+    }
+    // ======================================================
     
     override init(){
         // configure and initialize each of the Firebase frameworks we plan to use
@@ -30,6 +78,20 @@ class FirebaseController: NSObject, DatabaseProtocol {
         
         applicationList = [ApplicationDetail]()
         journalEntryList = [JournalEntry]()
+        
+        // CoreData stuff =======================================
+        // instantiate the Core Data stack
+        // initializes the Persistent Container property using the data model named "App-Datamodel".
+        persistentContainer = NSPersistentContainer(name: "InterviewScheduleDetail-Model")
+        
+        // loads the Core Data stack
+        persistentContainer.loadPersistentStores() { (description, error ) in
+            // provide a closure for error handling - trigger a fatal error if the stack fails to load
+            if let error = error {
+                fatalError("Failed to load Core Data Stack with error: \(error)")
+            }
+        }
+        // ======================================================
         
         super.init()
         
@@ -46,26 +108,53 @@ class FirebaseController: NSObject, DatabaseProtocol {
         
         // in firebase, we need to be authenticated with Firebase to be able to read and/or write to the database
         // we need to ensure that we have signed on, before any attempts to access Firestore
-        Task {
-            do {
-                // using anonymous authentication to sign on
-                // do not need to provide any login credentials
-                // Firebase will create an anonymous token for our device if we do not have one already
-                let authDataResult = try await authController.signInAnonymously()
-                
-                // If no error, set currentUser to the fetched user  information
-                currentUser = authDataResult.user
-            }
-            catch {
-                // if there are any errors, use the fatalError method to stop application from running
-                fatalError("Firebase Authentication Failed with Error\(String(describing:error))")
-            }
-            // call setupHeroListener method to begin setting up the database listeners.
-            self.setupApplicationListener()
-            self.setupJournalEntryListener()
+//        Task {
+//            do {
+//                // using anonymous authentication to sign on
+//                // do not need to provide any login credentials
+//                // Firebase will create an anonymous token for our device if we do not have one already
+//                let authDataResult = try await authController.signInAnonymously()
+//                
+//                // If no error, set currentUser to the fetched user  information
+//                currentUser = authDataResult.user
+//            }
+//            catch {
+//                // if there are any errors, use the fatalError method to stop application from running
+//                fatalError("Firebase Authentication Failed with Error\(String(describing:error))")
+//            }
+//            // call setupListener methods to begin setting up the database listeners.
+//            self.setupApplicationListener()
+//            self.setupJournalEntryListener()
+//        }
+        
+        // CoreData stuff =======================================
+        // attempt to fetch all the heroes from the database. If this returns an empty array:
+        if fetchAllInterview().count == 0 {
+            createDefaultInterviews()
         }
-         
+        // ======================================================
+        
+        // setup & initialise firebase
+        currentUser = authController.currentUser
+        currentUserUID = currentUser?.uid
+//        print(currentUserUID)
+        initializeFirebaseDatabase()
     }
+    
+    // CoreData stuff =======================================
+    // cleanup method: check to see if there are changes to be saved inside of the view context and then save, as necessary
+    func cleanup() {
+        if persistentContainer.viewContext.hasChanges {
+            do {
+                // Changes made to the managed object context must be explicitly saved by calling the save method on the managed object context
+                // method can throw an error, so must be done within a do-catch statement.
+                try persistentContainer.viewContext.save()
+            } catch {
+                fatalError("Failed to save changes to Core Data with error: \(error)")
+            }
+        }
+    }
+    // ======================================================
     
     // addListener method:
     func addListener(listener: DatabaseListener) {
@@ -81,7 +170,13 @@ class FirebaseController: NSObject, DatabaseProtocol {
         } else if listener.listenerType == .journalEntry {
             // pass through all journal entries fetched from the database.
             listener.onAllJournalEntryChange(change: .update, journalEntry: journalEntryList)
+        } 
+        // CoreData stuff =======================================
+        else if listener.listenerType == .interviewSchedule {
+            // pass through all applications fetched from the database.
+            listener.onAllInterviewScheduleChange(change: .update, interviewScheduleDetail: fetchAllInterview())
         }
+        // ======================================================
     }
     
     // removeListener method: passes the specified listener to the multicast delegate class, then remove it from the set of saved listeners
@@ -103,11 +198,11 @@ class FirebaseController: NSObject, DatabaseProtocol {
         application.notes = notes
         
         do {
-            if let applicationRef = try applicationRef?.addDocument(from: application) {
-                // Adding a document to Firestore returns a Database Reference to that specific object if successful.
-                // use this reference to get the documentID - we use this to refer to documents in FIrestore
-                application.id = applicationRef.documentID
-            }
+            let newApplicationDoc = try applicationRef?.addDocument(from: application)
+            // Adding a document to Firestore returns a Database Reference to that specific object if successful.
+            // use this reference to get the documentID - we use this to refer to documents in FIrestore
+            application.id = newApplicationDoc?.documentID
+            
         } catch {
             print("Failed to add application")
         }
@@ -132,11 +227,11 @@ class FirebaseController: NSObject, DatabaseProtocol {
         entry.entryDes = entryDes
         
         do {
-            if let journalEntryRef = try journalEntryRef?.addDocument(from: entry) {
-                // Adding a document to Firestore returns a Database Reference to that specific object if successful.
-                // use this reference to get the documentID - we use this to refer to documents in FIrestore
-                entry.id = journalEntryRef.documentID
-            }
+            let newJournalEntryDoc = try journalEntryRef?.addDocument(from: entry)
+            // Adding a document to Firestore returns a Database Reference to that specific object if successful.
+            // use this reference to get the documentID - we use this to refer to documents in FIrestore
+            entry.id = newJournalEntryDoc?.documentID
+            
         } catch {
             print("Failed to add journal entry")
         }
@@ -152,13 +247,49 @@ class FirebaseController: NSObject, DatabaseProtocol {
         }
     }
     
+//    func addUser(name: String) -> User {
+//        let user = User()
+//        
+//        user.name = name
+//        
+//        do {
+//            let newUserDoc = try database.collection("users").addDocument(from: user)
+//            user.id = currentUserUID
+//        } catch {
+//            print("Failed to add user to database")
+//        }
+//        
+//        return user
+//    }
+    
+    // CoreData stuff =======================================
+    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail {
+        let interview = NSEntityDescription.insertNewObject(forEntityName: "InterviewScheduleDetail", into: persistentContainer.viewContext) as! InterviewScheduleDetail
+    
+        interview.interviewTitle = interviewTitle
+        interview.interviewStartDatetime = interviewStartDatetime
+        interview.interviewEndDatetime = interviewEndDatetime
+        interview.interviewVideoLink = interviewVideoLink
+        interview.interviewLocation = interviewLocation
+        interview.interviewNotifDatetime = interviewNotifDatetime
+        interview.interviewNotes = interviewNotes
+        
+        return interview
+    }
+    
+    // deleteInterviewSchedule method:
+    // takes in an interview to be deleted and removes it from the main managed object context
+    // deletion will not be made permanent until the managed context is saved
+    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail) {
+        persistentContainer.viewContext.delete(interviewScheduleDetail)
+    }
+    // ======================================================
+    
+    
     // MARK: - Firebase Controller Specific Methods
     
     // called once we have received an authentication result from Firebase.
     func setupApplicationListener(){
-        // get Firestore reference to the applicationDetail collection
-        applicationRef = database.collection("applicationDetail")
-        
         // set up a snapshotListener to listen for ALL changes on applicationDetail collection
         applicationRef?.addSnapshotListener() { (querySnapshot, error) in
             // closure to be called whenever a change occurs
@@ -175,9 +306,6 @@ class FirebaseController: NSObject, DatabaseProtocol {
     }
     
     func setupJournalEntryListener(){
-        // get Firestore reference to the journalEntry collection
-        journalEntryRef = database.collection("journalEntry")
-        
         // set up a snapshotListener to listen for ALL changes on journalEntry collection
         journalEntryRef?.addSnapshotListener() { (querySnapshot, error) in
             // closure to be called whenever a change occurs
@@ -275,4 +403,117 @@ class FirebaseController: NSObject, DatabaseProtocol {
             }
         }
     }
+    
+    // CoreData stuff =======================================
+    func createDefaultInterviews() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyy"
+        
+        // create date objects from string
+        let _ = addInterviewSchedule(interviewTitle: "Google Round 1 Interview", interviewStartDatetime: dateFormatter.date(from: "12-01-2024")!, interviewEndDatetime: dateFormatter.date(from: "13-01-2024")!, interviewVideoLink: "www.zoom.com", interviewLocation: "melbourne google office", interviewNotifDatetime: dateFormatter.date(from: "12-01-2024")!, interviewNotes: "good luck")
+        let _ = addInterviewSchedule(interviewTitle: "SIG Round 3 Interview", interviewStartDatetime: dateFormatter.date(from: "15-01-2024")!, interviewEndDatetime: dateFormatter.date(from: "16-01-2024")!, interviewVideoLink: "", interviewLocation: "sydney SIG office", interviewNotifDatetime: dateFormatter.date(from: "15-01-2024")!, interviewNotes: "trade and tech")
+        let _ = addInterviewSchedule(interviewTitle: "KPMG Round 1 Interview", interviewStartDatetime: dateFormatter.date(from: "17-01-2024")!, interviewEndDatetime: dateFormatter.date(from: "18-01-2024")!, interviewVideoLink: "www.zoom.com", interviewLocation: "", interviewNotifDatetime: dateFormatter.date(from: "17-01-2024")!, interviewNotes: "consulting data analytics")
+        
+        cleanup()
+    }
+    
+    
+    // MARK: - Fetched Results Controller Protocol methods
+    
+    // This will be called whenever the FetchedResultsController detects a change to the result of its fetch.
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        // 1. check if the controller is allInterviewScheduleFetchedResultsController
+        if controller == allInterviewScheduleFetchedResultsController {
+            // 2. if it is, call the MulticastDelegate’s invoke method
+            listeners.invoke() { listener in
+                // 3. checks if it is listening for changes to interview schedule details
+                if listener.listenerType == .interviewSchedule {
+                    // 4. call the onAllApplicationDetailsChange method, passing it the updated list of heroes
+                    listener.onAllInterviewScheduleChange(change: .update, interviewScheduleDetail: fetchAllInterview())
+                }
+            }
+        }
+    }
+    // ======================================================
+    
+    
+    // MARK: - Authentication
+    func createUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
+        print("Attempting to create user with email: \(email)")
+        
+        authController.createUser(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Error creating account: \(String(describing: error))")
+                completion(nil, error)
+            } else {
+                print("create account successful")
+                self.successfulSignUp = true
+                
+                // login straightaway
+                let _ = self.loginUser(email: email, password: password){ authResult, error in
+                    if let error = error {
+                        if self.authController.currentUser == nil {
+                            // unsuccessful login
+                            print("Login Error - \(String(describing:error))")
+                        }
+                    } else {
+                        print("Login Successful")
+                    }
+                }
+                completion(authResult, nil)
+            }
+        }
+    }
+    
+    func loginUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void) {
+        authController.signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("Error signing in: \(String(describing: error))")
+                completion(nil, error)
+            } else {
+                print("login user successful")
+                self.currentUser = authResult?.user
+                self.currentUserUID = self.currentUser?.uid
+                self.initializeFirebaseDatabase()
+                completion(authResult, nil)
+            }
+        }
+    }
+    
+    func signOutUser() {
+        do {
+            try authController.signOut()
+            
+            // reset params
+            currentUser = nil
+            currentUserUID = nil
+            applicationRef = nil
+            journalEntryRef = nil
+            userRef = nil
+            applicationList = [ApplicationDetail]()
+            journalEntryList = [JournalEntry]()
+            
+        } catch {
+            print("Error signing out: \(String(describing: error))")
+        }
+    }
+    
+    func initializeFirebaseDatabase() {
+        if let uid = currentUserUID {
+//            print(currentUserUID)
+            
+            userRef = database.collection("users").document(uid)
+            applicationRef = userRef?.collection("applicationDetail")
+            journalEntryRef = userRef?.collection("journalEntry")
+            
+            // call setupListener methods to begin setting up the database listeners.
+            // fetch application and journal entry data
+            setupApplicationListener()
+            setupJournalEntryListener()
+        }
+    }
+    
+//    func activeUserExist() -> Bool {
+//        return authController.currentUser != nil
+//    }
 }

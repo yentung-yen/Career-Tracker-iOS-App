@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 // used to define what type of change has been done to the database
 enum DatabaseChange {
@@ -19,6 +20,7 @@ enum DatabaseChange {
 enum ListenerType {
     case applicationDetails
     case journalEntry
+    case interviewSchedule
 }
 
 // define the listener
@@ -36,6 +38,8 @@ protocol DatabaseListener: AnyObject {
     
     // method for when a change of journal entry has occurred
     func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry])
+    
+    func onAllInterviewScheduleChange(change: DatabaseChange, interviewScheduleDetail: [InterviewScheduleDetail])
     // ===================================================================
 }
 
@@ -53,4 +57,19 @@ protocol DatabaseProtocol: AnyObject {
     // functionality to add, delete journal entries
     func addJournalEntry(entryTitle: String, entryDate: String, entryCategories: [String], entryDes: String) -> JournalEntry
     func deleteJournalEntry(journalEntry: JournalEntry)
+    
+    // functionality to add, delete interview schedule
+    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail
+    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail)
+    
+    // authentication functions
+    var successfulSignUp: Bool {get set}    // variable to tell us if a sign up was successful or not
+    func createUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void)
+    func loginUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void)
+    func signOutUser()
+//    func addUser(name: String) -> User
+//    func activeUserExist() -> Bool
+    
+    func setupApplicationListener()
+    func setupJournalEntryListener()
 }

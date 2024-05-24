@@ -85,7 +85,7 @@ class EditApplicationDetailsViewController: UIViewController {
         
         // get database of current user
         let currentUserUID = authController.currentUser?.uid
-        print(currentUserUID!)
+//        print(currentUserUID!)
         let userDb = db.collection("users").document(currentUserUID!)
         
         // get updated data from UI, edit the document in firebase, and save it

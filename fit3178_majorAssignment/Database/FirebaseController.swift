@@ -137,7 +137,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // setup & initialise firebase
         currentUser = authController.currentUser
         currentUserUID = currentUser?.uid
-        print(currentUserUID)
+//        print(currentUserUID)
         initializeFirebaseDatabase()
     }
     
@@ -454,7 +454,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
                     if let error = error {
                         if self.authController.currentUser == nil {
                             // unsuccessful login
-                            print("Login Error")
+                            print("Login Error - \(String(describing:error))")
                         }
                     } else {
                         print("Login Successful")
@@ -492,6 +492,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             userRef = nil
             applicationList = [ApplicationDetail]()
             journalEntryList = [JournalEntry]()
+            
         } catch {
             print("Error signing out: \(String(describing: error))")
         }
@@ -512,7 +513,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
     
-    func activeUserExist() -> Bool {
-        return authController.currentUser != nil
-    }
+//    func activeUserExist() -> Bool {
+//        return authController.currentUser != nil
+//    }
 }

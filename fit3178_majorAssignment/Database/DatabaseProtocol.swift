@@ -68,7 +68,7 @@ protocol DatabaseProtocol: AnyObject {
     func loginUser(email: String, password: String, completion: @escaping (AuthDataResult?, Error?) -> Void)
     func signOutUser()
 //    func addUser(name: String) -> User
-    func activeUserExist() -> Bool
+//    func activeUserExist() -> Bool
     
     func setupApplicationListener()
     func setupJournalEntryListener()

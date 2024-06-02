@@ -32,6 +32,7 @@
 		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
 		BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */; };
 		BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */; };
+		BBAF4AAD2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */; };
 		BBB99FD52BE3A959009F602D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD42BE3A959009F602D /* FirebaseAuth */; };
 		BBB99FD72BE3A959009F602D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD62BE3A959009F602D /* FirebaseFirestore */; };
 		BBB99FD92BE3A959009F602D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD82BE3A959009F602D /* FirebaseFirestoreSwift */; };
@@ -83,6 +84,7 @@
 		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
 		BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalEntryViewController.swift; sourceTree = "<group>"; };
+		BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetail.swift; sourceTree = "<group>"; };
 		BBB99FDE2BE3B336009F602D /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
+				BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */,
 				BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */,
 				BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */,
 				BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */,
@@ -368,6 +371,7 @@
 				BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */,
 				BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */,
 				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
+				BBAF4AAD2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift in Sources */,
 				BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
 				BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */,

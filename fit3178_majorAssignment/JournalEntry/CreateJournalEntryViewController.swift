@@ -41,7 +41,6 @@ class CreateJournalEntryViewController: UIViewController {
     }
     
     @IBAction func onAddEntryClick(_ sender: Any) {
-        //TODO: validate date picker
         // validate the user input
         guard let title = entryTitleTextField.text, let desc = entryDescTextField.text else {
             return

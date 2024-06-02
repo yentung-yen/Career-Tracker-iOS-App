@@ -30,7 +30,7 @@ class AddNewApplicationViewController: UIViewController {
     
     @IBAction func onAddApplication(_ sender: Any) {
         var errorMsg = ""
-        var salaryText = 0
+        var salaryText = salaryTextField.text ?? ""
         
         // validate the user input
         guard let jobTitle = jobTitleTextField.text,
@@ -59,21 +59,23 @@ class AddNewApplicationViewController: UIViewController {
             return
         }
         
-        // validate that salary must be empty (i.e. not required) or a valid number
-        if let salaryText = salaryTextField.text, !salaryText.isEmpty { // is salary not empty, check that its numeric
+        // validate salary
+        // if salary is not empty
+        if !salaryText.isEmpty {
+            // check that its numeric
             guard Double(salaryText) != nil else {
                 displayMessage(title: "Invalid Input", message: "Salary must be a numeric value.")
                 return
             }
         } else { // salary is empty
-            salaryText = 0
+            salaryText = "0"
         }
         
         let _ = databaseController?.addApplication(jobTitle: jobTitle, 
                                                    company: company,
                                                    jobLocation: jobLocation,
                                                    jobMode: jobMode,
-                                                   salary: Double(salaryText),
+                                                   salary: Double(salaryText)!,
                                                    postURL: jobPostURL,
                                                    applicationStatus: applicationStatus,
                                                    notes: notes)

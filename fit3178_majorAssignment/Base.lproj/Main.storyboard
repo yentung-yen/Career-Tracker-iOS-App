@@ -525,11 +525,18 @@
                                 <segue destination="4Da-TY-ydU" kind="showDetail" id="G8L-XT-Ptd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mpc-As-G2G">
-                            <connections>
-                                <segue destination="eVx-OT-Jhe" kind="show" identifier="createJournalEntrySegue" id="ti0-Kq-dNz"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="mpc-As-G2G">
+                                <connections>
+                                    <segue destination="eVx-OT-Jhe" kind="show" identifier="createJournalEntrySegue" id="ti0-Kq-dNz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="search" id="qp8-b7-k9x">
+                                <connections>
+                                    <action selector="onClickSearchIcon:" destination="Duh-0d-tlj" id="74R-hC-8qX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxl-H6-gAW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -718,14 +725,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="totalCell" id="eS8-fv-jdb" customClass="ApplicationCountTableViewCell" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="99" width="333" height="36.666667938232422"/>
+                                        <rect key="frame" x="20" y="99" width="333" height="37.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eS8-fv-jdb" id="HHK-tk-CZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="333" height="36.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-SZ-AmM">
-                                                    <rect key="frame" x="20" y="11" width="293" height="14.666666666666664"/>
+                                                    <rect key="frame" x="20" y="11" width="293" height="15.333333333333336"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2243,7 +2250,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VGD-Sa-YEe"/>
+        <segue reference="6wU-BK-WkC"/>
         <segue reference="Ibb-KV-UTJ"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -2256,7 +2263,7 @@
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="88"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="person.crop.circle.fill" catalog="system" width="32" height="32"/>
         <image name="text.alignleft" catalog="system" width="128" height="99"/>
         <image name="text.justify.leading" width="38.041999816894531" height="32.270500183105469"/>
         <image name="video.fill" width="48.662101745605469" height="30.629899978637695"/>
@@ -2267,13 +2274,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableCellPlainBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

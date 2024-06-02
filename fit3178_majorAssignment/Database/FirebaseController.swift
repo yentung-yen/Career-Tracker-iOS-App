@@ -31,6 +31,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var successfulSignUp: Bool = false
     var currentUserUID: String?
     
+    var defaultCategoryList = ["Adaptability", "Communication", "Leadership", "Problem Solving", "Teamwork", "Time Management"]
+    
     // CoreData stuff =======================================
     var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
     var allInterviewScheduleFetchedResultsController: NSFetchedResultsController<InterviewScheduleDetail>?
@@ -505,6 +507,15 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             userRef = database.collection("users").document(uid)
             applicationRef = userRef?.collection("applicationDetail")
             journalEntryRef = userRef?.collection("journalEntry")
+            
+            // TODO: add user's personal categories to to a new field
+            userRef?.setData(["journalCategoryList": defaultCategoryList], merge: true) { error in
+                if let error = error {
+                    print("Error adding new journalCategoryList field: \(error)")
+                } else {
+                    print("journalCategoryList field successfully added")
+                }
+            }
             
             // call setupListener methods to begin setting up the database listeners.
             // fetch application and journal entry data

@@ -348,7 +348,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             } else if change.type == .modified {
                 applicationList.remove(at: Int(change.oldIndex))
                 applicationList.insert(app, at: Int(change.newIndex))
-                // If change type is modified, remove and re-add the newly modified hero at the new location
+                // If change type is modified, remove and re-add the newly modified application at the new location
                 
             } else if change.type == .removed {
                 applicationList.remove(at: Int(change.oldIndex))
@@ -387,7 +387,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             } else if change.type == .modified {
                 journalEntryList.remove(at: Int(change.oldIndex))
                 journalEntryList.insert(entry, at: Int(change.newIndex))
-                // If change type is modified, remove and re-add the newly modified hero at the new location
+                // If change type is modified, remove and re-add the newly modified journal entry at the new location
                 
             } else if change.type == .removed {
                 journalEntryList.remove(at: Int(change.oldIndex))

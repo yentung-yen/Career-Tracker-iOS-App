@@ -107,6 +107,7 @@ class EditJournalEntryViewController: UIViewController {
         
         // navigate back to previous screen
         navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     /*

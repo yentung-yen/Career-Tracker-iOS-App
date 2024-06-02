@@ -69,7 +69,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     }
     
     func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry]) {
-        allJournalEntries = journalEntry      // update our full hero list
+        allJournalEntries = journalEntry      // update our full journal list
         filteredJournalEntries = allJournalEntries  // start with all journal entries on loading the view
         tableView.reloadData()
         

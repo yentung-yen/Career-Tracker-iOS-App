@@ -108,6 +108,7 @@ class EditApplicationDetailsViewController: UIViewController {
         
         // navigate back to previous screen
         navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     /*

@@ -181,6 +181,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // ======================================================
     }
     
+    // MARK: methods to create new application and journal entry data using firebase
+    
     // removeListener method: passes the specified listener to the multicast delegate class, then remove it from the set of saved listeners
     func removeListener(listener: DatabaseListener) {
         listeners.removeDelegate(listener)
@@ -264,31 +266,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
 //        return user
 //    }
     
-    // CoreData stuff =======================================
-    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail {
-        let interview = NSEntityDescription.insertNewObject(forEntityName: "InterviewScheduleDetail", into: persistentContainer.viewContext) as! InterviewScheduleDetail
     
-        interview.interviewTitle = interviewTitle
-        interview.interviewStartDatetime = interviewStartDatetime
-        interview.interviewEndDatetime = interviewEndDatetime
-        interview.interviewVideoLink = interviewVideoLink
-        interview.interviewLocation = interviewLocation
-        interview.interviewNotifDatetime = interviewNotifDatetime
-        interview.interviewNotes = interviewNotes
-        
-        return interview
-    }
-    
-    // deleteInterviewSchedule method:
-    // takes in an interview to be deleted and removes it from the main managed object context
-    // deletion will not be made permanent until the managed context is saved
-    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail) {
-        persistentContainer.viewContext.delete(interviewScheduleDetail)
-    }
-    // ======================================================
-    
-    
-    // MARK: - Firebase Controller Specific Methods
+    // MARK: - Firebase Controller Methods to fetch data
     
     // called once we have received an authentication result from Firebase.
     func setupApplicationListener(){
@@ -406,7 +385,29 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
     
-    // CoreData stuff =======================================
+    
+    // MARK: methods to create new interview schedule data using core data
+    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail {
+        let interview = NSEntityDescription.insertNewObject(forEntityName: "InterviewScheduleDetail", into: persistentContainer.viewContext) as! InterviewScheduleDetail
+    
+        interview.interviewTitle = interviewTitle
+        interview.interviewStartDatetime = interviewStartDatetime
+        interview.interviewEndDatetime = interviewEndDatetime
+        interview.interviewVideoLink = interviewVideoLink
+        interview.interviewLocation = interviewLocation
+        interview.interviewNotifDatetime = interviewNotifDatetime
+        interview.interviewNotes = interviewNotes
+        
+        return interview
+    }
+    
+    // deleteInterviewSchedule method:
+    // takes in an interview to be deleted and removes it from the main managed object context
+    // deletion will not be made permanent until the managed context is saved
+    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail) {
+        persistentContainer.viewContext.delete(interviewScheduleDetail)
+    }
+    
     func createDefaultInterviews() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyy"
@@ -420,7 +421,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     
-    // MARK: - Fetched Results Controller Protocol methods
+    // MARK: - Core Data Fetched Results Controller Protocol methods
     
     // This will be called whenever the FetchedResultsController detects a change to the result of its fetch.
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -516,6 +517,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
                     print("journalCategoryList field successfully added")
                 }
             }
+            // create references to each category collection
             
             // call setupListener methods to begin setting up the database listeners.
             // fetch application and journal entry data

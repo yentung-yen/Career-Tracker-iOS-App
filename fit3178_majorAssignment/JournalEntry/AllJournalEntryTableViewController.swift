@@ -10,6 +10,15 @@ import UIKit
 // conform to UISearchResultsUpdating to allow search functionality to update table view (updateSearchResults() delegate method)
 // conform to UISearchControllerDelegate to allow us to use the didDismissSearchController() delegate method
 class AllJournalEntryTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, DatabaseListener {
+    // to show journal entries according to categories
+    var hideDuplicate = false
+    var userCategoryList: [String] = []
+    var isCategoryTitleCell = true
+    var currentCategoryItems: [JournalEntry] = []
+    var currentCategoryIndex: Int = 0
+    var currentCatItemIdx: Int = 0
+    var numOfEntriesToShow: Int = 0
+    
     let SECTION_JOURNAL_ENTRIES = 0
     let SECTION_ENTRIES_COUNT = 1
     
@@ -31,6 +40,9 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.firebaseDatabaseController
         
+        // get this user's list of categories
+//        updateFilteredUserCategoryList()
+        
         // create UISeachController and assign it to the View Controller
         searchController = UISearchController(searchResultsController: nil)
         
@@ -50,6 +62,7 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         databaseController?.addListener(listener: self) // In this method, we add ourselves to the database listeners
+        updateFilteredUserCategoryList()
     }
     // method 2: viewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
@@ -114,12 +127,60 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
                 // use nil-coalescing operator (??) since name property is optional
                 return (entry.entryTitle?.lowercased().contains(searchText) ?? false)
             })
+            countNumOfEntriesToShow()   // get new number of entries to show after filter
+            updateFilteredUserCategoryList()  // get new list of categories to show
         } else {
             filteredJournalEntries = allJournalEntries
+            countNumOfEntriesToShow()
+            updateFilteredUserCategoryList()
         }
         tableView.reloadData()
     }
 
+    
+    // MARK: methods related to showing duplicate journal entries view
+    
+    // this function counts the number of rows the table should show for journal entries accounting for duplicate entries
+    func countNumOfEntriesToShow() {
+        var numOfEntriesToShow = 0
+        
+        for entry in filteredJournalEntries {
+            let numOfCat = entry.entryCategories?.count
+            numOfEntriesToShow += numOfCat!
+        }
+        self.numOfEntriesToShow = numOfEntriesToShow
+    }
+    
+    func updateFilteredUserCategoryList() {
+        var currentCategories: [String] = []
+        
+        for entry in filteredJournalEntries {
+            let catArray = entry.entryCategories
+            
+            for cat in catArray! {
+                if !currentCategories.contains(cat) {
+                    currentCategories.append(cat)
+                }
+            }
+        }
+        self.userCategoryList = currentCategories
+        print(self.userCategoryList)
+    }
+    
+    @IBAction func onToggleDuplicateEntryView(_ sender: Any) {
+        self.hideDuplicate = !self.hideDuplicate
+        print(self.hideDuplicate)
+        
+        // reset
+//        self.isCategoryTitleCell = true
+//        self.currentCategoryItems = []
+//        self.currentCategoryIndex = 0
+//        self.currentCatItemIdx = 0
+//        self.numOfEntriesToShow = 0
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -128,56 +189,123 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-            case SECTION_JOURNAL_ENTRIES:
+        if section == SECTION_JOURNAL_ENTRIES {
+            if hideDuplicate == true {
                 return filteredJournalEntries.count
                 
-            case SECTION_ENTRIES_COUNT:
-                return 1
-                
-            default:
-                return 0
+            } else if hideDuplicate == false {
+                return filteredJournalEntries.count + userCategoryList.count
+            }
+        } else if section == SECTION_ENTRIES_COUNT {
+            return 1
         }
+        return 0
     }
 
     // creates the cells to be displayed to the user
     // calls the dequeReusableCell method and provide it an identifier - identifier must match a Reuse Identifier we created on the storyboard
     // calls indexPath to generate a cell object - index path specifies a section and row
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == SECTION_JOURNAL_ENTRIES {
-            // Configure and return a cell
-            let entryCell = tableView.dequeueReusableCell(withIdentifier: CELL_JOURNAL_ENTRY, for: indexPath)
-            
-            // set their content using the appropriate details
-            var content = entryCell.defaultContentConfiguration()
-            // indexPath contains the current row number which will correspond to a specific application in our array
-            // because we’ve told the table view that the number of rows in this section = array length.
-            let entry = filteredJournalEntries[indexPath.row]
-            
-            content.text = entry.entryTitle
-            content.secondaryText = entry.entryDate
-            entryCell.contentConfiguration = content
-            
-            return entryCell     // return a cell object
-            
-        } else {
-            // Unlike the previous Table View, we are using a custom cell type we created ourselves
-            // So we need to dequeue the cell and cast it to its correct type (in order to use the totalLabel property)
-            
-            // forced cast is done using the as! Keyword, specifying the class we want to cast to
-            // If a forced cast fails the app will immediately crash.
-            // Forced cast should only be done when we know 100% that the cell (or other type) we are casting is a particular type
-            let infoCell = tableView.dequeueReusableCell(withIdentifier: CELL_ENTRIES_COUNT, for: indexPath)
-            
-            var content = infoCell.defaultContentConfiguration()
-            content.text = "Total Entries: \(filteredJournalEntries.count)"
-            infoCell.contentConfiguration = content
-            
-            return infoCell
+        if self.hideDuplicate == true {
+            if indexPath.section == SECTION_JOURNAL_ENTRIES {
+                // Configure and return a cell
+                let entryCell = tableView.dequeueReusableCell(withIdentifier: CELL_JOURNAL_ENTRY, for: indexPath)
+                entryCell.backgroundColor = UIColor.lightGray
+                
+                // set their content using the appropriate details
+                var content = entryCell.defaultContentConfiguration()
+                // indexPath contains the current row number which will correspond to a specific application in our array
+                // because we’ve told the table view that the number of rows in this section = array length.
+                let entry = filteredJournalEntries[indexPath.row]
+                
+                content.text = entry.entryTitle
+                content.secondaryText = entry.entryDate
+                entryCell.contentConfiguration = content
+                
+                return entryCell     // return a cell object
+                
+            } else {
+                let infoCell = tableView.dequeueReusableCell(withIdentifier: CELL_ENTRIES_COUNT, for: indexPath)
+                
+                var content = infoCell.defaultContentConfiguration()
+                content.text = "Total Entries: \(filteredJournalEntries.count)"
+                infoCell.contentConfiguration = content
+                
+                return infoCell
+            }
+        } else if self.hideDuplicate == false {
+            if indexPath.section == SECTION_JOURNAL_ENTRIES {
+                // set up current category item list
+                if self.currentCategoryItems.count == 0 {
+                    // if we haven't get all the entries for this category yet, get it
+                    self.currentCategoryItems = filteredJournalEntries.filter { entry in
+                        entry.entryCategories!.contains(self.userCategoryList[self.currentCategoryIndex])
+                    }
+                }
+                
+                // create category title cells
+                if self.isCategoryTitleCell == true {
+                    // Configure and return a cell
+                    let entryCell = tableView.dequeueReusableCell(withIdentifier: CELL_JOURNAL_ENTRY, for: indexPath)
+                    
+                    // set their content using the appropriate details
+                    var content = entryCell.defaultContentConfiguration()
+                    
+                    content.text = self.userCategoryList[self.currentCategoryIndex]
+                    content.secondaryText = "Total Entries: \(self.currentCategoryItems.count)"
+                    entryCell.contentConfiguration = content
+                    self.isCategoryTitleCell = false
+                    
+                    return entryCell     // return a cell object
+                    
+                } else if self.isCategoryTitleCell == false {
+                    // Configure and return a cell
+                    let entryCell = tableView.dequeueReusableCell(withIdentifier: CELL_JOURNAL_ENTRY, for: indexPath)
+                    entryCell.backgroundColor = UIColor.lightGray
+                    
+                    // set their content using the appropriate details
+                    var content = entryCell.defaultContentConfiguration()
+                    
+                    let entry = self.currentCategoryItems[self.currentCatItemIdx]
+                    
+                    content.text = entry.entryTitle
+                    content.secondaryText = entry.entryDate
+                    entryCell.contentConfiguration = content
+                    
+                    // if it's the last item in that category
+                    if self.currentCatItemIdx == self.currentCategoryItems.count - 1 {
+                        // reset
+                        self.isCategoryTitleCell = true
+                        self.currentCategoryItems = []
+                        self.currentCategoryIndex += 1   // increment catIdx to reference to next category
+                        self.currentCatItemIdx = 0
+                    } else {
+                        self.currentCatItemIdx += 1
+                    }
+                    
+                    // if it's the last category
+                    if self.currentCategoryIndex == self.userCategoryList.count - 1 {
+                        self.currentCategoryIndex = 0    // reset catIdx to 0
+                    }
+                    
+                    return entryCell     // return a cell object
+                }
+            } else {
+                let infoCell = tableView.dequeueReusableCell(withIdentifier: CELL_ENTRIES_COUNT, for: indexPath)
+                
+                var content = infoCell.defaultContentConfiguration()
+                content.text = "Total Entries: \(filteredJournalEntries.count)"
+                infoCell.contentConfiguration = content
+                
+                return infoCell
+            }
         }
+        // Configure and return a cell
+        let entryCell = tableView.dequeueReusableCell(withIdentifier: CELL_JOURNAL_ENTRY, for: indexPath)
+        return entryCell     // return a cell object
     }
     
-    // allows us to specify whether a certain row can be edited by the user (update, delete).
+    // TODO: allows us to specify whether a certain row can be edited by the user (update, delete).
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Check the section of the indexPath
         if indexPath.section == SECTION_JOURNAL_ENTRIES {

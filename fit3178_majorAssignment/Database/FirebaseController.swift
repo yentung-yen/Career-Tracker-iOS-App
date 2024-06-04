@@ -32,6 +32,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var currentUserUID: String?
     
     var defaultCategoryList = ["Adaptability", "Communication", "Leadership", "Problem Solving", "Teamwork", "Time Management"]
+    var userCategoryList: [String] = []
     
     // CoreData stuff =======================================
     var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
@@ -270,6 +271,24 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     // MARK: - Firebase Controller Methods to fetch data
     
     // called once we have received an authentication result from Firebase.
+    func getUserJournalEntryCategories() {
+        userRef?.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if let entryCatArray = document.get("journalCategoryList") as? [String] {
+                    print("journalCategoryList array: \(entryCatArray)")
+                    
+                    self.userCategoryList = entryCatArray
+                    
+                    print(self.userCategoryList)
+                } else {
+                    print("Error getting journalCategoryList")
+                }
+            } else {
+                print("Document does not exist; Error: \(String(describing: error))")
+            }
+        }
+    }
+    
     func setupApplicationListener(){
         // set up a snapshotListener to listen for ALL changes on applicationDetail collection
         applicationRef?.addSnapshotListener() { (querySnapshot, error) in
@@ -310,7 +329,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // documentChanges - only pay attention to changes as it allows us to easily handle different behaviour based on the type of change that has been made
         snapshot.documentChanges.forEach { (change) in
             
-            print("Raw Document Data: \(change.document.data())")
+//            print("Raw Document Data: \(change.document.data())")
             
             // decode the document's data as an ApplicationDetail object using codable
             var app: ApplicationDetail
@@ -510,14 +529,19 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             journalEntryRef = userRef?.collection("journalEntry")
             
             // TODO: add user's personal categories to to a new field
-            userRef?.setData(["journalCategoryList": defaultCategoryList], merge: true) { error in
-                if let error = error {
-                    print("Error adding new journalCategoryList field: \(error)")
-                } else {
-                    print("journalCategoryList field successfully added")
+            getUserJournalEntryCategories()
+            
+            // if user does not have any categories yet (i.e. it's a new user)
+            if userCategoryList.isEmpty {
+                // create default category list for new user
+                userRef?.setData(["journalCategoryList": defaultCategoryList], merge: true) { error in
+                    if let error = error {
+                        print("Error adding new journalCategoryList field: \(error)")
+                    } else {
+                        print("journalCategoryList field successfully added")
+                    }
                 }
             }
-            // create references to each category collection
             
             // call setupListener methods to begin setting up the database listeners.
             // fetch application and journal entry data

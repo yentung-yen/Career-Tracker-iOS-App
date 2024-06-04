@@ -70,6 +70,9 @@ protocol DatabaseProtocol: AnyObject {
 //    func addUser(name: String) -> User
 //    func activeUserExist() -> Bool
     
+    var userCategoryList: [String] {get set}
+    var defaultCategoryList: [String] {get set}  // TODO: remove
+    
     func setupApplicationListener()
     func setupJournalEntryListener()
 }

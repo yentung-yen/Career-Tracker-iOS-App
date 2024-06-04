@@ -20,6 +20,8 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
     
     // TODO: delete?
     var successfulSignUp: Bool = false
+    var userCategoryList: [String] = []
+    var defaultCategoryList: [String] = []
     
     // fetchAllApplications method:
     // used to query Core Data to retrieve all application entities stored within persistent memory

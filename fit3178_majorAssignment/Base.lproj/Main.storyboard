@@ -491,7 +491,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.81943327799999999" green="0.81943327799999999" blue="0.81943327799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="d71-6q-UiZ" kind="show" identifier="viewJournalEntrySegue" id="Bjz-JY-xV1"/>
                                 </connections>
@@ -526,6 +526,11 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
+                            <barButtonItem title="Item" image="ellipsis.circle" catalog="system" id="yjS-md-FuZ">
+                                <connections>
+                                    <action selector="onToggleDuplicateEntryView:" destination="Duh-0d-tlj" id="BIq-dw-VQ0"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="add" id="mpc-As-G2G">
                                 <connections>
                                     <segue destination="eVx-OT-Jhe" kind="show" identifier="createJournalEntrySegue" id="ti0-Kq-dNz"/>
@@ -2380,7 +2385,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VGD-Sa-YEe"/>
+        <segue reference="G8L-XT-Ptd"/>
         <segue reference="Ibb-KV-UTJ"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -2389,6 +2394,7 @@
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="clock.fill" width="38.525398254394531" height="38.188499450683594"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="123"/>
         <image name="map.fill" width="38.876998901367188" height="36.665000915527344"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="88"/>
@@ -2405,13 +2411,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tableCellPlainBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

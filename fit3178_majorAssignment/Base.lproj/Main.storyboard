@@ -485,14 +485,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="365" id="8bF-na-YSP"/>
                                 </constraints>
-                                <mutableString key="text">&lt;app name&gt; is an all-in-one mobile application that supports job seekers and working professionals in enhancing their career journey and experience. The app serves its target audience and does this through five main key features. 
+                                <string key="text">&lt;app name&gt; is an all-in-one mobile application that supports job seekers and working professionals in enhancing their career journey and experience. The app serves its target audience and does this through five main key features. 
 
 They include:
 - Journaling to practise skill narration in interviews.
 - Job Application Tracker to track the progress of applications.
 - Question banks to assist in preparing for interviews.
 - Calendars and notifications to remind users of when to start preparing for an interview and when the interview is.
-- Visualisation metrics to assess and provide insights on the user's skills, job applicationmetrics, and interview performance (Under development).</mutableString>
+- Visualisation metrics to assess and provide insights on the user's skills, job application
+metrics, and interview performance (Under development).</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -894,14 +895,14 @@ They include:
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="totalCell" id="eS8-fv-jdb" customClass="ApplicationCountTableViewCell" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="99" width="333" height="36.666667938232422"/>
+                                        <rect key="frame" x="20" y="99" width="333" height="37.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eS8-fv-jdb" id="HHK-tk-CZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="333" height="36.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-SZ-AmM">
-                                                    <rect key="frame" x="20" y="11" width="293" height="14.666666666666664"/>
+                                                    <rect key="frame" x="20" y="11" width="293" height="15.333333333333336"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1756,13 +1757,13 @@ They include:
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aeo-vh-HMa">
                             <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="87"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="calendarCell" id="zF7-NW-lBJ" customClass="InterviewScheduleCollectionViewCell" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="127.99999999999997" height="128"/>
+                                <rect key="frame" x="0.0" y="87" width="127.99999999999997" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KdN-PT-dwx">
                                     <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
@@ -1786,7 +1787,7 @@ They include:
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="monthTitleCell" id="i41-73-ImV" customClass="InterviewScheduleMonthCollectionReusableView" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="87"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joa-bx-LHa">
@@ -1796,9 +1797,9 @@ They include:
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT1-kW-vLC">
-                                    <rect key="frame" x="248" y="10" width="145" height="30"/>
+                                    <rect key="frame" x="248" y="10" width="145" height="34.333333333333336"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="145" id="g7s-8M-v3S"/>
+                                        <constraint firstAttribute="width" constant="145" id="gbA-Mu-njI"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="gray" title="View Interviews"/>
@@ -1806,14 +1807,41 @@ They include:
                                         <segue destination="1l0-i5-tOy" kind="show" identifier="viewDateInterviewScheduleSegue" id="5FU-Ip-lVT"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwv-QI-AC8">
+                                    <rect key="frame" x="355" y="49" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="l4r-i9-NTu"/>
+                                        <constraint firstAttribute="height" constant="30" id="sT7-EV-c5A"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="arrowshape.right.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="onRightArrowButtonClick:" destination="YNH-Vk-Qwi" eventType="touchUpInside" id="iil-bE-Lbd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpt-rt-N5Z">
+                                    <rect key="frame" x="325" y="49" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="VqV-J8-shy"/>
+                                        <constraint firstAttribute="height" constant="30" id="XTA-K3-bfj"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.circle" catalog="system"/>
+                                    <connections>
+                                        <action selector="onLeftArrowButtonClick:" destination="YNH-Vk-Qwi" eventType="touchUpInside" id="6sF-wr-ep9"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="Pwv-QI-AC8" secondAttribute="trailing" id="7zA-RI-Wzh"/>
                                 <constraint firstAttribute="trailing" secondItem="ZT1-kW-vLC" secondAttribute="trailing" id="P4G-aZ-wka"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="Pwv-QI-AC8" secondAttribute="bottom" id="RXv-ly-vdL"/>
                                 <constraint firstItem="ZT1-kW-vLC" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="top" constant="10" id="Uvc-m2-hCh"/>
-                                <constraint firstAttribute="bottom" secondItem="ZT1-kW-vLC" secondAttribute="bottom" constant="10" id="aa2-sN-ZSr"/>
+                                <constraint firstItem="Pwv-QI-AC8" firstAttribute="leading" secondItem="dpt-rt-N5Z" secondAttribute="trailing" id="WKs-Wg-IZl"/>
                                 <constraint firstItem="ZT1-kW-vLC" firstAttribute="leading" secondItem="joa-bx-LHa" secondAttribute="trailing" constant="10" id="byg-A9-Pyu"/>
                                 <constraint firstItem="joa-bx-LHa" firstAttribute="leading" secondItem="i41-73-ImV" secondAttribute="leadingMargin" id="lHk-bo-2pU"/>
                                 <constraint firstItem="joa-bx-LHa" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="topMargin" id="xNB-io-p6X"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="dpt-rt-N5Z" secondAttribute="bottom" id="xoZ-Ek-RPJ"/>
                             </constraints>
                             <connections>
                                 <outlet property="headerLabel" destination="joa-bx-LHa" id="KEw-cw-I2Y"/>
@@ -2506,6 +2534,8 @@ They include:
         <segue reference="Ibb-KV-UTJ"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="arrowshape.left.circle" catalog="system" width="128" height="123"/>
+        <image name="arrowshape.right.circle" catalog="system" width="128" height="123"/>
         <image name="bell.fill" width="35.698200225830078" height="39.213901519775391"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>

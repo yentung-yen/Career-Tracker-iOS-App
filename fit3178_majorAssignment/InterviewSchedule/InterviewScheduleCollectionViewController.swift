@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InterviewScheduleCollectionViewController: UICollectionViewController {
+class InterviewScheduleCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let DAY_HEADER_SECTION = 0
     let DATES_SECTION = 1
     
@@ -16,8 +16,12 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     
     // for setting dates in calendar
     var dates: [Int] = []
+    var calendar = Calendar.current // get user's current calendar settings
     var currentDate = Date()
-    let calendar = Calendar.current // get user's current calendar settings
+    var todayDate = Date()
+    var todayDay: Int = 0
+    var todayYear: Int = 0
+    var todayMonth: Int = 0
     
     // for setting day headers in calendar
     var dayHeaderList: [String] = []
@@ -46,14 +50,17 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         getCalendarHeader()
         
         // set current year and month
-        currentYearShown = calendar.component(.year, from: currentDate)
-        currentMonthShown = calendar.component(.month, from: currentDate)
-//        print(currentYear!)
-//        print(currentMonth!)
+        todayDate = Date()
+        calendar = Calendar.current
+        currentYearShown = calendar.component(.year, from: todayDate)
+        currentMonthShown = calendar.component(.month, from: todayDate)
+//        print(currentYearShown!)
+//        print(currentMonthShown!)
         
         // set last selected cell to default to today's date
-        let todayDay = calendar.component(.day, from: currentDate)
+        todayDay = calendar.component(.day, from: todayDate)
         lastSelectedCell = [DATES_SECTION, todayDay]
+//        print(todayDay)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -65,12 +72,13 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     func getNumOfCellsInCalendarMonth() {
         var numDays = 0
 
-//        var components = DateComponents()
-//        components.year = 2023
-//        components.month = 1
-//        components.day = 10
-//        currentDate = calendar.date(from: components) ?? Date()
-
+        // create date object based on current year and month user has moved to
+        var components = DateComponents()
+        components.year = currentYearShown
+        components.month = currentMonthShown
+        components.day = 1
+        currentDate = calendar.date(from: components)!
+        
         // get number of days in a month (need guard because it returns optional and can be nil)
         guard let range = calendar.range(of: .day, in: .month, for: currentDate) else { return }
         numDays = range.count
@@ -169,6 +177,11 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CALENDAR_CELL, for: indexPath) as! InterviewScheduleCollectionViewCell
         
+        // reset all cell properties that might change
+        cell.backgroundColor = UIColor.systemGray5 // default background color
+        cell.dateLabel.textColor = UIColor.black    // default text color
+        cell.dateLabel.font = UIFont.systemFont(ofSize: 16.0) // default font
+        
         // Configure the cell
         if indexPath.section == DAY_HEADER_SECTION {
             let day = dayHeaderList[indexPath.item]
@@ -206,9 +219,9 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     
     // function to identify if a cell is today's date
     func isToday(date: Int) -> Bool {
-        let todayDay = calendar.component(.day, from: currentDate)
-        let todayYear = calendar.component(.year, from: currentDate)
-        let todayMonth = calendar.component(.month, from: currentDate)
+        todayDay = calendar.component(.day, from: todayDate)
+        todayYear = calendar.component(.year, from: todayDate)
+        todayMonth = calendar.component(.month, from: todayDate)
 
         // Only highlight if the year, month, and day match
         return todayDay == date && todayYear == currentYearShown && todayMonth == currentMonthShown
@@ -243,10 +256,10 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [itemLayout])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 25, bottom: 10, trailing: 25)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25)
         
         // Define header for month label
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(90))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         layoutSection.boundarySupplementaryItems = [header]
         
@@ -314,7 +327,52 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
 //        print(lastSelectedCell)
     }
 
-
+    
+    // MARK: Arrow Button Action Functions
+    
+    @IBAction func onRightArrowButtonClick(_ sender: Any) {
+        if currentMonthShown == 12 {
+            currentMonthShown = 1
+            currentYearShown! += 1
+        } else {
+            currentMonthShown! += 1
+        }
+        
+//        if todayYear == currentYearShown && todayMonth == currentMonthShown {
+//            lastSelectedCell = [DATES_SECTION, todayDay]
+//        } else {
+//            lastSelectedCell = [DATES_SECTION, 100]
+//        }
+        
+        // reset and recalculate the number of cells we should display for new month
+        dates = []
+        getNumOfCellsInCalendarMonth()
+        
+        collectionView.reloadData()
+    }
+    
+    @IBAction func onLeftArrowButtonClick(_ sender: Any) {
+        if currentMonthShown == 1 {
+            currentMonthShown = 12
+            currentYearShown! -= 1
+        } else {
+            currentMonthShown! -= 1
+        }
+        
+//        if todayYear == currentYearShown && todayMonth == currentMonthShown {
+//            lastSelectedCell = [DATES_SECTION, todayDay]
+//        } else {
+//            lastSelectedCell = [DATES_SECTION, 100]
+//        }
+        
+        // reset and recalculate the number of cells we should display for new month
+        dates = []
+        getNumOfCellsInCalendarMonth()
+        
+        collectionView.reloadData()
+    }
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*

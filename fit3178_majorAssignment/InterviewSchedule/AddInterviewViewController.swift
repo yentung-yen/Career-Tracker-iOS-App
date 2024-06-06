@@ -94,6 +94,10 @@ class AddInterviewViewController: UIViewController {
             displayMessage(title: "Missing Fields", message: errorMsg)
             return
         }
+        if endDateTime.date < startDateTime.date {
+            displayMessage(title: "Date Error", message: "Interview end date is before start date")
+            return
+        }
         
         let _ = databaseController?.addInterviewSchedule(interviewTitle: title, interviewStartDatetime: startDateTime.date, interviewEndDatetime: endDateTime.date, interviewVideoLink: vidLinkTextField.text ?? "", interviewLocation: locationTextField.text ?? "", interviewNotifDatetime: notifDatePicker.date, interviewNotes: notesTextField.text ?? "")
         

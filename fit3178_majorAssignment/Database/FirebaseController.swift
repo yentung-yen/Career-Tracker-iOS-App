@@ -31,6 +31,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     var successfulSignUp: Bool = false
     var currentUserUID: String?
     
+    var defaultCategoryList = ["Adaptability", "Communication", "Leadership", "Problem Solving", "Teamwork", "Time Management"]
+    
     // CoreData stuff =======================================
     var persistentContainer: NSPersistentContainer      // holds a reference to our persistent container
     var allInterviewScheduleFetchedResultsController: NSFetchedResultsController<InterviewScheduleDetail>?
@@ -179,6 +181,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         // ======================================================
     }
     
+    // MARK: methods to create new application and journal entry data using firebase
+    
     // removeListener method: passes the specified listener to the multicast delegate class, then remove it from the set of saved listeners
     func removeListener(listener: DatabaseListener) {
         listeners.removeDelegate(listener)
@@ -262,31 +266,8 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
 //        return user
 //    }
     
-    // CoreData stuff =======================================
-    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail {
-        let interview = NSEntityDescription.insertNewObject(forEntityName: "InterviewScheduleDetail", into: persistentContainer.viewContext) as! InterviewScheduleDetail
     
-        interview.interviewTitle = interviewTitle
-        interview.interviewStartDatetime = interviewStartDatetime
-        interview.interviewEndDatetime = interviewEndDatetime
-        interview.interviewVideoLink = interviewVideoLink
-        interview.interviewLocation = interviewLocation
-        interview.interviewNotifDatetime = interviewNotifDatetime
-        interview.interviewNotes = interviewNotes
-        
-        return interview
-    }
-    
-    // deleteInterviewSchedule method:
-    // takes in an interview to be deleted and removes it from the main managed object context
-    // deletion will not be made permanent until the managed context is saved
-    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail) {
-        persistentContainer.viewContext.delete(interviewScheduleDetail)
-    }
-    // ======================================================
-    
-    
-    // MARK: - Firebase Controller Specific Methods
+    // MARK: - Firebase Controller Methods to fetch data
     
     // called once we have received an authentication result from Firebase.
     func setupApplicationListener(){
@@ -348,7 +329,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             } else if change.type == .modified {
                 applicationList.remove(at: Int(change.oldIndex))
                 applicationList.insert(app, at: Int(change.newIndex))
-                // If change type is modified, remove and re-add the newly modified hero at the new location
+                // If change type is modified, remove and re-add the newly modified application at the new location
                 
             } else if change.type == .removed {
                 applicationList.remove(at: Int(change.oldIndex))
@@ -387,7 +368,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             } else if change.type == .modified {
                 journalEntryList.remove(at: Int(change.oldIndex))
                 journalEntryList.insert(entry, at: Int(change.newIndex))
-                // If change type is modified, remove and re-add the newly modified hero at the new location
+                // If change type is modified, remove and re-add the newly modified journal entry at the new location
                 
             } else if change.type == .removed {
                 journalEntryList.remove(at: Int(change.oldIndex))
@@ -404,7 +385,29 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
     }
     
-    // CoreData stuff =======================================
+    
+    // MARK: methods to create new interview schedule data using core data
+    func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail {
+        let interview = NSEntityDescription.insertNewObject(forEntityName: "InterviewScheduleDetail", into: persistentContainer.viewContext) as! InterviewScheduleDetail
+    
+        interview.interviewTitle = interviewTitle
+        interview.interviewStartDatetime = interviewStartDatetime
+        interview.interviewEndDatetime = interviewEndDatetime
+        interview.interviewVideoLink = interviewVideoLink
+        interview.interviewLocation = interviewLocation
+        interview.interviewNotifDatetime = interviewNotifDatetime
+        interview.interviewNotes = interviewNotes
+        
+        return interview
+    }
+    
+    // deleteInterviewSchedule method:
+    // takes in an interview to be deleted and removes it from the main managed object context
+    // deletion will not be made permanent until the managed context is saved
+    func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail) {
+        persistentContainer.viewContext.delete(interviewScheduleDetail)
+    }
+    
     func createDefaultInterviews() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyy"
@@ -418,7 +421,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
     }
     
     
-    // MARK: - Fetched Results Controller Protocol methods
+    // MARK: - Core Data Fetched Results Controller Protocol methods
     
     // This will be called whenever the FetchedResultsController detects a change to the result of its fetch.
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -505,6 +508,16 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             userRef = database.collection("users").document(uid)
             applicationRef = userRef?.collection("applicationDetail")
             journalEntryRef = userRef?.collection("journalEntry")
+            
+            // TODO: add user's personal categories to to a new field
+            userRef?.setData(["journalCategoryList": defaultCategoryList], merge: true) { error in
+                if let error = error {
+                    print("Error adding new journalCategoryList field: \(error)")
+                } else {
+                    print("journalCategoryList field successfully added")
+                }
+            }
+            // create references to each category collection
             
             // call setupListener methods to begin setting up the database listeners.
             // fetch application and journal entry data

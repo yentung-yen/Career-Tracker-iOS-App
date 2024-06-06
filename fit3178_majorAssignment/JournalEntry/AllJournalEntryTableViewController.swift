@@ -7,7 +7,9 @@
 
 import UIKit
 
-class AllJournalEntryTableViewController: UITableViewController, UISearchResultsUpdating, DatabaseListener {
+// conform to UISearchResultsUpdating to allow search functionality to update table view (updateSearchResults() delegate method)
+// conform to UISearchControllerDelegate to allow us to use the didDismissSearchController() delegate method
+class AllJournalEntryTableViewController: UITableViewController, UISearchResultsUpdating, UISearchControllerDelegate, DatabaseListener {
     let SECTION_JOURNAL_ENTRIES = 0
     let SECTION_ENTRIES_COUNT = 1
     
@@ -19,6 +21,9 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     
     var listenerType = ListenerType.journalEntry    // specify the listener type this class will be.
     weak var databaseController: DatabaseProtocol?  // hold a reference to the database
+    
+    // so that we have a reference to the searchController throughout the view/screen
+    var searchController: UISearchController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +31,15 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         databaseController = appDelegate?.firebaseDatabaseController
         
-        filteredJournalEntries = allJournalEntries
-        
         // create UISeachController and assign it to the View Controller
-        let searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
         
         // indicates that the current object (self - which is the AllHeroesTableViewController) will handle updates to the search results
         // enable the object containing it to receive updates to search results entered by the user in a UISearchController
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Journal Entry"        // set search bar placeholder text
-        
-        // tell our navigationItem that its search controller is the one we just created above
-        // this adds the search bar to the view controller
-        navigationItem.searchController = searchController
+        searchController?.searchResultsUpdater = self
+        searchController?.obscuresBackgroundDuringPresentation = false
+        searchController?.searchBar.placeholder = "Search Journal Entry"        // set search bar placeholder text
+        searchController?.delegate = self
         
         // This view controller decides how the search controller is presented
         definesPresentationContext = true
@@ -69,8 +69,32 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
     }
     
     func onAllJournalEntryChange(change: DatabaseChange, journalEntry: [JournalEntry]) {
-        allJournalEntries = journalEntry      // update our full hero list
-        updateSearchResults(for: navigationItem.searchController!)  // update filtered list based on search results
+        allJournalEntries = journalEntry      // update our full journal list
+        filteredJournalEntries = allJournalEntries  // start with all journal entries on loading the view
+        tableView.reloadData()
+        
+        // searchController might be nil, so safely unwrap it
+        if let searchController = navigationItem.searchController {
+            updateSearchResults(for: searchController)  // update filtered list based on search results
+        }
+    }
+    
+    // MARK: Search bar functions
+    
+    // this function is called when the user taps on the search icon
+    @IBAction func onClickSearchIcon(_ sender: Any) {
+        // present searchController when the icon is tapped
+        if let searchController = searchController {
+            // add padding to top of the table view so that the search controller doesnt block it
+            tableView.contentInset = UIEdgeInsets(top: 40, left: 0, bottom: 0, right: 0)
+            present(searchController, animated: true, completion: nil)
+        }
+    }
+    
+    // this function is called when the search controller is dismissed
+    func didDismissSearchController(_ searchController: UISearchController) {
+        // reset content inset when search controller is dismissed
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     // This method is called every time a change is detected in the search bar

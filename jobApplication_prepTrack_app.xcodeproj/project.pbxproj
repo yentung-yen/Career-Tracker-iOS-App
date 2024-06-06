@@ -18,6 +18,8 @@
 		BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */; };
 		BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */; };
 		BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */; };
+		BB5E1CA62C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E1CA52C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift */; };
+		BB5E1CA82C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E1CA72C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift */; };
 		BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977B2BFEE5640069F424 /* LogInViewController.swift */; };
 		BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */; };
 		BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977F2BFEFB990069F424 /* ProfileViewController.swift */; };
@@ -32,6 +34,7 @@
 		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
 		BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */; };
 		BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */; };
+		BBAF4AAD2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */; };
 		BBB99FD52BE3A959009F602D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD42BE3A959009F602D /* FirebaseAuth */; };
 		BBB99FD72BE3A959009F602D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD62BE3A959009F602D /* FirebaseFirestore */; };
 		BBB99FD92BE3A959009F602D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BBB99FD82BE3A959009F602D /* FirebaseFirestoreSwift */; };
@@ -69,6 +72,8 @@
 		BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB5E1CA52C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB5E1CA72C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB82977B2BFEE5640069F424 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		BB82977D2BFEE5750069F424 /* RegisterSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSignUpViewController.swift; sourceTree = "<group>"; };
 		BB82977F2BFEFB990069F424 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +88,7 @@
 		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
 		BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalEntryViewController.swift; sourceTree = "<group>"; };
+		BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetail.swift; sourceTree = "<group>"; };
 		BBB99FDE2BE3B336009F602D /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
@@ -168,6 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
+				BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */,
+				BB5E1CA52C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift */,
+				BB5E1CA72C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift */,
 				BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */,
 				BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */,
 				BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */,
@@ -368,10 +377,13 @@
 				BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */,
 				BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */,
 				BBFD17AB2BE27BB900A33FED /* DatabaseProtocol.swift in Sources */,
+				BB5E1CA62C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift in Sources */,
+				BBAF4AAD2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift in Sources */,
 				BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */,
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
 				BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */,
 				BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */,
+				BB5E1CA82C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift in Sources */,
 				BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */,
 				BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */,
 				BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */,

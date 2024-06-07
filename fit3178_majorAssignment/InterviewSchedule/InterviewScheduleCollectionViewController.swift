@@ -127,13 +127,23 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
         // Pass the selected object to the new view controller.
         if segue.identifier == "createInterviewScheduleSegue" {
             if let destinationVC = segue.destination as? AddInterviewViewController {
-                let date = dates[lastSelectedCell!.item]
+                var date = 0
                 
-                destinationVC.selectedDate = date
-                destinationVC.selectedMonth = currentMonthShown
-                destinationVC.selectedYear = currentYearShown
+                // if no date is selected, send today's date over
+                if lastSelectedCell == nil {
+                    date = todayDay
+                    destinationVC.selectedDate = date
+                    destinationVC.selectedMonth = todayMonth
+                    destinationVC.selectedYear = todayYear
+                } else {
+                    date = dates[lastSelectedCell!.item]
+                    destinationVC.selectedDate = date
+                    destinationVC.selectedMonth = currentMonthShown
+                    destinationVC.selectedYear = currentYearShown
+                }
                 
 //                print("createInterviewScheduleSegue")
+//                print(lastSelectedCell!.item)
 //                print(date)
 //                print(currentMonthShown!)
 //                print(currentYearShown!)
@@ -177,10 +187,14 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CALENDAR_CELL, for: indexPath) as! InterviewScheduleCollectionViewCell
         
-        // reset all cell properties that might change
+        // reset all cell properties that change
         cell.backgroundColor = UIColor.systemGray5 // default background color
         cell.dateLabel.textColor = UIColor.black    // default text color
         cell.dateLabel.font = UIFont.systemFont(ofSize: 16.0) // default font
+        
+        // reset border appearance that changes when user selects a cell
+        cell.layer.borderWidth = 0 // reset border width
+        cell.layer.borderColor = UIColor.clear.cgColor // reset border color
         
         // Configure the cell
         if indexPath.section == DAY_HEADER_SECTION {
@@ -205,6 +219,9 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
                 
                 // check if this cell represents today's date
                 if isToday(date: date) {
+                    // set lastSelectedDate to the cell for today's date
+                    lastSelectedCell = [DATES_SECTION, indexPath.item]
+                    
                     // highlight today's date
                     cell.backgroundColor = UIColor.systemIndigo
                     
@@ -304,28 +321,6 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
         }
         return UICollectionReusableView()
     }
-    
-    // function to highlight cell that is selected
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // check if there's a previously selected cell
-        // if there is, check if it's different from the current selection
-        if let lastIndexPath = lastSelectedCell, lastIndexPath != indexPath {
-            // Get the previous cell and reset its border
-            if let lastCell = collectionView.cellForItem(at: lastIndexPath) as? InterviewScheduleCollectionViewCell {
-                lastCell.layer.borderWidth = 0
-            }
-        }
-
-        // update appearance of current selected cell
-        if let cell = collectionView.cellForItem(at: indexPath) as? InterviewScheduleCollectionViewCell {
-            cell.layer.borderWidth = 1.5
-            cell.layer.borderColor = UIColor.red.cgColor
-        }
-
-        // update last selected index path var
-        lastSelectedCell = indexPath
-//        print(lastSelectedCell)
-    }
 
     
     // MARK: Arrow Button Action Functions
@@ -338,11 +333,8 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
             currentMonthShown! += 1
         }
         
-//        if todayYear == currentYearShown && todayMonth == currentMonthShown {
-//            lastSelectedCell = [DATES_SECTION, todayDay]
-//        } else {
-//            lastSelectedCell = [DATES_SECTION, 100]
-//        }
+        // set lastSelectedIndex to select nothing
+        lastSelectedCell = nil
         
         // reset and recalculate the number of cells we should display for new month
         dates = []
@@ -359,11 +351,8 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
             currentMonthShown! -= 1
         }
         
-//        if todayYear == currentYearShown && todayMonth == currentMonthShown {
-//            lastSelectedCell = [DATES_SECTION, todayDay]
-//        } else {
-//            lastSelectedCell = [DATES_SECTION, 100]
-//        }
+        // set lastSelectedIndex to select nothing
+        lastSelectedCell = nil
         
         // reset and recalculate the number of cells we should display for new month
         dates = []
@@ -381,13 +370,48 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
         return true
     }
     */
+    
+    // function to highlight cell that is selected
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // check if there's a previously selected cell
+        // if there is, check if it's different from the current selection
+        // reset borders of previously selected cell
+        if let lastIndexPath = lastSelectedCell, lastIndexPath != indexPath {
+            // Get the previous cell and reset its border
+            if let lastCell = collectionView.cellForItem(at: lastIndexPath) as? InterviewScheduleCollectionViewCell {
+                lastCell.layer.borderWidth = 0
+            }
+        }
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
+        // update border of current/new selected cell to red
+        if let cell = collectionView.cellForItem(at: indexPath) as? InterviewScheduleCollectionViewCell {
+            cell.layer.borderWidth = 1.5
+            cell.layer.borderColor = UIColor.red.cgColor
+        }
+
+        // update last selected index path var
+        lastSelectedCell = indexPath
+//        print(lastSelectedCell)
+    }
+
+    
+    // this method specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        // make the day headers (section 0 - DAY_HEADER_SECTION) unselectable
+        if indexPath.section == DAY_HEADER_SECTION {
+            return false
+        }
+        
+        // for DATES_SECTION (section 1)
+        let date = dates[indexPath.item]
+        if date == 100 {
+            // 100 are placeholder cells that shouldn't be selectable
+            return false
+        }
+        
         return true
     }
-    */
+    
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

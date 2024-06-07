@@ -12,6 +12,7 @@ class ViewInterviewDetailViewController: UIViewController {
     let DATE_FORMATTER_TIME = DateFormatter()
     
     var currentInterviewDetails: InterviewScheduleDetail?
+    weak var databaseController: DatabaseProtocol?
     
     @IBOutlet weak var interviewTitleLabel: UILabel!
     @IBOutlet weak var interviewDayDateLabel: UILabel!
@@ -25,6 +26,9 @@ class ViewInterviewDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        databaseController = appDelegate?.firebaseDatabaseController
+        
         DATE_FORMATTER.dateFormat = "EEEE, dd-MMM-yyyy"
         DATE_FORMATTER_TIME.dateFormat = "h:mm a"
         
@@ -42,7 +46,22 @@ class ViewInterviewDetailViewController: UIViewController {
     }
     
     @IBAction func onDeleteInterviewClick(_ sender: Any) {
+        guard let delInterview = currentInterviewDetails else { return }
+
+        // get the managed object context
+        let context = databaseController?.persistentContainer.viewContext
+        context?.delete(delInterview)   // delete interview
+
+        // save context to make the deletion permanent
+        do {
+            try context?.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
         
+        // return back to main screen
+        navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     /*

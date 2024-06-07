@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import CoreData
 
 // used to define what type of change has been done to the database
 enum DatabaseChange {
@@ -61,6 +62,8 @@ protocol DatabaseProtocol: AnyObject {
     // functionality to add, delete interview schedule
     func addInterviewSchedule(interviewTitle: String, interviewStartDatetime: Date, interviewEndDatetime: Date, interviewVideoLink: String, interviewLocation: String, interviewNotifDatetime: Date, interviewNotes: String) -> InterviewScheduleDetail
     func deleteInterviewSchedule(interviewScheduleDetail: InterviewScheduleDetail)
+    // to allow access to persistentContainer to delete interview
+    var persistentContainer: NSPersistentContainer {get}
     
     // authentication functions
     var successfulSignUp: Bool {get set}    // variable to tell us if a sign up was successful or not

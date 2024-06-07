@@ -2094,7 +2094,7 @@ metrics, and interview performance (Under development).</string>
                     <navigationItem key="navigationItem" id="p9o-hQ-Mg8">
                         <barButtonItem key="rightBarButtonItem" image="pencil" catalog="system" id="SkI-aC-5hU">
                             <connections>
-                                <segue destination="960-Nv-uCO" kind="show" id="XI5-qw-5fi"/>
+                                <segue destination="960-Nv-uCO" kind="show" identifier="viewToEditInterviewSegue" id="XI5-qw-5fi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2817,7 +2817,11 @@ metrics, and interview performance (Under development).</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Interview Details" id="gsU-Be-HEu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gjX-fl-RKz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gjX-fl-RKz">
+                            <connections>
+                                <action selector="onSaveChangesClick:" destination="960-Nv-uCO" id="bIu-gf-Zce"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="interviewEndDatePicker" destination="XoK-Ad-aSM" id="TK8-y3-yiB"/>

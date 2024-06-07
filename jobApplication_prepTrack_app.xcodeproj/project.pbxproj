@@ -18,6 +18,8 @@
 		BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */; };
 		BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */; };
 		BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */; };
+		BB5AD7422C13720000308CA4 /* ViewInterviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5AD7412C13720000308CA4 /* ViewInterviewDetailViewController.swift */; };
+		BB5AD7442C13723300308CA4 /* EditInterviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5AD7432C13723300308CA4 /* EditInterviewDetailViewController.swift */; };
 		BB5E1CA62C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E1CA52C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift */; };
 		BB5E1CA82C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5E1CA72C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift */; };
 		BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB82977B2BFEE5640069F424 /* LogInViewController.swift */; };
@@ -72,6 +74,8 @@
 		BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB5AD7412C13720000308CA4 /* ViewInterviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterviewDetailViewController.swift; sourceTree = "<group>"; };
+		BB5AD7432C13723300308CA4 /* EditInterviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInterviewDetailViewController.swift; sourceTree = "<group>"; };
 		BB5E1CA52C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB5E1CA72C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB82977B2BFEE5640069F424 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -130,12 +134,11 @@
 		BB10A0632BF58AAE007A423A /* InterviewSchedule */ = {
 			isa = PBXGroup;
 			children = (
-				BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */,
-				BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */,
-				BB10A0682BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift */,
+				BB5AD73F2C13715000308CA4 /* InterviewScheduleMain */,
 				BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */,
-				BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */,
-				BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */,
+				BB5AD7402C13718400308CA4 /* InterviewScheduleList */,
+				BB5AD7412C13720000308CA4 /* ViewInterviewDetailViewController.swift */,
+				BB5AD7432C13723300308CA4 /* EditInterviewDetailViewController.swift */,
 			);
 			path = InterviewSchedule;
 			sourceTree = "<group>";
@@ -149,6 +152,25 @@
 				BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */,
 			);
 			path = InterviewPrep;
+			sourceTree = "<group>";
+		};
+		BB5AD73F2C13715000308CA4 /* InterviewScheduleMain */ = {
+			isa = PBXGroup;
+			children = (
+				BB10A0642BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift */,
+				BB10A0662BF5A610007A423A /* InterviewScheduleCollectionViewCell.swift */,
+				BB10A0682BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift */,
+			);
+			path = InterviewScheduleMain;
+			sourceTree = "<group>";
+		};
+		BB5AD7402C13718400308CA4 /* InterviewScheduleList */ = {
+			isa = PBXGroup;
+			children = (
+				BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */,
+				BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */,
+			);
+			path = InterviewScheduleList;
 			sourceTree = "<group>";
 		};
 		BB82977A2BFEE5380069F424 /* LogIn-SignUp */ = {
@@ -357,6 +379,7 @@
 				BB9D2CAC2BFCE53000DAAD8F /* ApplicationMetricViewController.swift in Sources */,
 				BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
+				BB5AD7422C13720000308CA4 /* ViewInterviewDetailViewController.swift in Sources */,
 				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
 				BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */,
@@ -383,6 +406,7 @@
 				BBFD17A92BE27B5E00A33FED /* MulticastDelegate.swift in Sources */,
 				BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */,
 				BB82977E2BFEE5750069F424 /* RegisterSignUpViewController.swift in Sources */,
+				BB5AD7442C13723300308CA4 /* EditInterviewDetailViewController.swift in Sources */,
 				BB5E1CA82C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift in Sources */,
 				BB8297802BFEFB990069F424 /* ProfileViewController.swift in Sources */,
 				BBA54C092BED1E7B00C03C97 /* QuizCategory.swift in Sources */,

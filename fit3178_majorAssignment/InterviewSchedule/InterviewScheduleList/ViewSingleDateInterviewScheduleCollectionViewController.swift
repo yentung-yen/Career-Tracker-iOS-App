@@ -98,15 +98,23 @@ class ViewSingleDateInterviewScheduleCollectionViewController: UICollectionViewC
 //        print(displayinterviewList.count)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "interviewListToViewInterviewSegue" {
+            if let indexPath = self.collectionView.indexPathsForSelectedItems?.first {
+                if let destinationVC = segue.destination as? ViewInterviewDetailViewController {
+                    
+                    destinationVC.currentInterviewDetails = displayinterviewList[indexPath.row]
+                }
+            }
+        }
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 

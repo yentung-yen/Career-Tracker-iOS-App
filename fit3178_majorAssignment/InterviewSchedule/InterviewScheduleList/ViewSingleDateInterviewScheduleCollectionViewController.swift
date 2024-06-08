@@ -30,7 +30,7 @@ class ViewSingleDateInterviewScheduleCollectionViewController: UICollectionViewC
 
         // code to set the databaseController
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
 
         // conform to UICollectionViewDelegate and UICollectionViewDataSource protocols
         collectionView.dataSource = self

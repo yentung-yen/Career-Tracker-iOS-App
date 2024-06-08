@@ -16,7 +16,6 @@
 		BB53C7642BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7622BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodeld */; };
 		BB53C7672BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7652BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift */; };
 		BB53C7682BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7662BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift */; };
-		BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */; };
 		BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */; };
 		BB53C7702BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */; };
 		BB5AD7422C13720000308CA4 /* ViewInterviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5AD7412C13720000308CA4 /* ViewInterviewDetailViewController.swift */; };
@@ -34,7 +33,6 @@
 		BBA54C0F2BEDA59600C03C97 /* ViewQuizQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */; };
 		BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */; };
 		BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */; };
-		BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */; };
 		BBAE12AB2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */; };
 		BBAE12AD2BE36E42008B3EC4 /* EditJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */; };
 		BBAF4AAD2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */; };
@@ -44,7 +42,7 @@
 		BBB99FDB2BE3ABC4009F602D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */; };
 		BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */; };
 		BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FDE2BE3B336009F602D /* JournalEntry.swift */; };
-		BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FE02BE3B452009F602D /* FirebaseController.swift */; };
+		BBB99FE12BE3B452009F602D /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB99FE02BE3B452009F602D /* DatabaseController.swift */; };
 		BBC70ABC2BE14B89003D2052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */; };
 		BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */; };
 		BBC70AC32BE14B89003D2052 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BBC70AC22BE14B89003D2052 /* Base */; };
@@ -53,7 +51,6 @@
 		BBC70AD92BE16D67003D2052 /* ApplicationTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */; };
 		BBC70ADB2BE16D8F003D2052 /* AddNewApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */; };
 		BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */; };
-		BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */; };
 		BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */; };
 		BBF5832A2BF628B00049DC50 /* AddInterviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */; };
 		BBF679292C001DFB000F36E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF679282C001DFB000F36E5 /* User.swift */; };
@@ -73,7 +70,6 @@
 		BB53C7632BF6C1720012DC3F /* InterviewScheduleDetail-Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "InterviewScheduleDetail-Model.xcdatamodel"; sourceTree = "<group>"; };
 		BB53C7652BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterviewScheduleDetail+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		BB53C7662BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InterviewScheduleDetail+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		BB53C76B2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewController.swift; sourceTree = "<group>"; };
 		BB53C76F2BF6DDDC0012DC3F /* ViewSingleDateInterviewScheduleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSingleDateInterviewScheduleCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB5AD7412C13720000308CA4 /* ViewInterviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInterviewDetailViewController.swift; sourceTree = "<group>"; };
@@ -91,14 +87,13 @@
 		BBA54C0E2BEDA59500C03C97 /* ViewQuizQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuizQuestionViewController.swift; sourceTree = "<group>"; };
 		BBA559DB2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllJournalEntryTableViewController.swift; sourceTree = "<group>"; };
 		BBA559DD2BE34A770099D458 /* CreateJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalEntryViewController.swift; sourceTree = "<group>"; };
-		BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryDelegate.swift; sourceTree = "<group>"; };
 		BBAE12AA2BE36E32008B3EC4 /* ViewJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBAE12AC2BE36E42008B3EC4 /* EditJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditJournalEntryViewController.swift; sourceTree = "<group>"; };
 		BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBB99FDA2BE3ABC4009F602D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BBB99FDC2BE3B1D0009F602D /* ApplicationDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDetail.swift; sourceTree = "<group>"; };
 		BBB99FDE2BE3B336009F602D /* JournalEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
-		BBB99FE02BE3B452009F602D /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
+		BBB99FE02BE3B452009F602D /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		BBC70AB82BE14B89003D2052 /* jobApplication_prepTrack_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobApplication_prepTrack_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC70ABB2BE14B89003D2052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC70ABD2BE14B89003D2052 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,7 +104,6 @@
 		BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTrackerViewController.swift; sourceTree = "<group>"; };
 		BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewApplicationViewController.swift; sourceTree = "<group>"; };
 		BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCountTableViewCell.swift; sourceTree = "<group>"; };
-		BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddApplicationDelegate.swift; sourceTree = "<group>"; };
 		BBC70AE02BE17740003D2052 /* UIViewController+displayMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+displayMessage.swift"; sourceTree = "<group>"; };
 		BBF583292BF628B00049DC50 /* AddInterviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterviewViewController.swift; sourceTree = "<group>"; };
 		BBF679282C001DFB000F36E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -198,7 +192,6 @@
 		BBA559DA2BE349E90099D458 /* JournalEntry */ = {
 			isa = PBXGroup;
 			children = (
-				BBA559E12BE34F840099D458 /* AddJournalEntryDelegate.swift */,
 				BBAF4AAC2C0C89C30022E8BD /* JournalCategoryCollectionViewCell.swift */,
 				BB5E1CA52C0CC67100CBC62F /* ViewJournalCategoryCollectionViewCell.swift */,
 				BB5E1CA72C0CD49400CBC62F /* EditJournalCategoryCollectionViewCell.swift */,
@@ -252,7 +245,6 @@
 		BBC70ACF2BE16A6B003D2052 /* ApplicationTracker */ = {
 			isa = PBXGroup;
 			children = (
-				BBC70ADE2BE16F29003D2052 /* AddApplicationDelegate.swift */,
 				BBC70AD82BE16D67003D2052 /* ApplicationTrackerViewController.swift */,
 				BBC70ADC2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift */,
 				BBC70ADA2BE16D8F003D2052 /* AddNewApplicationViewController.swift */,
@@ -282,8 +274,7 @@
 			children = (
 				BBFD17A82BE27B5E00A33FED /* MulticastDelegate.swift */,
 				BBFD17AA2BE27BB900A33FED /* DatabaseProtocol.swift */,
-				BBB99FE02BE3B452009F602D /* FirebaseController.swift */,
-				BB53C7692BF6C49D0012DC3F /* CoreDataController.swift */,
+				BBB99FE02BE3B452009F602D /* DatabaseController.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -384,7 +375,7 @@
 				BB4767E42BECF028008C5957 /* QuizTableViewController.swift in Sources */,
 				BBA559DC2BE34A4E0099D458 /* AllJournalEntryTableViewController.swift in Sources */,
 				BB5AD7422C13720000308CA4 /* ViewInterviewDetailViewController.swift in Sources */,
-				BBB99FE12BE3B452009F602D /* FirebaseController.swift in Sources */,
+				BBB99FE12BE3B452009F602D /* DatabaseController.swift in Sources */,
 				BBA559DE2BE34A770099D458 /* CreateJournalEntryViewController.swift in Sources */,
 				BB8297822BFF1C540069F424 /* ForgotPasswordViewController.swift in Sources */,
 				BBB99FDF2BE3B336009F602D /* JournalEntry.swift in Sources */,
@@ -392,13 +383,10 @@
 				BB82977C2BFEE5640069F424 /* LogInViewController.swift in Sources */,
 				BBC70AE12BE17740003D2052 /* UIViewController+displayMessage.swift in Sources */,
 				BB10A0692BF5E05B007A423A /* InterviewScheduleMonthCollectionReusableView.swift in Sources */,
-				BB53C76A2BF6C49D0012DC3F /* CoreDataController.swift in Sources */,
 				BB53C7672BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataClass.swift in Sources */,
 				BB53C7682BF6C3270012DC3F /* InterviewScheduleDetail+CoreDataProperties.swift in Sources */,
 				BB53C76C2BF6D2550012DC3F /* ViewSingleDateInterviewScheduleCollectionViewController.swift in Sources */,
-				BBA559E22BE34F840099D458 /* AddJournalEntryDelegate.swift in Sources */,
 				BBC70ABE2BE14B89003D2052 /* SceneDelegate.swift in Sources */,
-				BBC70ADF2BE16F29003D2052 /* AddApplicationDelegate.swift in Sources */,
 				BB10A0652BF58AFD007A423A /* InterviewScheduleCollectionViewController.swift in Sources */,
 				BBC70ADD2BE16DE8003D2052 /* ApplicationCountTableViewCell.swift in Sources */,
 				BBB99FDD2BE3B1D0009F602D /* ApplicationDetail.swift in Sources */,

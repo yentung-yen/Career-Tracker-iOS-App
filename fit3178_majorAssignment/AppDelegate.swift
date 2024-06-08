@@ -5,15 +5,12 @@
 //  Created by Chin Yen Tung on 1/5/2024.
 //
 
-// TODO: remove commented code to do with core data controller
-
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-    var firebaseDatabaseController: DatabaseProtocol?
-//    var coreDataDatabaseController: DatabaseProtocol?
+    var databaseController: DatabaseProtocol?
     
     var notificationsEnabled = false
     static let INTERVIEW_STARTTIME_NOTIF_IDENTIFIER = "jobApplicationTrackerPrepApp.interview.starttime" // just need to make sure it's unique
@@ -21,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        firebaseDatabaseController = FirebaseController()
-//        coreDataDatabaseController = CoreDataController()
+        databaseController = DatabaseController()
         
         // set up notification settings
         // done in an async code

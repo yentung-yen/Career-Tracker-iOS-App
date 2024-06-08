@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
         
         // access authController
         authController = Auth.auth()

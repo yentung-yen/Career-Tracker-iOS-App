@@ -37,7 +37,7 @@ class AddInterviewViewController: UIViewController {
         // get access to the AppDelegate
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         // store a reference to the coreDataDatabaseController
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
         
         // notification set up
         if let response = UserDefaults.standard.string(forKey: "response") {

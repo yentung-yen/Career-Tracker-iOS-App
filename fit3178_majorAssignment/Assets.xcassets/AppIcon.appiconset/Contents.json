@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "fit3178_appIcon.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

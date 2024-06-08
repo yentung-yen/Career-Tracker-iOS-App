@@ -35,7 +35,7 @@ class EditJournalEntryViewController: UIViewController {
         entryDescTextField!.layer.borderColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 1.00).cgColor
         entryDescTextField!.layer.cornerRadius = 5.0
         
-        // TODO: get date in string
+        // get date in string
         dateFormatter.locale = Locale.current   // used to ensure that app adapts to user's language and region settings
         dateFormatter.dateFormat = "dd-MMM-yyyy" // set date format
         let date = dateFormatter.date(from: (currentJournalEntry?.entryDate)!)
@@ -55,7 +55,6 @@ class EditJournalEntryViewController: UIViewController {
         categoriesCollectionView.setCollectionViewLayout(UICollectionViewCompositionalLayout(section: createCategoriesLayout()), animated: false)
     }
     
-    // TODO: implement code to edit journal details
     @IBAction func onSaveEntry(_ sender: Any) {
         // validate the user input
         guard let title = titleTextField.text, let desc = entryDescTextField.text else {

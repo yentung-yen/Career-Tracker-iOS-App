@@ -28,7 +28,7 @@ class EditInterviewDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
         managedObjectContext = databaseController?.persistentContainer.viewContext
         objectID = currentInterviewDetails?.objectID
         

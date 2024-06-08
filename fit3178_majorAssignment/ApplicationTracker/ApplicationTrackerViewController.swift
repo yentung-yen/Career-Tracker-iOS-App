@@ -35,7 +35,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // Do any additional setup after loading the view.
         // code to set the databaseController
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -48,7 +48,7 @@ class ApplicationTrackerViewController: UIViewController, UITableViewDelegate, U
         // create UISeachController and assign it to the View Controller
         searchController = UISearchController(searchResultsController: nil)
         
-        // indicates that the current object (self - which is the AllHeroesTableViewController) will handle updates to the search results
+        // indicates that the current object (self - which is the ApplicationTrackerViewController) will handle updates to the search results
         // enable the object containing it to receive updates to search results entered by the user in a UISearchController
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false

@@ -27,7 +27,7 @@ class ViewInterviewDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
         
         DATE_FORMATTER.dateFormat = "EEEE, dd-MMM-yyyy"
         DATE_FORMATTER_TIME.dateFormat = "h:mm a"

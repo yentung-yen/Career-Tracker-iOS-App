@@ -201,13 +201,11 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
             let day = dayHeaderList[indexPath.item]
             cell.dateLabel.text = day
             
-            //TODO: remove
             cell.backgroundColor = UIColor.systemGray3
             
         } else if indexPath.section == DATES_SECTION {
             let date = dates[indexPath.item]
             
-            //TODO: remove
             cell.backgroundColor = UIColor.systemGray5
             
             // front of dates list is prefilled with 100 just so we start on the right index when creating the calendar

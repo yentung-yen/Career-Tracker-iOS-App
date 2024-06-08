@@ -29,12 +29,12 @@ class AllJournalEntryTableViewController: UITableViewController, UISearchResults
         super.viewDidLoad()
 
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        databaseController = appDelegate?.firebaseDatabaseController
+        databaseController = appDelegate?.databaseController
         
         // create UISeachController and assign it to the View Controller
         searchController = UISearchController(searchResultsController: nil)
         
-        // indicates that the current object (self - which is the AllHeroesTableViewController) will handle updates to the search results
+        // indicates that the current object (self - which is the AllJournalEntryTableViewController) will handle updates to the search results
         // enable the object containing it to receive updates to search results entered by the user in a UISearchController
         searchController?.searchResultsUpdater = self
         searchController?.obscuresBackgroundDuringPresentation = false

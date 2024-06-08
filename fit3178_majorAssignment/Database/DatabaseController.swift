@@ -5,17 +5,12 @@
 //  Created by Chin Yen Tung on 2/5/2024.
 //
 
-// TODO: figure out how firebase and coredata should work together
-// - do we have separate controllers for them? or have them on the same controller swift file?
-// - reformat this file if we have them on the same controller file so that it looks cleaner
-//      - e.g. add MARK so that we can identify core data stuff more easily
-
 import UIKit
 import Firebase
 import FirebaseFirestoreSwift
 import CoreData
 
-class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate {
+class DatabaseController: NSObject, DatabaseProtocol, NSFetchedResultsControllerDelegate {
     var listeners = MulticastDelegate<DatabaseListener>()
     
     var database: Firestore
@@ -130,7 +125,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
 //        }
         
         // CoreData stuff =======================================
-        // attempt to fetch all the heroes from the database. If this returns an empty array:
+        // attempt to fetch all the interview from the database. If this returns an empty array:
         if fetchAllInterview().count == 0 {
             createDefaultInterviews()
         }
@@ -165,7 +160,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
         
         // provide the listener with initial immediate results depending on what type of listener it is
         // first, check the listener type
-        // if the type = heroes or all, call the delegate method onAllHeroesChange
+        // if the type = applicationDetails or all, call the delegate method onAllApplicationDetailsChange
         if listener.listenerType == .applicationDetails {
             // pass through all applications fetched from the database.
             listener.onAllApplicationDetailsChange(change: .update, applicationDetails: applicationList)
@@ -281,7 +276,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
                 print("Failed to fetch documents with error: \(String(describing: error))")
                 return
             }
-            // If querySnapshot is valid, call parseHeroesSnapshot method to handle parsing changes made on Firestore
+            // If querySnapshot is valid, call parseApplicationSnapshot method to handle parsing changes made on Firestore
             self.parseApplicationSnapshot(snapshot: querySnapshot)
         }
     }
@@ -297,7 +292,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
                 print("Failed to fetch documents with error: \(String(describing: error))")
                 return
             }
-            // If querySnapshot is valid, call parseHeroesSnapshot method to handle parsing changes made on Firestore
+            // If querySnapshot is valid, call parseJournalEntrySnapshot method to handle parsing changes made on Firestore
             self.parseJournalEntrySnapshot(snapshot: querySnapshot)
         }
     }
@@ -431,7 +426,7 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             listeners.invoke() { listener in
                 // 3. checks if it is listening for changes to interview schedule details
                 if listener.listenerType == .interviewSchedule {
-                    // 4. call the onAllApplicationDetailsChange method, passing it the updated list of heroes
+                    // 4. call the onAllApplicationDetailsChange method, passing it the updated list of interviews
                     listener.onAllInterviewScheduleChange(change: .update, interviewScheduleDetail: fetchAllInterview())
                 }
             }
@@ -525,8 +520,4 @@ class FirebaseController: NSObject, DatabaseProtocol, NSFetchedResultsController
             setupJournalEntryListener()
         }
     }
-    
-//    func activeUserExist() -> Bool {
-//        return authController.currentUser != nil
-//    }
 }

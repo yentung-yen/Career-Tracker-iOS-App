@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InterviewScheduleCollectionViewController: UICollectionViewController {
+class InterviewScheduleCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     let DAY_HEADER_SECTION = 0
     let DATES_SECTION = 1
     
@@ -16,8 +16,12 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     
     // for setting dates in calendar
     var dates: [Int] = []
+    var calendar = Calendar.current // get user's current calendar settings
     var currentDate = Date()
-    let calendar = Calendar.current // get user's current calendar settings
+    var todayDate = Date()
+    var todayDay: Int = 0
+    var todayYear: Int = 0
+    var todayMonth: Int = 0
     
     // for setting day headers in calendar
     var dayHeaderList: [String] = []
@@ -46,14 +50,17 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         getCalendarHeader()
         
         // set current year and month
-        currentYearShown = calendar.component(.year, from: currentDate)
-        currentMonthShown = calendar.component(.month, from: currentDate)
-//        print(currentYear!)
-//        print(currentMonth!)
+        todayDate = Date()
+        calendar = Calendar.current
+        currentYearShown = calendar.component(.year, from: todayDate)
+        currentMonthShown = calendar.component(.month, from: todayDate)
+//        print(currentYearShown!)
+//        print(currentMonthShown!)
         
         // set last selected cell to default to today's date
-        let todayDay = calendar.component(.day, from: currentDate)
+        todayDay = calendar.component(.day, from: todayDate)
         lastSelectedCell = [DATES_SECTION, todayDay]
+//        print(todayDay)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -65,12 +72,13 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     func getNumOfCellsInCalendarMonth() {
         var numDays = 0
 
-//        var components = DateComponents()
-//        components.year = 2023
-//        components.month = 1
-//        components.day = 10
-//        currentDate = calendar.date(from: components) ?? Date()
-
+        // create date object based on current year and month user has moved to
+        var components = DateComponents()
+        components.year = currentYearShown
+        components.month = currentMonthShown
+        components.day = 1
+        currentDate = calendar.date(from: components)!
+        
         // get number of days in a month (need guard because it returns optional and can be nil)
         guard let range = calendar.range(of: .day, in: .month, for: currentDate) else { return }
         numDays = range.count
@@ -119,13 +127,23 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "createInterviewScheduleSegue" {
             if let destinationVC = segue.destination as? AddInterviewViewController {
-                let date = dates[lastSelectedCell!.item]
+                var date = 0
                 
-                destinationVC.selectedDate = date
-                destinationVC.selectedMonth = currentMonthShown
-                destinationVC.selectedYear = currentYearShown
+                // if no date is selected, send today's date over
+                if lastSelectedCell == nil {
+                    date = todayDay
+                    destinationVC.selectedDate = date
+                    destinationVC.selectedMonth = todayMonth
+                    destinationVC.selectedYear = todayYear
+                } else {
+                    date = dates[lastSelectedCell!.item]
+                    destinationVC.selectedDate = date
+                    destinationVC.selectedMonth = currentMonthShown
+                    destinationVC.selectedYear = currentYearShown
+                }
                 
 //                print("createInterviewScheduleSegue")
+//                print(lastSelectedCell!.item)
 //                print(date)
 //                print(currentMonthShown!)
 //                print(currentYearShown!)
@@ -169,6 +187,15 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CALENDAR_CELL, for: indexPath) as! InterviewScheduleCollectionViewCell
         
+        // reset all cell properties that change
+        cell.backgroundColor = UIColor.systemGray5 // default background color
+        cell.dateLabel.textColor = UIColor.black    // default text color
+        cell.dateLabel.font = UIFont.systemFont(ofSize: 16.0) // default font
+        
+        // reset border appearance that changes when user selects a cell
+        cell.layer.borderWidth = 0 // reset border width
+        cell.layer.borderColor = UIColor.clear.cgColor // reset border color
+        
         // Configure the cell
         if indexPath.section == DAY_HEADER_SECTION {
             let day = dayHeaderList[indexPath.item]
@@ -192,6 +219,9 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
                 
                 // check if this cell represents today's date
                 if isToday(date: date) {
+                    // set lastSelectedDate to the cell for today's date
+                    lastSelectedCell = [DATES_SECTION, indexPath.item]
+                    
                     // highlight today's date
                     cell.backgroundColor = UIColor.systemIndigo
                     
@@ -206,9 +236,9 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
     
     // function to identify if a cell is today's date
     func isToday(date: Int) -> Bool {
-        let todayDay = calendar.component(.day, from: currentDate)
-        let todayYear = calendar.component(.year, from: currentDate)
-        let todayMonth = calendar.component(.month, from: currentDate)
+        todayDay = calendar.component(.day, from: todayDate)
+        todayYear = calendar.component(.year, from: todayDate)
+        todayMonth = calendar.component(.month, from: todayDate)
 
         // Only highlight if the year, month, and day match
         return todayDay == date && todayYear == currentYearShown && todayMonth == currentMonthShown
@@ -243,10 +273,10 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [itemLayout])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 25, bottom: 10, trailing: 25)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 25, bottom: 10, trailing: 25)
         
         // Define header for month label
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(90))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         layoutSection.boundarySupplementaryItems = [header]
         
@@ -291,11 +321,61 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
         }
         return UICollectionReusableView()
     }
+
+    
+    // MARK: Arrow Button Action Functions
+    
+    @IBAction func onRightArrowButtonClick(_ sender: Any) {
+        if currentMonthShown == 12 {
+            currentMonthShown = 1
+            currentYearShown! += 1
+        } else {
+            currentMonthShown! += 1
+        }
+        
+        // set lastSelectedIndex to select nothing
+        lastSelectedCell = nil
+        
+        // reset and recalculate the number of cells we should display for new month
+        dates = []
+        getNumOfCellsInCalendarMonth()
+        
+        collectionView.reloadData()
+    }
+    
+    @IBAction func onLeftArrowButtonClick(_ sender: Any) {
+        if currentMonthShown == 1 {
+            currentMonthShown = 12
+            currentYearShown! -= 1
+        } else {
+            currentMonthShown! -= 1
+        }
+        
+        // set lastSelectedIndex to select nothing
+        lastSelectedCell = nil
+        
+        // reset and recalculate the number of cells we should display for new month
+        dates = []
+        getNumOfCellsInCalendarMonth()
+        
+        collectionView.reloadData()
+    }
+    
+    
+    // MARK: UICollectionViewDelegate
+
+    /*
+    // Uncomment this method to specify if the specified item should be highlighted during tracking
+    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    */
     
     // function to highlight cell that is selected
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // check if there's a previously selected cell
         // if there is, check if it's different from the current selection
+        // reset borders of previously selected cell
         if let lastIndexPath = lastSelectedCell, lastIndexPath != indexPath {
             // Get the previous cell and reset its border
             if let lastCell = collectionView.cellForItem(at: lastIndexPath) as? InterviewScheduleCollectionViewCell {
@@ -303,7 +383,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
             }
         }
 
-        // update appearance of current selected cell
+        // update border of current/new selected cell to red
         if let cell = collectionView.cellForItem(at: indexPath) as? InterviewScheduleCollectionViewCell {
             cell.layer.borderWidth = 1.5
             cell.layer.borderColor = UIColor.red.cgColor
@@ -314,22 +394,24 @@ class InterviewScheduleCollectionViewController: UICollectionViewController {
 //        print(lastSelectedCell)
     }
 
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
+    
+    // this method specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        // make the day headers (section 0 - DAY_HEADER_SECTION) unselectable
+        if indexPath.section == DAY_HEADER_SECTION {
+            return false
+        }
+        
+        // for DATES_SECTION (section 1)
+        let date = dates[indexPath.item]
+        if date == 100 {
+            // 100 are placeholder cells that shouldn't be selectable
+            return false
+        }
+        
         return true
     }
-    */
+    
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item

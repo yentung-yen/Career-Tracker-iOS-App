@@ -78,7 +78,6 @@ class AddInterviewViewController: UIViewController {
     }
     
     @IBAction func onSaveInterview(_ sender: Any) {
-        //TODO: validate date picker
         // validate the user input
         guard let title = titleTextField.text else {
             return
@@ -94,8 +93,18 @@ class AddInterviewViewController: UIViewController {
             displayMessage(title: "Missing Fields", message: errorMsg)
             return
         }
+        // validate start and end date chosen
+        if endDateTime.date < startDateTime.date {
+            displayMessage(title: "Date Error", message: "Interview end date is before start date")
+            return
+        }
         
-        let _ = databaseController?.addInterviewSchedule(interviewTitle: title, interviewStartDatetime: startDateTime.date, interviewEndDatetime: endDateTime.date, interviewVideoLink: vidLinkTextField.text ?? "", interviewLocation: locationTextField.text ?? "", interviewNotifDatetime: notifDatePicker.date, interviewNotes: notesTextField.text ?? "")
+        // set default text
+        guard let vidLink = vidLinkTextField.text == "" ? "No Video Conferencing Link Entered": vidLinkTextField.text else { return  }
+        guard let interviewLocation = locationTextField.text == "" ? "No Location Entered": locationTextField.text else { return }
+        guard let notes = notesTextField.text == "" ? "No Notes Entered": notesTextField.text else { return }
+        
+        let _ = databaseController?.addInterviewSchedule(interviewTitle: title, interviewStartDatetime: startDateTime.date, interviewEndDatetime: endDateTime.date, interviewVideoLink: vidLink , interviewLocation: interviewLocation, interviewNotifDatetime: notifDatePicker.date, interviewNotes: notes)
         
         // schedule local notification
         scheduleStartDateTimeNotification()

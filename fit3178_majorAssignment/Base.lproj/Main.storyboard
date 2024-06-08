@@ -1307,7 +1307,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoY-q5-ra5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574.8091603053435" y="-133.09859154929578"/>
+            <point key="canvasLocation" x="1642" y="-133"/>
         </scene>
         <!--Edit Application Details-->
         <scene sceneID="SQt-lc-HyC">
@@ -1491,7 +1491,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lc7-Hw-zIA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-133"/>
+            <point key="canvasLocation" x="2407" y="-133"/>
         </scene>
         <!--Prep-->
         <scene sceneID="GuA-Ss-Lyd">
@@ -1590,42 +1590,52 @@ metrics, and interview performance (Under development).</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-Jx-IAJ">
-                                <rect key="frame" x="30" y="108" width="333" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <rect key="frame" x="30" y="91.333333333333329" width="333" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtZ-tf-qfx">
-                                <rect key="frame" x="30" y="59" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <rect key="frame" x="30" y="49" width="333" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avH-6j-LR9">
-                                <rect key="frame" x="30" y="427" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-CW-yEI">
+                                <rect key="frame" x="30" y="120.66666666666669" width="333" height="220"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Gns-hY-eWW"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0T-Bb-edE">
+                                <rect key="frame" x="30" y="69.333333333333329" width="333" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NlT-VS-qCs">
+                                <rect key="frame" x="30" y="410.66666666666674" width="333" height="362.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuR-8o-Y6C">
-                                <rect key="frame" x="30" y="468" width="333" height="35"/>
+                                <rect key="frame" x="30" y="355.66666666666669" width="333" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="View Answer"/>
                                 <connections>
                                     <action selector="onViewAnswer:" destination="eAJ-sf-TLP" eventType="touchUpInside" id="Tl2-mr-RKP"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-CW-yEI">
-                                <rect key="frame" x="30" y="142" width="333" height="255"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0T-Bb-edE">
-                                <rect key="frame" x="30" y="80" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCy-3f-kxZ">
+                                <rect key="frame" x="30" y="405.66666666666669" width="333" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1636,27 +1646,31 @@ metrics, and interview performance (Under development).</string>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="MtZ-tf-qfx" secondAttribute="trailing" constant="30" id="1Fz-AM-uuN"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="B0T-Bb-edE" secondAttribute="trailing" constant="30" id="6Zg-v3-0vY"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="Nf6-CW-yEI" secondAttribute="trailing" constant="30" id="6yY-bp-jFO"/>
-                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="B0T-Bb-edE" secondAttribute="bottom" constant="7" id="DSq-Nd-QL6"/>
+                            <constraint firstItem="NlT-VS-qCs" firstAttribute="top" secondItem="pCy-3f-kxZ" secondAttribute="bottom" constant="5" id="BDj-ft-hF0"/>
+                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="B0T-Bb-edE" secondAttribute="bottom" constant="4" id="DSq-Nd-QL6"/>
                             <constraint firstItem="hcf-Jx-IAJ" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="GPZ-F4-kfZ"/>
-                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="avH-6j-LR9" secondAttribute="bottom" constant="20" id="IpJ-JL-9op"/>
                             <constraint firstItem="Nf6-CW-yEI" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="Kxk-mU-Idv"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="hcf-Jx-IAJ" secondAttribute="trailing" constant="30" id="Mdr-gU-sRF"/>
-                            <constraint firstItem="avH-6j-LR9" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="30" id="Vyg-Ou-mgP"/>
-                            <constraint firstItem="D23-KE-HRF" firstAttribute="bottom" secondItem="yuR-8o-Y6C" secondAttribute="bottom" constant="300" id="ZTX-dr-hr9"/>
+                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="15" id="Us9-9Y-ZMa"/>
+                            <constraint firstItem="pCy-3f-kxZ" firstAttribute="top" secondItem="yuR-8o-Y6C" secondAttribute="bottom" constant="15" id="Wmc-e3-hqp"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="bottom" secondItem="NlT-VS-qCs" secondAttribute="bottom" constant="30" id="Ylt-L1-QTC"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="pCy-3f-kxZ" secondAttribute="trailing" constant="30" id="cV1-5F-1kM"/>
                             <constraint firstItem="B0T-Bb-edE" firstAttribute="top" secondItem="MtZ-tf-qfx" secondAttribute="bottom" id="d6i-R6-aL8"/>
                             <constraint firstItem="yuR-8o-Y6C" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="gXU-Mg-MOp"/>
                             <constraint firstItem="MtZ-tf-qfx" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="j3Y-JP-2DN"/>
+                            <constraint firstItem="NlT-VS-qCs" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="kWB-tt-YkK"/>
                             <constraint firstItem="B0T-Bb-edE" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="lmR-e7-HmY"/>
-                            <constraint firstItem="avH-6j-LR9" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="n7J-B4-w7Q"/>
-                            <constraint firstItem="MtZ-tf-qfx" firstAttribute="top" secondItem="D23-KE-HRF" secondAttribute="top" constant="15" id="oiN-AE-pEV"/>
-                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="avH-6j-LR9" secondAttribute="trailing" constant="30" id="pgl-KG-IdZ"/>
-                            <constraint firstItem="Nf6-CW-yEI" firstAttribute="top" secondItem="hcf-Jx-IAJ" secondAttribute="bottom" constant="10" id="tdc-cA-kXT"/>
+                            <constraint firstItem="MtZ-tf-qfx" firstAttribute="top" secondItem="D23-KE-HRF" secondAttribute="top" constant="5" id="oiN-AE-pEV"/>
+                            <constraint firstItem="Nf6-CW-yEI" firstAttribute="top" secondItem="hcf-Jx-IAJ" secondAttribute="bottom" constant="3" id="tdc-cA-kXT"/>
+                            <constraint firstItem="pCy-3f-kxZ" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="xZo-Bo-D3y"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="yuR-8o-Y6C" secondAttribute="trailing" constant="30" id="z3a-DA-Paz"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="NlT-VS-qCs" secondAttribute="trailing" constant="30" id="zzu-id-QM2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9m-yQ-CYP"/>
                     <connections>
-                        <outlet property="descLabel" destination="avH-6j-LR9" id="PuZ-UG-giZ"/>
+                        <outlet property="answerLabel" destination="pCy-3f-kxZ" id="Orb-Vj-5aA"/>
+                        <outlet property="answerTextView" destination="NlT-VS-qCs" id="7Ch-J4-1Yi"/>
                         <outlet property="difficultyLabel" destination="B0T-Bb-edE" id="PZI-hY-7rc"/>
                         <outlet property="questionTextView" destination="Nf6-CW-yEI" id="bk3-HJ-7CH"/>
                         <outlet property="quizCategoryLabel" destination="MtZ-tf-qfx" id="5Sr-YZ-9i2"/>
@@ -1664,7 +1678,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bco-x1-NRU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="563"/>
+            <point key="canvasLocation" x="1641.9847328244275" y="562.67605633802816"/>
         </scene>
         <!--Interview Prep-->
         <scene sceneID="3BF-MO-9mP">
@@ -2032,6 +2046,7 @@ metrics, and interview performance (Under development).</string>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fqe-UL-77Y" secondAttribute="height" multiplier="19:16" id="Wik-Ht-ZBT"/>
+                                    <constraint firstAttribute="width" secondItem="fqe-UL-77Y" secondAttribute="height" multiplier="19:16" id="gky-Ng-qDA"/>
                                     <constraint firstAttribute="width" constant="30" id="zpb-AD-pF6"/>
                                 </constraints>
                             </imageView>
@@ -2079,7 +2094,6 @@ metrics, and interview performance (Under development).</string>
                             <constraint firstItem="zuA-m5-r72" firstAttribute="top" secondItem="qvR-ti-oKu" secondAttribute="bottom" constant="10" id="e2E-u7-jcJ"/>
                             <constraint firstItem="QlY-pi-s2B" firstAttribute="trailing" secondItem="Ljn-kS-de3" secondAttribute="trailing" constant="30" id="gBn-vq-fCG"/>
                             <constraint firstItem="I2V-bU-Yh3" firstAttribute="top" secondItem="Ljn-kS-de3" secondAttribute="bottom" constant="40" id="gfE-4c-T3F"/>
-                            <constraint firstItem="fqe-UL-77Y" firstAttribute="width" secondItem="fqe-UL-77Y" secondAttribute="height" multiplier="19:16" id="gky-Ng-qDA"/>
                             <constraint firstItem="fce-r2-dmD" firstAttribute="top" secondItem="QlY-pi-s2B" secondAttribute="top" constant="5" id="hVO-38-hon"/>
                             <constraint firstItem="6l2-Vu-AXr" firstAttribute="top" secondItem="zuA-m5-r72" secondAttribute="bottom" constant="30" id="jKs-jj-XSZ"/>
                             <constraint firstItem="qvR-ti-oKu" firstAttribute="top" secondItem="kWn-zS-sy6" secondAttribute="bottom" constant="10" id="kTd-qk-JW9"/>
@@ -2525,7 +2539,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg2-Os-ddy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574.8091603053435" y="-913.38028169014092"/>
+            <point key="canvasLocation" x="1642" y="-913"/>
         </scene>
         <!--Edit Journal Entry-->
         <scene sceneID="uT8-Uo-fg0">
@@ -2676,7 +2690,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HeX-yx-VPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-913"/>
+            <point key="canvasLocation" x="2407" y="-913"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Lj-k3-4gf">
@@ -2845,15 +2859,15 @@ metrics, and interview performance (Under development).</string>
     <resources>
         <image name="arrowshape.left.circle" catalog="system" width="128" height="123"/>
         <image name="arrowshape.right.circle" catalog="system" width="128" height="123"/>
-        <image name="bell.fill" width="35.698200225830078" height="39.213901519775391"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
+        <image name="bell.fill" width="35.698200225830078" height="39.213901519775391"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="clock.fill" width="38.525398254394531" height="38.188499450683594"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="map.fill" width="38.876998901367188" height="36.665000915527344"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="88"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>

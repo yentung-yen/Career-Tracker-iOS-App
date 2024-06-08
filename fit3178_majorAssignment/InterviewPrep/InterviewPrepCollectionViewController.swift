@@ -141,7 +141,7 @@ class InterviewPrepCollectionViewController: UICollectionViewController {
         
         let catName = categoryList[indexPath.item].catName
 //        print(catName)
-        cell.backgroundColor = UIColor.systemGray3
+        cell.backgroundColor = UIColor.systemGray4
         cell.label.text = catName?.uppercased() // convert all letters to Caps
     
         return cell

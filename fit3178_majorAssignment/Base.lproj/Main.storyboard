@@ -546,7 +546,7 @@ metrics, and interview performance (Under development).</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ER2-Rc-bPM">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.76784661565859291" green="0.76784661565859291" blue="0.76784661565859291" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.94904488330000003" green="0.94914597270000001" blue="0.97061258549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <tabBarAppearance key="standardAppearance" stackedItemSpacing="0.0">
                             <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -614,7 +614,7 @@ metrics, and interview performance (Under development).</string>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.81943327799999999" green="0.81943327799999999" blue="0.81943327799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <connections>
                                     <segue destination="d71-6q-UiZ" kind="show" identifier="viewJournalEntrySegue" id="Bjz-JY-xV1"/>
                                 </connections>
@@ -887,22 +887,22 @@ metrics, and interview performance (Under development).</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.76784661570000001" green="0.76784661570000001" blue="0.76784661570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.81943327799999999" green="0.81943327799999999" blue="0.81943327799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
                                         <connections>
                                             <segue destination="qAq-CH-dLe" kind="show" identifier="viewAndEditApplicationSegue" id="fWq-O3-Fn4"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="totalCell" id="eS8-fv-jdb" customClass="ApplicationCountTableViewCell" customModule="jobApplication_prepTrack_app" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="99" width="333" height="36.666667938232422"/>
+                                        <rect key="frame" x="20" y="99" width="333" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eS8-fv-jdb" id="HHK-tk-CZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="333" height="36.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="333" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fuf-SZ-AmM">
-                                                    <rect key="frame" x="20" y="11" width="293" height="14.666666666666664"/>
+                                                    <rect key="frame" x="20" y="11" width="293" height="15"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1307,7 +1307,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VoY-q5-ra5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574.8091603053435" y="-133.09859154929578"/>
+            <point key="canvasLocation" x="1642" y="-133"/>
         </scene>
         <!--Edit Application Details-->
         <scene sceneID="SQt-lc-HyC">
@@ -1491,7 +1491,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lc7-Hw-zIA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-133"/>
+            <point key="canvasLocation" x="2407" y="-133"/>
         </scene>
         <!--Prep-->
         <scene sceneID="GuA-Ss-Lyd">
@@ -1590,42 +1590,69 @@ metrics, and interview performance (Under development).</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcf-Jx-IAJ">
-                                <rect key="frame" x="30" y="108" width="333" height="24"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <rect key="frame" x="30" y="91.333333333333329" width="333" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Category" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtZ-tf-qfx">
-                                <rect key="frame" x="30" y="59" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <rect key="frame" x="30" y="49" width="333" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avH-6j-LR9">
-                                <rect key="frame" x="30" y="427" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-CW-yEI">
+                                <rect key="frame" x="30" y="120.66666666666669" width="333" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Gns-hY-eWW"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0T-Bb-edE">
+                                <rect key="frame" x="30" y="69.333333333333329" width="333" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuR-8o-Y6C">
-                                <rect key="frame" x="30" y="468" width="333" height="35"/>
+                                <rect key="frame" x="30" y="738" width="333" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="View Answer"/>
                                 <connections>
                                     <action selector="onViewAnswer:" destination="eAJ-sf-TLP" eventType="touchUpInside" id="Tl2-mr-RKP"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-CW-yEI">
-                                <rect key="frame" x="30" y="142" width="333" height="255"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0T-Bb-edE">
-                                <rect key="frame" x="30" y="80" width="333" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dIV-7Q-WKX">
+                                <rect key="frame" x="15" y="321.66666666666674" width="363" height="401.33333333333326"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="answerCell" textLabel="BZN-bq-kMW" style="IBUITableViewCellStyleDefault" id="b3c-bj-zeb">
+                                        <rect key="frame" x="20" y="55.333332061767578" width="323" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3c-bj-zeb" id="lVT-bn-Fi6">
+                                            <rect key="frame" x="0.0" y="0.0" width="323" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BZN-bq-kMW">
+                                                    <rect key="frame" x="20" y="0.0" width="283" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the correct answer(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdX-o6-5xr">
+                                <rect key="frame" x="30" y="290.66666666666669" width="333" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1636,27 +1663,30 @@ metrics, and interview performance (Under development).</string>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="MtZ-tf-qfx" secondAttribute="trailing" constant="30" id="1Fz-AM-uuN"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="B0T-Bb-edE" secondAttribute="trailing" constant="30" id="6Zg-v3-0vY"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="Nf6-CW-yEI" secondAttribute="trailing" constant="30" id="6yY-bp-jFO"/>
-                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="B0T-Bb-edE" secondAttribute="bottom" constant="7" id="DSq-Nd-QL6"/>
+                            <constraint firstItem="hcf-Jx-IAJ" firstAttribute="top" secondItem="B0T-Bb-edE" secondAttribute="bottom" constant="4" id="DSq-Nd-QL6"/>
                             <constraint firstItem="hcf-Jx-IAJ" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="GPZ-F4-kfZ"/>
-                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="avH-6j-LR9" secondAttribute="bottom" constant="20" id="IpJ-JL-9op"/>
                             <constraint firstItem="Nf6-CW-yEI" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="Kxk-mU-Idv"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="hcf-Jx-IAJ" secondAttribute="trailing" constant="30" id="Mdr-gU-sRF"/>
-                            <constraint firstItem="avH-6j-LR9" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="30" id="Vyg-Ou-mgP"/>
-                            <constraint firstItem="D23-KE-HRF" firstAttribute="bottom" secondItem="yuR-8o-Y6C" secondAttribute="bottom" constant="300" id="ZTX-dr-hr9"/>
+                            <constraint firstItem="NdX-o6-5xr" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="Wpt-wH-DNT"/>
+                            <constraint firstItem="NdX-o6-5xr" firstAttribute="top" secondItem="Nf6-CW-yEI" secondAttribute="bottom" constant="20" id="bGc-iN-Z2x"/>
                             <constraint firstItem="B0T-Bb-edE" firstAttribute="top" secondItem="MtZ-tf-qfx" secondAttribute="bottom" id="d6i-R6-aL8"/>
+                            <constraint firstItem="dIV-7Q-WKX" firstAttribute="top" secondItem="NdX-o6-5xr" secondAttribute="bottom" constant="10" id="eiy-La-6FD"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="bottom" secondItem="yuR-8o-Y6C" secondAttribute="bottom" constant="30" id="eng-Rr-0A3"/>
                             <constraint firstItem="yuR-8o-Y6C" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="gXU-Mg-MOp"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="dIV-7Q-WKX" secondAttribute="trailing" constant="15" id="hk4-ri-rGa"/>
                             <constraint firstItem="MtZ-tf-qfx" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="j3Y-JP-2DN"/>
                             <constraint firstItem="B0T-Bb-edE" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="lmR-e7-HmY"/>
-                            <constraint firstItem="avH-6j-LR9" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="30" id="n7J-B4-w7Q"/>
-                            <constraint firstItem="MtZ-tf-qfx" firstAttribute="top" secondItem="D23-KE-HRF" secondAttribute="top" constant="15" id="oiN-AE-pEV"/>
-                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="avH-6j-LR9" secondAttribute="trailing" constant="30" id="pgl-KG-IdZ"/>
-                            <constraint firstItem="Nf6-CW-yEI" firstAttribute="top" secondItem="hcf-Jx-IAJ" secondAttribute="bottom" constant="10" id="tdc-cA-kXT"/>
+                            <constraint firstItem="MtZ-tf-qfx" firstAttribute="top" secondItem="D23-KE-HRF" secondAttribute="top" constant="5" id="oiN-AE-pEV"/>
+                            <constraint firstItem="yuR-8o-Y6C" firstAttribute="top" secondItem="dIV-7Q-WKX" secondAttribute="bottom" constant="15" id="rOm-KE-oe7"/>
+                            <constraint firstItem="Nf6-CW-yEI" firstAttribute="top" secondItem="hcf-Jx-IAJ" secondAttribute="bottom" constant="3" id="tdc-cA-kXT"/>
+                            <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="NdX-o6-5xr" secondAttribute="trailing" constant="30" id="uJH-bE-hYK"/>
                             <constraint firstItem="D23-KE-HRF" firstAttribute="trailing" secondItem="yuR-8o-Y6C" secondAttribute="trailing" constant="30" id="z3a-DA-Paz"/>
+                            <constraint firstItem="dIV-7Q-WKX" firstAttribute="leading" secondItem="D23-KE-HRF" secondAttribute="leading" constant="15" id="zuj-b7-lDU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9m-yQ-CYP"/>
                     <connections>
-                        <outlet property="descLabel" destination="avH-6j-LR9" id="PuZ-UG-giZ"/>
+                        <outlet property="answerUITableView" destination="dIV-7Q-WKX" id="YUh-gQ-sPO"/>
                         <outlet property="difficultyLabel" destination="B0T-Bb-edE" id="PZI-hY-7rc"/>
                         <outlet property="questionTextView" destination="Nf6-CW-yEI" id="bk3-HJ-7CH"/>
                         <outlet property="quizCategoryLabel" destination="MtZ-tf-qfx" id="5Sr-YZ-9i2"/>
@@ -1664,7 +1694,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bco-x1-NRU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="563"/>
+            <point key="canvasLocation" x="1641.9847328244275" y="562.67605633802816"/>
         </scene>
         <!--Interview Prep-->
         <scene sceneID="3BF-MO-9mP">
@@ -1771,7 +1801,7 @@ metrics, and interview performance (Under development).</string>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0H-f7-gkB">
                                             <rect key="frame" x="5" y="5" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -1791,25 +1821,13 @@ metrics, and interview performance (Under development).</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joa-bx-LHa">
-                                    <rect key="frame" x="8" y="8.0000000000000018" width="230" height="28.666666666666671"/>
+                                    <rect key="frame" x="8.0000000000000036" y="8.0000000000000018" width="61.333333333333343" height="28.666666666666671"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZT1-kW-vLC">
-                                    <rect key="frame" x="248" y="10" width="145" height="34.333333333333336"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="34.329999999999998" id="IfN-bm-HsW"/>
-                                        <constraint firstAttribute="width" constant="145" id="gbA-Mu-njI"/>
-                                    </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="gray" title="View Interviews"/>
-                                    <connections>
-                                        <segue destination="1l0-i5-tOy" kind="show" identifier="viewDateInterviewScheduleSegue" id="5FU-Ip-lVT"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwv-QI-AC8">
-                                    <rect key="frame" x="355" y="49" width="30" height="30"/>
+                                    <rect key="frame" x="355" y="8" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="l4r-i9-NTu"/>
                                         <constraint firstAttribute="height" constant="30" id="sT7-EV-c5A"/>
@@ -1821,7 +1839,7 @@ metrics, and interview performance (Under development).</string>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpt-rt-N5Z">
-                                    <rect key="frame" x="325" y="49" width="30" height="30"/>
+                                    <rect key="frame" x="325" y="8" width="30" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="30" id="VqV-J8-shy"/>
                                         <constraint firstAttribute="height" constant="30" id="XTA-K3-bfj"/>
@@ -1832,17 +1850,28 @@ metrics, and interview performance (Under development).</string>
                                         <action selector="onLeftArrowButtonClick:" destination="YNH-Vk-Qwi" eventType="touchUpInside" id="6sF-wr-ep9"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZg-UO-kM9">
+                                    <rect key="frame" x="8" y="42" width="377" height="34"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="OPa-kX-FBF"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="gray" title="View Interviews"/>
+                                    <connections>
+                                        <segue destination="1l0-i5-tOy" kind="show" identifier="viewDateInterviewScheduleSegue" id="YTP-kL-euL"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailingMargin" secondItem="Pwv-QI-AC8" secondAttribute="trailing" id="7zA-RI-Wzh"/>
-                                <constraint firstAttribute="trailing" secondItem="ZT1-kW-vLC" secondAttribute="trailing" id="P4G-aZ-wka"/>
-                                <constraint firstAttribute="bottomMargin" secondItem="Pwv-QI-AC8" secondAttribute="bottom" id="RXv-ly-vdL"/>
-                                <constraint firstItem="ZT1-kW-vLC" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="top" constant="10" id="Uvc-m2-hCh"/>
-                                <constraint firstItem="Pwv-QI-AC8" firstAttribute="leading" secondItem="dpt-rt-N5Z" secondAttribute="trailing" id="WKs-Wg-IZl"/>
-                                <constraint firstItem="ZT1-kW-vLC" firstAttribute="leading" secondItem="joa-bx-LHa" secondAttribute="trailing" constant="10" id="byg-A9-Pyu"/>
-                                <constraint firstItem="joa-bx-LHa" firstAttribute="leading" secondItem="i41-73-ImV" secondAttribute="leadingMargin" id="lHk-bo-2pU"/>
-                                <constraint firstItem="joa-bx-LHa" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="topMargin" id="xNB-io-p6X"/>
-                                <constraint firstAttribute="bottomMargin" secondItem="dpt-rt-N5Z" secondAttribute="bottom" id="xoZ-Ek-RPJ"/>
+                                <constraint firstItem="PZg-UO-kM9" firstAttribute="bottom" secondItem="i41-73-ImV" secondAttribute="bottomMargin" constant="-3" id="6g7-gI-a6v"/>
+                                <constraint firstItem="PZg-UO-kM9" firstAttribute="trailing" secondItem="i41-73-ImV" secondAttribute="trailingMargin" id="7fl-lW-Rpf"/>
+                                <constraint firstItem="Pwv-QI-AC8" firstAttribute="trailing" secondItem="i41-73-ImV" secondAttribute="trailingMargin" id="8Md-xl-CHv"/>
+                                <constraint firstItem="joa-bx-LHa" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="topMargin" id="AHc-h2-Hsw"/>
+                                <constraint firstItem="Pwv-QI-AC8" firstAttribute="leading" secondItem="dpt-rt-N5Z" secondAttribute="trailing" id="XBg-Id-Wdt"/>
+                                <constraint firstItem="PZg-UO-kM9" firstAttribute="leading" secondItem="i41-73-ImV" secondAttribute="leadingMargin" id="kJI-aW-Bhr"/>
+                                <constraint firstItem="Pwv-QI-AC8" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="topMargin" id="nq7-VA-cfG"/>
+                                <constraint firstItem="dpt-rt-N5Z" firstAttribute="top" secondItem="i41-73-ImV" secondAttribute="topMargin" id="vSx-lG-SU2"/>
+                                <constraint firstItem="joa-bx-LHa" firstAttribute="leading" secondItem="i41-73-ImV" secondAttribute="leadingMargin" id="vmZ-Fw-g3d"/>
                             </constraints>
                             <connections>
                                 <outlet property="headerLabel" destination="joa-bx-LHa" id="KEw-cw-I2Y"/>
@@ -1853,6 +1882,20 @@ metrics, and interview performance (Under development).</string>
                             <outlet property="delegate" destination="YNH-Vk-Qwi" id="tb6-NW-cbU"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" id="QNh-bB-dMi">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZT1-kW-vLC">
+                                <rect key="frame" x="16" y="10" width="361" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34.329999999999998" id="IfN-bm-HsW"/>
+                                    <constraint firstAttribute="width" constant="145" id="gbA-Mu-njI"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="View Interviews"/>
+                            </button>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Interview Schedule" id="x6g-2r-Ykd">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" image="person.crop.circle" catalog="system" id="SWg-xw-guq">
                             <connections>
@@ -1865,10 +1908,11 @@ metrics, and interview performance (Under development).</string>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SD8-VF-N4C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="1572"/>
+            <point key="canvasLocation" x="110.68702290076335" y="1571.8309859154931"/>
         </scene>
         <!--View Single Date Interview Schedule Collection View Controller-->
         <scene sceneID="sxP-o0-iY8">
@@ -1961,7 +2005,7 @@ metrics, and interview performance (Under development).</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day, Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUx-TI-uUR">
-                                <rect key="frame" x="30" y="89.666666666666671" width="333" height="21"/>
+                                <rect key="frame" x="30" y="89.666666666666671" width="333" height="20.999999999999986"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2032,11 +2076,12 @@ metrics, and interview performance (Under development).</string>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fqe-UL-77Y" secondAttribute="height" multiplier="19:16" id="Wik-Ht-ZBT"/>
+                                    <constraint firstAttribute="width" secondItem="fqe-UL-77Y" secondAttribute="height" multiplier="19:16" id="gky-Ng-qDA"/>
                                     <constraint firstAttribute="width" constant="30" id="zpb-AD-pF6"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6l2-Vu-AXr">
-                                <rect key="frame" x="30" y="751" width="333" height="35"/>
+                                <rect key="frame" x="30" y="702" width="333" height="35"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Delete Interview"/>
@@ -2045,7 +2090,7 @@ metrics, and interview performance (Under development).</string>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="No Notes Entered" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zuA-m5-r72">
-                                <rect key="frame" x="80" y="418.66666666666674" width="283" height="302.33333333333326"/>
+                                <rect key="frame" x="80" y="418.66666666666669" width="283" height="253.33333333333331"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -2079,7 +2124,6 @@ metrics, and interview performance (Under development).</string>
                             <constraint firstItem="zuA-m5-r72" firstAttribute="top" secondItem="qvR-ti-oKu" secondAttribute="bottom" constant="10" id="e2E-u7-jcJ"/>
                             <constraint firstItem="QlY-pi-s2B" firstAttribute="trailing" secondItem="Ljn-kS-de3" secondAttribute="trailing" constant="30" id="gBn-vq-fCG"/>
                             <constraint firstItem="I2V-bU-Yh3" firstAttribute="top" secondItem="Ljn-kS-de3" secondAttribute="bottom" constant="40" id="gfE-4c-T3F"/>
-                            <constraint firstItem="fqe-UL-77Y" firstAttribute="width" secondItem="fqe-UL-77Y" secondAttribute="height" multiplier="19:16" id="gky-Ng-qDA"/>
                             <constraint firstItem="fce-r2-dmD" firstAttribute="top" secondItem="QlY-pi-s2B" secondAttribute="top" constant="5" id="hVO-38-hon"/>
                             <constraint firstItem="6l2-Vu-AXr" firstAttribute="top" secondItem="zuA-m5-r72" secondAttribute="bottom" constant="30" id="jKs-jj-XSZ"/>
                             <constraint firstItem="qvR-ti-oKu" firstAttribute="top" secondItem="kWn-zS-sy6" secondAttribute="bottom" constant="10" id="kTd-qk-JW9"/>
@@ -2287,7 +2331,7 @@ metrics, and interview performance (Under development).</string>
                                 <buttonConfiguration key="configuration" style="filled" title="Journal Data">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                     <color key="baseForegroundColor" systemColor="darkTextColor"/>
-                                    <color key="baseBackgroundColor" red="0.76784661570000001" green="0.76784661570000001" blue="0.76784661570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="ggV-bC-m9z" kind="show" id="HFk-XK-lmG"/>
@@ -2302,7 +2346,7 @@ metrics, and interview performance (Under development).</string>
                                 <buttonConfiguration key="configuration" style="filled" title="Interview Data">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.76784661570000001" green="0.76784661570000001" blue="0.76784661570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="xlY-jb-U05" kind="show" id="Gu1-5N-ibd"/>
@@ -2317,7 +2361,7 @@ metrics, and interview performance (Under development).</string>
                                 <buttonConfiguration key="configuration" style="filled" title="Application Data">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.76784661570000001" green="0.76784661570000001" blue="0.76784661570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGray4Color"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="Up9-VO-7aM" kind="show" id="1iw-pf-FzT"/>
@@ -2525,7 +2569,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kg2-Os-ddy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574.8091603053435" y="-913.38028169014092"/>
+            <point key="canvasLocation" x="1642" y="-913"/>
         </scene>
         <!--Edit Journal Entry-->
         <scene sceneID="uT8-Uo-fg0">
@@ -2676,7 +2720,7 @@ metrics, and interview performance (Under development).</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HeX-yx-VPc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-913"/>
+            <point key="canvasLocation" x="2407" y="-913"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Lj-k3-4gf">
@@ -2845,15 +2889,15 @@ metrics, and interview performance (Under development).</string>
     <resources>
         <image name="arrowshape.left.circle" catalog="system" width="128" height="123"/>
         <image name="arrowshape.right.circle" catalog="system" width="128" height="123"/>
-        <image name="bell.fill" width="35.698200225830078" height="39.213901519775391"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
+        <image name="bell.fill" width="35.698200225830078" height="39.213901519775391"/>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="chart.xyaxis.line" catalog="system" width="128" height="102"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="clock.fill" width="38.525398254394531" height="38.188499450683594"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
-        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="map.fill" width="38.876998901367188" height="36.665000915527344"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person.2.wave.2" catalog="system" width="128" height="88"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
@@ -2874,6 +2918,9 @@ metrics, and interview performance (Under development).</string>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

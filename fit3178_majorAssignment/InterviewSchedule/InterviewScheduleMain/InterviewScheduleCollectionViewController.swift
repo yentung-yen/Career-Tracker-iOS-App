@@ -190,7 +190,7 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
         // reset all cell properties that change
         cell.backgroundColor = UIColor.systemGray5 // default background color
         cell.dateLabel.textColor = UIColor.black    // default text color
-        cell.dateLabel.font = UIFont.systemFont(ofSize: 16.0) // default font
+        cell.dateLabel.font = UIFont.preferredFont(forTextStyle: .body) // default font
         
         // reset border appearance that changes when user selects a cell
         cell.layer.borderWidth = 0 // reset border width
@@ -226,7 +226,10 @@ class InterviewScheduleCollectionViewController: UICollectionViewController, UIC
                     cell.backgroundColor = UIColor.systemIndigo
                     
                     // Make font bold and change font colour
-                    cell.dateLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+                    let systemFontSize = UIFont.preferredFont(forTextStyle: .body).pointSize
+                    let boldBodyFont = UIFont.systemFont(ofSize: systemFontSize, weight: .bold)
+                    
+                    cell.dateLabel.font = boldBodyFont
                     cell.dateLabel.textColor = UIColor.white
                 }
             }

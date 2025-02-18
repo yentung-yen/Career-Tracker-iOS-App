@@ -11,4 +11,9 @@ This app started off as my startup idea with a purpose of supporting job seekers
 This idea was implemented in the FIT3178 unit and further developed after.
 
 The Figma link to my Designs and Storyboard Mock Ups is attached [here](https://www.figma.com/design/sn2TX9Vj6ZA2IOPYBqRK34/Career-Tracker-iOS-App?node-id=0-1&p=f&t=6ZPxd1Nl2mNRF47v-0).
+
 I have created a diagram to visualise how I expect users to navigate this app. The link is attached [here](https://docs.google.com/drawings/d/1_Mji7CNUxbSY_hb37rr4Y05LtWtXQMjkkiloIBrgjY8/edit?usp=sharing).
+
+
+## Contact Me
+If you would like to contribute, contact me here: [Email](mailto:yentungchin18@gmail.com) 📧
